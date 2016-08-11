@@ -19,7 +19,7 @@ class ErrorController extends F_Controller_ActionAbstract
         $error = $this->_requestObj->getParam('errorHandler');
 
         if (!$error instanceof Exception) {//非异常类对象，有问题，按默认404处理
-            
+            echo $error->getTraceAsString();
         } else {
             switch (intval($error->getCode())) {
                 case 403://无权限

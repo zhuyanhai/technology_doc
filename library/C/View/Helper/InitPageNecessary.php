@@ -8,7 +8,7 @@
  * __wait 页面延迟执行脚本方法，在所有页面JS加载完毕后执行
  *
  * @author allen <allen@yuorngcorp.com>
- * @package F_View
+ * @package C_View
  */
 final class C_View_Helper_InitPageNecessary
 {

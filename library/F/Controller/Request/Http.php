@@ -271,9 +271,9 @@ class F_Controller_Request_Http
      */
     public function setParams(array $params)
     {
-        $this->_params = $this->_params + (array) $array;
+        $this->_params = $this->_params + (array) $params;
 
-        foreach ($array as $key => $value) {
+        foreach ($this->_params as $key => $value) {
             if (null === $value) {
                 unset($this->_params[$key]);
             }

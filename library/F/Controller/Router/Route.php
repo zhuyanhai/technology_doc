@@ -94,6 +94,13 @@ class F_Controller_Router_Route
             $controller = 'Index';
             $action     = 'Index';
             
+            $checkPath = explode('?', $path);
+            if (count($checkPath) > 1) {
+                if ($checkPath[0] === '/') {
+                    $path = '/';
+                }
+            }
+
             if ('/' !== $path) {
                 $checkModuleExist = false;
                 $path = explode('?', $path);
@@ -148,6 +155,16 @@ class F_Controller_Router_Route
                     } catch (Exception $e) {
                         //continue
                     }
+                }
+            } else {
+                if (count($checkPath) > 1) {
+                    $tmpParams = explode('&', $checkPath[1]);
+                    $params = array();
+                    foreach ($tmpParams as $tp) {
+                        $tpp = explode('=', $tp);
+                        $params[$tpp[0]] = $tpp[1];
+                    }
+                    $requestObj->setParams($params);
                 }
             }
         }

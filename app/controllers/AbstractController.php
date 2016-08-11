@@ -22,12 +22,11 @@ abstract class AbstractController extends F_Controller_ActionAbstract
         //$this->loginUser = Bll_User_Api_User::getInstance()->checkLogin();
         //$passportPhoneRow = Dao_User_PassportPhone::fetchRow('userid=:userid', array('userid'=> 1));
         //print_r($passportPhoneRow);
-        $a = Dao_User_PassportPhone::getSelect()->fromColumns('userid')->where('userid=:userid', 1)->fetchRow();
-        print_r($a->toArray());
-        $a = Dao_User_PassportPhone::getSelect()->where('userid=:userid', 1)->fetchAll();
-
-        print_r($a);
-        exit;
+        
+//        $a = Dao_User_PassportPhone::getSelect()->fromColumns('userid')->where('userid=:userid', 1)->fetchRow();
+//        print_r($a->toArray());
+//        $a = Dao_User_PassportPhone::getSelect()->where('userid=:userid', 1)->fetchAll();
+//        print_r($a);
     }
     
     /**
