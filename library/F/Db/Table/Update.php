@@ -4,7 +4,7 @@
  *
  * - 专门负责 update 的所有构造操作
  */
-class F_Db_Table_Update
+final class F_Db_Table_Update
 {
     /**
      * 数据表配置

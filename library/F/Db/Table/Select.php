@@ -4,7 +4,7 @@
  *
  * - 专门负责 select 的所有构造操作
  */
-class F_Db_Table_Select
+final class F_Db_Table_Select
 {
     /**
      * 数据表配置
@@ -92,7 +92,7 @@ class F_Db_Table_Select
      * 查询【单行】记录
      * 
      * @param null|string $connectServer null=自动选择 master=主库 slave=从库
-     * @return mixed
+     * @return F_Db_Table_Row
      */
     public function fetchRow($connectServer = null)
     {
@@ -103,7 +103,7 @@ class F_Db_Table_Select
      * 查询【多行】记录
      * 
      * @param null|string $connectServer null=自动选择 master=主库 slave=从库
-     * @return mixed
+     * @return F_Db_Table_RowSet
      */
     public function fetchAll($connectServer = null)
     {
@@ -155,7 +155,7 @@ class F_Db_Table_Select
                 foreach ($rows as $row) {
                     array_push($rowList, new $rowClassName($row));
                 }
-                return $rowList;
+                return new F_Db_Table_RowSet($rowList);
             }
             return $rows;
         }

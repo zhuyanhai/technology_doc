@@ -25,6 +25,7 @@ abstract class AbstractController extends F_Controller_ActionAbstract
         $a = Dao_User_PassportPhone::getSelect()->fromColumns('userid')->where('userid=:userid', 1)->fetchRow();
         print_r($a->toArray());
         $a = Dao_User_PassportPhone::getSelect()->where('userid=:userid', 1)->fetchAll();
+
         print_r($a);
         exit;
     }

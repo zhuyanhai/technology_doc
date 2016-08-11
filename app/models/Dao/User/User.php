@@ -1,5 +1,25 @@
 <?php
 /**
+ * 数据表配置类
+ * 
+ * 每个数据表必须有,没有就好报错
+ * 
+ */
+final class Dao_User_User_Config
+{   
+    public static $configs = array(
+        //数据行类名
+        'rowClassName' => 'Dao_User_User',
+        //完整表名
+        'tableName'    => 'tbl_user',
+        //数据库缩略名,对应 db.cfg.php 配置文件
+        'dbShortName'  => 'user',
+        //数据表主键字段名
+        'primaryKey'   => 'userid',
+    );
+}
+
+/**
  * tbl_user 数据表类
  * 
  * 用户信息 － 基本信息
@@ -10,36 +30,5 @@
  */
 class Dao_User_User extends Dao_Abstract
 {
-    /**
-     * 完整表名
-     *
-     * @var string
-     */
-	protected static $_tableName = 'tbl_user';
-    
-    /**
-     * 数据库缩略名
-     *
-     * @var string
-     */
-	protected static $_dbShortName = 'user';
-    
-    /**
-     * 数据表主键字段名
-     * 
-     * @var string
-     */
-    protected static $_primaryKey = 'userid';
-
-}
-
-/**
- * 数据表行结果 - 数据处理类
- * 
- * - 处理某行某列的数据格式化
- * - 处理某行某列的数据判断
- */
-final class Dao_User_User_Row extends Dao_AbstractOfRow
-{
-    
+   
 }

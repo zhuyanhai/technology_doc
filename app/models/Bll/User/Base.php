@@ -6,19 +6,19 @@
  * 
  * 用户 - 登录账户 API
  *
- * - 检测登录的账户是否存在
+ * - 获取账号的基本信息
  * 
  * @package Bll
  * @subpackage Bll
  * @author allen <allen@yuorngcorp.com>
  */
-final class Bll_User_Passport_Phone
+final class Bll_User_Base
 {
     /**
      * 获取类实例
      *
-     * @staticvar Bll_User_Passport_Phone $instance
-     * @return \Bll_User_Passport_Phone
+     * @staticvar Bll_User_Base $instance
+     * @return \Bll_User_Base
      */
     public static function getInstance()
     {
@@ -30,18 +30,17 @@ final class Bll_User_Passport_Phone
     }
     
     /**
-     * 获取用户信息 - 根据登录账户
+     * 获取用户信息 - 根据用户ID
      * 
-     * @param string $account 登录帐号
+     * @param int $userid 用户ID
      * @return array
      */
-    public function getByAccount($account)
+    public function getByUserid($userid)
     {
-        $passportPhoneRow = Dao_User_PassportPhone::getSelect()->fromColumns('userid')->where('account=:account', $account)->fetchRow();
-        if (!empty($passportPhoneRow)) {
-            return $passportPhoneRow->toArray();
+        $userRow = Dao_User_User::getSelect()->where('userid=:userid', $userid)->fetchRow();
+        if (!empty($userRow)) {
+            return $userRow->toArray();
         }
         return array();
     }
-    
 }

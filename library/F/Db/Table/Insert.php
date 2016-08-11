@@ -4,7 +4,7 @@
  *
  * - 专门负责 insert 的所有构造操作
  */
-class F_Db_Table_Insert
+final class F_Db_Table_Insert
 {
     /**
      * 数据表配置
