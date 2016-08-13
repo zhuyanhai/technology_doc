@@ -12,7 +12,7 @@ final class F_View_Helper_Url
      * 
      * @param string $mca /module/controller/action/
      * @param array|string $params URL 参数，使用数组 或 域名，使用字符串
-     * @param string $domain http://technology.utan.com
+     * @param string $domainFlag http://technology.utan.com
      * @return string
      * 
      * @example
@@ -21,19 +21,18 @@ final class F_View_Helper_Url
      * $this->url(/product/index, array('id=>1), 'technology'); 执行参数，同时指定域名
      * $this->url(/product/index, array('id=>1)); 指定参数，不指定域名，使用当前URL域名
      */
-    public function url($mca, $params = array(), $domain = 'local')
+    public function url($mca, $params = array(), $domainFlag = 'local')
     {
         if (!is_array($params)) {
-            $domain = $params;
+            $domainFlag = $params;
         }
-        if ('local' === $domain) {
+        if ('local' === $domainFlag) {
             $schema = 'http://' . $_SERVER['HTTP_HOST'];
         } else {
-            $domains = F_Application::getInstance()->getConfigs('domain');
-            if (!isset($domains[$domain])) {
+            $schema = Utils_Domain::get($domainFlag);
+            if (empty($schema)) {
                 throw new Exception('F_View_Helper_Url->url domain notfound');
             }
-            $schema = 'http://' . $domains[$domain];
         }          
         //路由 todo
         return $schema . $mca . ((is_array($params) && !empty($params))?'?'.http_build_query($params):'');

@@ -9,31 +9,17 @@
  */
 final class C_Md_Organize
 {
-    /**
-     * 获取配置
-     * 
-     * @return boolean
-     */
-    public static function getOptions() 
-    {
-        $options = array(
-            'theme'    => 'navy',
-            'float'    => true,
-            'path'     => ROOT_PATH . '/runtime/docs/'
-        );
-
-        return $options;
-    }
-    
+    const DOC_PATH = '/runtime/docs'; 
+            
     /**
      * 加载页面
      * 
      * @param array $tree
      * @return string
      */
-    public static function loadPage($tree) 
+    public static function loadPage($tree, $path) 
     {
-        $branch = self::_findBranch($tree);
+        $branch = self::_findBranch($tree, $path);
 
         if (isset($branch['type']) && $branch['type'] == 'file') {
             $html = '';
@@ -82,7 +68,7 @@ final class C_Md_Organize
             }
 
             if ($val['type'] == 'folder') {
-                $html .= '<a href="#" class="aj-nav folder"><i class="icon-folder-open"></i>'.$val['name'].'</a>';
+                $html .= '<a href="#" class="aj-nav folder"><i class="icon-folder-close"></i>'.$val['name'].'</a>';
                 $html .= self::buildNav($val['tree'], $url_params);
             } else {
                 $html .= '<a href="'.$val['url'].'">'.$val['name'].'</a>';
@@ -132,8 +118,12 @@ final class C_Md_Organize
      * @param type $title
      * @return string
      */
-    public static function geTree($path = '.', $cleanPath = '', $title = '')
+    public static function getTree($path = '', $cleanPath = '', $title = '')
     {
+        if (empty($path)) {
+            $path = ROOT_PATH . self::DOC_PATH;
+        }
+        
         $tree   = array();
         $ignore = array('config.json', 'cgi-bin', '.', '..');
         $dh     = @opendir($path);
@@ -159,7 +149,12 @@ final class C_Md_Organize
             if (!in_array($file, $ignore)) {
                 $fullPath  = "$path/$file";
                 $cleanSort = self::_cleanSort($file);
-                $url       = $cleanPath . '/?f=' . $cleanSort;
+                if (preg_match('%\?f=%i', $cleanPath)) {
+                    $url = $cleanPath . '/' . $cleanSort;
+                } else {
+                    $url = $cleanPath . '/?f=' . $cleanSort;
+                }
+                
                 $cleanName = self::_cleanName($cleanSort);
 
                 // Title
@@ -256,9 +251,9 @@ final class C_Md_Organize
      * @param array $tree
      * @return boolean|string
      */
-    private static function _findBranch($tree) 
+    private static function _findBranch($tree, $path) 
     {
-        $path = self::_urlParams;
+        $path = explode('/', trim($path, '/'));
         foreach($path as $peice) {
             // Check for homepage
             $peice = urldecode($peice);

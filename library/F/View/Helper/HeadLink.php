@@ -61,7 +61,7 @@ final class F_View_Helper_HeadLink
         if(!Utils_EnvCheck::isDevelopment()){//测试 或 生产环境
             $this->_cssVersionCache = include ROOT_PATH . '/runtime/version/cssVersionCache.php';
         }
-        $assetCfgs = F_Application::getInstance()->getConfigs('asset');
+        $assetCfgs = F_Config::get('application.asset');
         $this->_isDedicatedDomain = $assetCfgs['isDedicatedDomain'];
         $this->_cdnIsUse = $assetCfgs['cdn']['cssEnable'];
         $this->_cssExternalCDN = $assetCfgs['cdn']['css'];

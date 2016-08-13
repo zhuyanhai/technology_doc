@@ -117,11 +117,11 @@ final class F_Db
         static $defaultParams = array();
         
         if (!isset($this->_dbConnectCfg[$dbShortName])) {//配置初始加载
-            $dbConfigsObj = F_Config::load('/configs/db.cfg.php');
+            F_Config::load('/configs/db.cfg.php');
             if (empty($defaultParams)) {
-                $defaultParams = $dbConfigsObj->get('default');
+                $defaultParams = F_Config::get('db.default');
             }
-            $dbConfigs = $dbConfigsObj->get($dbShortName);
+            $dbConfigs = F_Config::get('db.'.$dbShortName);
             $this->_dbConnectCfg[$dbShortName]['dbName'] = $dbConfigs['dbName'];
             if (isset($dbConfigs['params'])) {
                 $params = array_merge($defaultParams, $dbConfigs['params']);

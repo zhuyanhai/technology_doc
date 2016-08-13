@@ -81,7 +81,7 @@ class F_View_Helper_Script
         if(!Utils_EnvCheck::isDevelopment()){//测试 或 生产环境
             $this->_cssVersionCache = include ROOT_PATH . '/runtime/version/jsVersionCache.php';
         }
-        $assetCfgs = F_Application::getInstance()->getConfigs('asset');
+        $assetCfgs = F_Config::get('application.asset');
         $this->_isDedicatedDomain = $assetCfgs['isDedicatedDomain'];
         $this->_cdnIsUse = $assetCfgs['cdn']['jsEnable'];
         $this->_jsExternalCDN = $assetCfgs['cdn']['js'];

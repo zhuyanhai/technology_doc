@@ -46,7 +46,7 @@ final class F_View
             
     private function __construct()
     {
-        $this->_configs = F_Application::getInstance()->getConfigs('view');
+        $this->_configs = F_Config::get('application.view');
     }
     
     /**

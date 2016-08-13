@@ -1,1 +1,11 @@
-hi
+<script>
+function setIframeHeight()
+{
+    var iframe = document.getElementById("loadpageIframeId");   
+    var iframeWin = iframe.contentWindow || iframe.contentDocument.parentWindow;
+    if (iframeWin.document.body) {
+        iframe.height = iframeWin.document.documentElement.scrollHeight || iframeWin.document.body.scrollHeight;
+    }
+};
+</script>
+<iframe id="loadpageIframeId" src="<?php echo $this->url('/loadpage/', array('f' => 'QuickStart'), 'doc')?>" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" style="width:100%;min-height:500px;"></iframe>

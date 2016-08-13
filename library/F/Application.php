@@ -69,7 +69,8 @@ final class F_Application
         );
         
         //初始化全局配置
-        $this->_configs = include APPLICATION_PATH . '/configs/application.cfg.php';
+        F_Config::load('/configs/application.cfg.php');
+        $this->_configs = F_Config::get('application');
         
         if (isset($this->_configs['autoloaderNamespaces'])) {
             self::$_autoloadNamespaces = array_merge(self::$_autoloadNamespaces, $this->_configs['autoloaderNamespaces']);
@@ -113,6 +114,9 @@ final class F_Application
         } else {
             $this->_configs['cookie']['domain'] = '';
         }
+        
+        //注册到 F_Config 类中
+        
     }
     
     /**
@@ -184,23 +188,6 @@ final class F_Application
     public function getWhoops()
     {
         return $this->_whoops;
-    }
-    
-    /**
-     * 获取全局配置文件
-     * 
-     * @return array
-     */
-    public function getConfigs($sectionName = '')
-    {
-        if (empty($sectionName)) {
-            return $this->_configs;
-        }
-        if (isset($this->_configs[$sectionName])) {
-            return $this->_configs[$sectionName];
-        } else {
-            throw new F_Application_Exception("Section '$sectionName' cannot be found in application.cfg.php");
-        }
     }
     
     /**

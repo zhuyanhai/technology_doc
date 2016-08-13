@@ -6521,7 +6521,7 @@ body {
 }
 .content-area,
 .article-tree {
-  overflow: auto;
+  overflow: hidden;
   height: 100%;
   padding: 0px;
 }

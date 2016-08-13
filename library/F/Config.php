@@ -16,11 +16,11 @@ final class F_Config
     private static $_configs = array();
     
     /**
-     * 之后加载配置文件的名字
+     * 检测配置文件是否已经加载了
      * 
-     * @var string
+     * @var array 
      */
-    private static $_lastFlag = null;
+    private static $_configFileList = array();
     
     private function __construct()
     {
@@ -35,59 +35,56 @@ final class F_Config
      */
     public static function load($filename)
     {
-        static $instance = null;
-        
-        if (is_null($instance)) {
-            $instance = new F_Config();
-        }
-        
         $filename = APPLICATION_PATH . $filename;
-        if (!isset(self::$_configs[$filename])) {
+        if (!isset(self::$_configFileList[$filename])) {
             if (!file_exists($filename)) {
                 throw new F_Exception("F_Config::load 文件 {$filename} 找不到");
             }
-            self::$_configs[$filename] = include $filename;
+            self::$_configFileList[$filename] = 1;
+            $configs = include $filename;
+            self::$_configs[$configs['namespace']] = $configs[$configs['namespace']];
         }
-        self::$_lastFlag = $filename;
-        
-        return $instance;
     }
     
     /**
-     * 获取其他配置
+     * 获取 已经通过 load 方法加载的配置信息
      * 
-     * @param string $sectionName
-     * @param string $optionName
+     * @param string $chainName 获取配置，例如：application.domain.doc
      * @return mixed
      */
-    public function get($sectionName = '', $optionName = '')
+    public static function get($chainName)
     {
-        if (empty($sectionName) && !empty($optionName)) {
-            throw new F_Exception('F_Config->get 中 不能参数 $sectionName为空，$optionName不为空');
+        //分解 $chainName 
+        $chainList  = explode('.', $chainName);
+        $chainTotal = count($chainList);
+        $namespace  = $chainList[0];
+        
+        if (!isset(self::$_configs[$namespace])) {//命名空间不存在
+            throw new F_Exception('F_Config->get 中 “'.$namespace.'” 命名空间的配置项找不到'); 
         }
         
-        if (empty(self::$_lastFlag) || !isset(self::$_configs[self::$_lastFlag])) {
-            throw new F_Exception('F_Config->get 中 self::$_lastFlag('.self::$_lastFlag.') 不能为空 或 self::$_lastFlag 在 self::$_lastConfig 中不存在');
-        }
+        $returnCfg = self::$_configs[$namespace];
         
-        $returnCfg = self::$_configs[self::$_lastFlag];
-        
-        if (empty($sectionName) && empty($optionName)) {
+        if ($chainTotal <= 1) {
             return $returnCfg;
         }
         
-        if (!isset($returnCfg[$sectionName])) {
-            throw new F_Exception('F_Config->get 中 $sectionName('.$sectionName.') 在 $returnCfg 中不存在');
-        }
+        $recursion = function($i, &$returnCfg)use(&$chainList, $namespace)
+        {
+            $cfgIndex = $chainList[$i];
+            
+            if (!isset($returnCfg[$cfgIndex])) {
+                throw new F_Exception('F_Config->get 中 “'.$namespace.'” 命名空间下 “'.$cfgIndex.'” 配置项找不到'); 
+            }
+
+            if ($i < $chainTotal - 1) {
+                $i++;
+                return $recursion($i, $returnCfg[$cfgIndex]);
+            } else {
+                return $returnCfg[$cfgIndex];
+            }
+        };
         
-        if (empty($optionName)) {
-            return $returnCfg[$sectionName];
-        }
-        
-        if (!isset($returnCfg[$sectionName][$optionName])) {
-            throw new F_Exception('F_Config->get 中 $optionName('.$optionName.') 在 $returnCfg[$sectionName('.$sectionName.')] 中不存在');
-        }
-        
-        return $returnCfg[$sectionName][$optionName];
+        return $recursion(1, $returnCfg);
     }
 }
