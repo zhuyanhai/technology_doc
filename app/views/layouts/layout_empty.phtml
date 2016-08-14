@@ -13,15 +13,14 @@
     <body>
         <?php echo $scriptContent ?>
         <?php
-        echo $this->script()->outputScript('/asset/js/??modules/lab/2.0.3/lab.js,modules/jquery/1.11.1/jquery.min.js,modules/editormd/editormd.min.js,modules/jquery/plugin/equalHeight/jquery.equalHeight.js')->lastWait(function() {
+        echo $this->script()->outputScript('/asset/js/??modules/lab/2.0.3/lab.js,modules/jquery/1.11.1/jquery.min.js,modules/jquery/plugin/equalHeight/jquery.equalHeight.js')->lastWait(function() {
             //页面中所有JS加载完毕后才开始执行的
             return '__wait(false, true);';
         });
         ?>
         <script type="text/javascript">
             __wait(function(){
-                $('#test-editormd').equalHeight(document.body.clientHeight);
-                
+                $('#test-editormd').equalHeight(top.document.body.clientHeight - 90);
                 top.setIframeHeight();
             });
         </script>

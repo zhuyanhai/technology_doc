@@ -1,0 +1,38 @@
+<?php
+$this->script()->appendScript('/asset/js/modules/editormd/editormd.min.js');
+?>
+
+<div id="test-editormd" style="padding:0px;">
+    <textarea style="display:none;"><?php echo $this->mdContent?></textarea>
+</div>
+<script type="text/javascript">
+    var docPath  = '<?php echo $this->docPath?>';
+    var filename = '<?php echo $this->filename?>';
+    __wait(function(){
+        var editorHandle = editormd("test-editormd", {
+            width   : "99%",
+            height  : "99%",
+            path    : "/asset/js/modules/editormd/lib/",
+            htmlDecode : "style,script,iframe|on*",
+            emoji : true,
+            taskList : true,
+            tocm : true,
+            tex : true,
+            flowChart : true,
+            sequenceDiagram : true,
+            onload : function() {
+                var keyMap = {
+                    "Ctrl-S": function(cm) {//保存
+                        var markdownContent = editorHandle.getMarkdown();
+                        $.post('/doc/save/', {sMdCon:markdownContent, sDocPath:docPath, sFilename:filename}, function(result){
+                            if (parseInt(result.status) === 0) {
+                                top.changeView();
+                            }
+                        }, 'json');
+                    }
+                };
+                this.addKeyMap(keyMap);
+            }
+        });
+    });
+</script>

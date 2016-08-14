@@ -17,17 +17,30 @@ final class C_Md_Organize
      * @param array $tree
      * @return string
      */
-    public static function loadPage($tree, $path) 
+    public static function loadPage($tree) 
     {
-        $branch = self::_findBranch($tree, $path);
+        $branch = self::_findBranch($tree);
+        if (isset($branch['type']) && $branch['type'] == 'file') {
+            $html = file_get_contents($branch['path']);
+            return $html;
+        } else {
+            return "Oh No. That page dosn't exist";
+        }
+    }
+    
+    /**
+     * 加载页面
+     * 
+     * @param array $tree
+     * @return string
+     */
+    public static function getFilenameOfPath($tree) 
+    {
+        $branch = self::_findBranch($tree);
 
         if (isset($branch['type']) && $branch['type'] == 'file') {
-            $html = '';
-            if ($branch['name'] !== 'index') {
-                $html .= '<div class="page-header"><h1>'. $branch['title'] . '</h1></div>';
-            }
-            $html .= file_get_contents($branch['path']);
-            return $html;
+            $pathArray = explode('/', $branch['path']);
+            return end($pathArray);
         } else {
             return "Oh No. That page dosn't exist";
         }
@@ -48,28 +61,32 @@ final class C_Md_Organize
         if (!is_array($urlParams)) {
             $urlParams = self::_urlParams();
         }
-        
+
         $urlPath = self::_urlPath();
         
         $html = '<ul class="nav nav-list">';
+
         foreach($tree as $key => $val) {
             // Active Tree Node
-            if (isset($url_params[0]) && $url_params[0] == $val['clean']) {
-                array_shift($url_params);
+            $folderClass = 'icon-folder-close';
+            if (isset($urlParams[0]) && $urlParams[0] == $val['clean']) {
+                array_shift($urlParams);
 
                 // Final Node
-                if ($url_path == $val['url']) {
+                if ('/?sPath='.$urlPath == $val['url']) {
                     $html .= '<li class="active">';
+                    $folderClass = 'icon-folder-open';
                 } else {
                     $html .= '<li class="open">';
+                    $folderClass = 'icon-folder-open';
                 }
             } else {
                 $html .= '<li>';
             }
 
             if ($val['type'] == 'folder') {
-                $html .= '<a href="#" class="aj-nav folder"><i class="icon-folder-close"></i>'.$val['name'].'</a>';
-                $html .= self::buildNav($val['tree'], $url_params);
+                $html .= '<a href="#" class="aj-nav folder"><i class="'.$folderClass.'"></i>'.$val['name'].'</a>';
+                $html .= self::buildNav($val['tree'], $urlParams);
             } else {
                 $html .= '<a href="'.$val['url'].'">'.$val['name'].'</a>';
             }
@@ -126,7 +143,7 @@ final class C_Md_Organize
         
         $tree   = array();
         $ignore = array('config.json', 'cgi-bin', '.', '..');
-        $dh     = @opendir($path);
+        $dh     = opendir($path);
         $index  = 0;
 
         // Build array of paths
@@ -149,10 +166,10 @@ final class C_Md_Organize
             if (!in_array($file, $ignore)) {
                 $fullPath  = "$path/$file";
                 $cleanSort = self::_cleanSort($file);
-                if (preg_match('%\?f=%i', $cleanPath)) {
+                if (preg_match('%\?sPath=%i', $cleanPath)) {
                     $url = $cleanPath . '/' . $cleanSort;
                 } else {
-                    $url = $cleanPath . '/?f=' . $cleanSort;
+                    $url = $cleanPath . '/?sPath=' . $cleanSort;
                 }
                 
                 $cleanName = self::_cleanName($cleanSort);
@@ -228,8 +245,9 @@ final class C_Md_Organize
      */
     private static function _urlPath() 
     {
-        $url = parse_url($_SERVER['REQUEST_URI']);
-        $url = $url['path'];
+        $sPath = F_Controller_Request_Http::getInstance()->getParam('sPath');
+        $url   = Utils_Validation::filter($sPath)->removeStr()->removeHtml()->receive();
+        $url   = urldecode($url);
         return $url;
     }
 
@@ -251,9 +269,9 @@ final class C_Md_Organize
      * @param array $tree
      * @return boolean|string
      */
-    private static function _findBranch($tree, $path) 
+    private static function _findBranch($tree) 
     {
-        $path = explode('/', trim($path, '/'));
+        $path = self::_urlParams();
         foreach($path as $peice) {
             // Check for homepage
             $peice = urldecode($peice);

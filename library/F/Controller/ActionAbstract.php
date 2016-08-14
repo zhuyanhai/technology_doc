@@ -94,6 +94,19 @@ abstract class F_Controller_ActionAbstract
     }
     
     /**
+     * 是否是 AJAX 访问
+     * 
+     * @return boolean
+     */
+    public function isAjax()
+    {
+        if ($this->_requestObj->isXmlHttpRequest()) {
+           return true; 
+        }
+        return false;
+    }
+    
+    /**
      * 转跳到其他的 controller/action
      * 
      * @param string $action
