@@ -7,20 +7,60 @@ function setIframeHeight()
         iframe.height = iframeWin.document.documentElement.scrollHeight || iframeWin.document.body.scrollHeight;
     }
 };
-var docUrl = '<?php echo $this->url('/doc/load/', array('sPath' => $this->docPath, 'sMode'=>'view'), 'doc')?>';
 function changeView()
 {
     $('#loadpageIframeId').get(0).src = docUrl;
 }
+function changeHash(sPath)
+{
+    var tmpHref = window.location.href;
+    tmpHref = tmpHref.split('#');
+    tmpHref = tmpHref[0];
+    window.location.href = tmpHref + '#' + sPath;   
+}
+function getHash()
+{
+    var tmpHref = window.location.href;
+    tmpHref = tmpHref.split('#');
+    if (tmpHref.length > 1) {
+        return tmpHref[1];
+    }
+    return '';
+}
+
+var docUrl = '<?php echo $this->url('/doc/load/', array('sPath' => $this->docPath, 'sMode'=>'view'), 'doc')?>';
+
 __wait(function(){
+    
+    var tmpHash = getHash();
+    if (tmpHash != '') {
+        var tmpHashCon = docUrl;
+        tmpHashCon = tmpHashCon.split('?');
+        docUrl = tmpHashCon[0] + '?&'+tmpHash+'&sMode=view';
+    }
+    
+    changeView();
+
+    //绑定编辑功能
     $('#editId').click(function(){
-        $('#loadpageIframeId').get(0).src = this.href;
+        $('#loadpageIframeId').get(0).src = docUrl.replace('sMode=view', 'sMode=edit');
+    });
+    
+    //绑定链接功能
+    $('.PROGRAM-link').click(function(){
+        var hashCon = this.href;
+        hashCon = hashCon.split('?');
+        hashCon = hashCon[1];
+        docUrl = this.href + '&sMode=view';
+        docUrl = docUrl.replace('?sPath', 'doc/load/?sPath');
+        changeView();
+        changeHash(hashCon);
     });
 });
 </script>
 <div style="border-bottom: 1px solid #000;">
-    <a id="editId" href="<?php echo $this->url('/doc/load/', array('sPath' => $this->docPath, 'sMode'=>'edit'), 'doc')?>" onclick="return false;">编辑</a>
+    <a id="editId" href="###" onclick="return false;">编辑</a>
 </div>
 <div>
-<iframe id="loadpageIframeId" src="<?php echo $this->url('/doc/load/', array('sPath' => $this->docPath, 'sMode'=>'view'), 'doc')?>" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" style="width:100%;min-height:500px;"></iframe>
+    <iframe id="loadpageIframeId" src="about:block;" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" style="width:100%;min-height:500px;"></iframe>
 </div>

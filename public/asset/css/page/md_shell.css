@@ -7145,3 +7145,33 @@ pre .xml .css,
 pre .xml .cdata {
   opacity: 0.5;
 }
+
+/*右键菜单-begin*/
+.rmenu{
+    position: fixed;
+    z-index: 999;
+    top:0; 
+    left:0; 
+    padding:2px; 
+    margin:0; 
+    width:100px; 
+    height:72px;
+    display:none;
+    border : 1px solid gray;
+    background: #fff;
+}
+.rmenu-item{
+    margin : 2px;
+    text-align: left;
+}
+.rmenu-item-bb{
+    border-bottom: 1px solid #ccc;
+}
+.rmenu > .rmenu-item a{
+    text-decoration : none;
+    color:#000;
+}
+.rmenu > .rmenu-item a:hover{
+    color:blue;
+}
+/*右键菜单-end*/

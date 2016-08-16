@@ -19,7 +19,7 @@
 			</div>
 
 			<div class="row-fluid columns content">
-				<div class="left-column article-tree span3">
+				<div id="leftBoxId" class="left-column article-tree span3">
 					<div id="sub-nav-collapse" class="collapse in">
 						<!-- Navigation -->
 						<?php echo $this->navTrees; ?>
@@ -35,6 +35,18 @@
 			</div>
 		</div>
        
+        <div id="rightMenuBoxId" class="rmenu">
+            <div class="rmenu-item rmenu-item-bb">
+                <a href="javascript:history.back();"><i class="icon-folder-close"></i>创建父目录</a>
+            </div>
+            <div class="rmenu-item rmenu-item-bb">
+                <a href="javascript:history.back();"><i class="icon-folder-close"></i>创建子目录</a>
+            </div>
+            <div class="rmenu-item">
+                <a href="javascript:history.back();"><i class="icon-file"></i>创建文档</a>
+            </div>
+        </div>
+        
         <?php
         echo $this->script()->outputScript('/asset/js/??modules/lab/2.0.3/lab.js,modules/jquery/1.11.1/jquery.min.js,modules/jquery/plugin/equalHeight/jquery.equalHeight.js')->lastWait(function() {
             //页面中所有JS加载完毕后才开始执行的
@@ -43,7 +55,42 @@
         ?>
         
         <script type="text/javascript">
+            function showRightMenu(e)
+            {
+                var leftBoxDom = $('#leftBoxId').get(0);
+                var menuBoxDom = $('#rightMenuBoxId').get(0);
+                        
+                /*获取当前鼠标右键按下后的位置，据此定义菜单显示的位置*/
+                var rightedge  = leftBoxDom.clientWidth - e.clientX;
+                var bottomedge = leftBoxDom.clientHeight- e.clientY;
+
+                /*如果从鼠标位置到容器右边的空间小于菜单的宽度，就定位菜单的左坐标（Left）为当前鼠标位置向左一个菜单宽度*/
+                if (rightedge < menuBoxDom.offsetWidth) {          
+                    menuBoxDom.style.left = leftBoxDom.scrollLeft + e.clientX - menuBoxDom.offsetWidth + "px";
+                } else {/*否则，就定位菜单的左坐标为当前鼠标位置*/
+                    menuBoxDom.style.left = leftBoxDom.scrollLeft + e.clientX + "px";
+                }
+                
+                /*如果从鼠标位置到容器下边的空间小于菜单的高度，就定位菜单的上坐标（Top）为当前鼠标位置向上一个菜单高度*/
+                if (bottomedge < menuBoxDom.offsetHeight) {
+                    menuBoxDom.style.top = leftBoxDom.scrollTop + e.clientY - menuBoxDom.offsetHeight + "px";
+                } else {/*否则，就定位菜单的上坐标为当前鼠标位置*/
+                    menuBoxDom.style.top = leftBoxDom.scrollTop + e.clientY + "px";
+                }
+                
+                $('#rightMenuBoxId').show();
+            }
+            
+            function hideRightMenu()
+            {
+                $('#rightMenuBoxId').hide();
+            }
+            
             __wait(function(){
+                // Bootstrap Table Class
+                $('table').addClass('table');
+                
+                //绑定目录折叠
                 $('.aj-nav').click(function(e) {
                     e.preventDefault();
                     if ($('i', this).hasClass('icon-folder-close')) {
@@ -54,8 +101,21 @@
                     $(this).next().slideToggle();
                 });
                 
-                // Bootstrap Table Class
-                $('table').addClass('table');
+                //目录右键菜单
+                $('.aj-nav').on('contextmenu', function(e){
+                    e.cancelBubble = true;
+                    e.stopPropagation();
+                    showRightMenu(e);
+                    return false;
+                });
+                $('#rightMenuBoxId').on('contextmenu', function(e){
+                    e.cancelBubble = true;
+                    e.stopPropagation();
+                    return false;
+                });
+                $(document.body).on('click', function(){
+                    hideRightMenu();
+                });
             });
         </script>
     </body>

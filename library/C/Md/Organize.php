@@ -88,7 +88,7 @@ final class C_Md_Organize
                 $html .= '<a href="#" class="aj-nav folder"><i class="'.$folderClass.'"></i>'.$val['name'].'</a>';
                 $html .= self::buildNav($val['tree'], $urlParams);
             } else {
-                $html .= '<a href="'.$val['url'].'">'.$val['name'].'</a>';
+                $html .= '<a href="'.$val['url'].'" class="PROGRAM-link" onclick="return false;">'.$val['name'].'</a>';
             }
 
             $html .= '</li>';
