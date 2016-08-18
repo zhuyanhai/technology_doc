@@ -34,7 +34,7 @@ $this->script()->appendScript('/asset/js/modules/editormd/editormd.min.js');
     __wait(function(){
         editorHandle = editormd("test-editormd", {
             width   : "99%",
-            height  : "99%",
+            height  : top.document.body.clientHeight - 108,
             path    : "/asset/js/modules/editormd/lib/",
             htmlDecode : "style,script,iframe|on*",
             emoji : true,

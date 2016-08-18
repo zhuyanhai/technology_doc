@@ -3,10 +3,11 @@
 <script>
 function setIframeHeight()
 {
+    //console.log(document.body.clientHeight);
     var iframe = document.getElementById("loadpageIframeId");   
     var iframeWin = iframe.contentWindow || iframe.contentDocument.parentWindow;
     if (iframeWin.document.body) {
-        iframe.height = iframeWin.document.documentElement.scrollHeight || iframeWin.document.body.scrollHeight;
+        iframe.height = document.body.clientHeight - 92;//iframeWin.document.documentElement.scrollHeight || iframeWin.document.body.scrollHeight;
     }
 };
 function changeView()
@@ -220,7 +221,7 @@ __wait(function(){
                 <a id="viewId" href="###" onclick="return false;" style="margin-left: 10px">浏览</a>
             </div>
             <div>
-                <iframe id="loadpageIframeId" name="loadpageIframe" src="about:block;" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" style="width:100%;min-height:500px;"></iframe>
+                <iframe id="loadpageIframeId" name="loadpageIframe" src="about:block;" frameborder="0" scrolling="yes" marginheight="0" marginwidth="0" style="width:100%;min-height:500px;"></iframe>
             </div>
         </article>
     </div>
