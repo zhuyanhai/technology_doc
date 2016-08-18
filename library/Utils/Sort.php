@@ -37,4 +37,68 @@ final class Utils_Sort
             });
         }
     }
+    
+    /**
+     * 选择排序法
+     * 
+     * @param array $arr
+     * @param string $field 需要作为比较依据的下标参数
+     * @param string $order asc 升序 desc 降序
+     * @return array
+     */
+    public static  function selectSort($arr, $field, $order = 'asc')
+    {
+        for($i = 0, $len = count($arr); $i < $len-1; $i++) {
+            $p = $i;
+            for($j = $i+1; $j < $len; $j++) {
+                if ($order === 'asc') {
+                    if($arr[$p][$field] > $arr[$j][$field]) {
+                        $p = $j;
+                    }
+                } else {
+                    if($arr[$p][$field] < $arr[$j][$field]) {
+                        $p = $j;
+                    }
+                }
+            }
+            if($p != $i) {
+                $tmp = $arr[$p];
+                $arr[$p] = $arr[$i];
+                $arr[$i] = $tmp;
+            }
+        }
+        return $arr;
+    }
+    
+    /**
+     * 冒泡排序法
+     * 
+     * @param array $arr
+     * @param string $field 需要作为比较依据的下标参数
+     * @param string $order asc 升序 desc 降序
+     * @return array
+     */
+    public static function getpao($arr, $field, $order = 'asc')
+    {  
+        $len = count($arr);
+        $tmp = '';
+        for ($i = 1;$i < $len; $i++) {
+            for ($k = 0;$k < $len-$i; $k++) {
+                if ($order === 'asc') {
+                    if ($arr[$k][$field] > $arr[$k+1][$field]) {
+                        $tmp=$arr[$k+1];
+                        $arr[$k+1]=$arr[$k];
+                        $arr[$k]=$tmp;
+                    }
+                } else {
+                    if ($arr[$k][$field] < $arr[$k+1][$field]) {
+                        $tmp=$arr[$k+1];
+                        $arr[$k+1]=$arr[$k];
+                        $arr[$k]=$tmp;
+                    }
+                }
+            }
+        }
+        return $arr;
+    }
 }

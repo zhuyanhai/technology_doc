@@ -21,5 +21,4 @@ class IndexController extends AbstractController
         //获取导航树
         $this->view->navTrees = C_Md_Organize::buildNav($this->view->trees);
     }
-    
 }

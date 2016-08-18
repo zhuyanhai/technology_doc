@@ -24,7 +24,7 @@ class DocController extends AbstractController
         //需要显示的文档路径
         $this->view->docPath = Utils_Validation::filter($this->_requestObj->getParam('sPath'))->removeStr()->removeHtml()->receive();
         
-        $this->view->setLayout('layout_empty');
+        $this->view->setLayout('layout_editormd');
     }
     
     /**
@@ -50,6 +50,32 @@ class DocController extends AbstractController
             
             $this->response();
         }
+        exit;
+    }
+    
+    /**
+     * 构建文档树
+     */
+    public function buildTreeAction()
+    {
+        if ($this->isAjax()) {
+            try {
+                //文件或目录名称
+                $title     = Utils_Validation::filter($this->_requestObj->getParam('sTitle'))->removeStr()->removeHtml()->receive();
+                //本次操作标识
+                $operation = Utils_Validation::filter($this->_requestObj->getParam('sOperation'))->removeStr()->removeHtml()->receive();
+                //目录全路径
+                $fullPath  = Utils_Validation::filter($this->_requestObj->getParam('sFullPath'))->removeStr()->removeHtml()->receive();
+
+                //构建树
+                $result = C_Md_Organize::buildTree($title, $operation, $fullPath);
+
+                $this->response($result);
+            } catch(Exception $e) {
+                $this->error($e->getMessage())->response();
+            }
+        }
+        exit;
     }
 
 }
