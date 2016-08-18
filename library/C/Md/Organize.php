@@ -9,7 +9,7 @@
  */
 final class C_Md_Organize
 {
-    const DOC_PATH = '/runtime/docs'; 
+    const DOC_PATH = '/data/docs'; 
             
     /**
      * 加载页面
@@ -39,8 +39,7 @@ final class C_Md_Organize
         $branch = self::_findBranch($tree);
 
         if (isset($branch['type']) && $branch['type'] == 'file') {
-            $pathArray = explode('/', $branch['path']);
-            return end($pathArray);
+            return $branch['path'];
         } else {
             return "Oh No. That page dosn't exist";
         }
@@ -138,7 +137,7 @@ final class C_Md_Organize
     public static function getTree($path = '', $cleanPath = '', $title = '')
     {
         if (empty($path)) {
-            $path = ROOT_PATH . self::DOC_PATH;
+            $path = self::DOC_PATH;
         }
         
         $tree   = array();
@@ -224,7 +223,7 @@ final class C_Md_Organize
      */
     public static function buildTree($title, $operation, $fullPath)
     {
-        $prefix = ROOT_PATH .'/runtime/docs/';
+        $prefix = self::DOC_PATH .'/';
         switch ($operation) {
             case 'create_sibling_dir'://创建平级目录
                 $tmpPath = $fullPath;

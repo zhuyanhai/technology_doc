@@ -18,11 +18,8 @@ class DocController extends AbstractController
         
         //md 文件内容
         $this->view->mdContent = C_Md_Organize::loadPage($trees);
-        //md 文件名,保存时使用
+        //md 文件全路径,保存时使用
         $this->view->filename  = C_Md_Organize::getFilenameOfPath($trees);
-        
-        //需要显示的文档路径
-        $this->view->docPath = Utils_Validation::filter($this->_requestObj->getParam('sPath'))->removeStr()->removeHtml()->receive();
         
         $this->view->setLayout('layout_editormd');
     }
@@ -33,20 +30,12 @@ class DocController extends AbstractController
     public function saveAction()
     {
         if ($this->isAjax()) {
-            //需要保存的文档路径
-            $docPath  = Utils_Validation::filter($this->_requestObj->getParam('sDocPath'))->removeStr()->removeHtml()->receive();
             //需要保存的文件名
             $filename = Utils_Validation::filter($this->_requestObj->getParam('sFilename'))->removeStr()->removeHtml()->receive();
             //文档内容
             $mdCon = Utils_Validation::filter($this->_requestObj->getParam('sMdCon'))->removeHtml()->receive();
             
-            $docPath = ROOT_PATH . C_Md_Organize::DOC_PATH . '/' . urldecode($docPath);
-            
-            $tmpPath = explode('/', $docPath);
-            
-            $tmpPath[count($tmpPath) - 1] = $filename;
-            
-            file_put_contents(implode('/', $tmpPath), $mdCon);
+            file_put_contents($filename, $mdCon);
             
             $this->response();
         }

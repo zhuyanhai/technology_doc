@@ -5,11 +5,34 @@ $this->script()->appendScript('/asset/js/modules/editormd/editormd.min.js');
 <div id="test-editormd" style="padding:0px;">
     <textarea style="display:none;"><?php echo $this->mdContent?></textarea>
 </div>
+
+<div class="popover" id="popover473878" style="top: 3%; left: 45%; display: none;">
+    <div id="popoverContentId" class="popover-content">保存成功</div>
+</div>
+
 <script type="text/javascript">
-    var docPath  = '<?php echo $this->docPath?>';
+    function save(callback)
+    {
+        var markdownContent = editorHandle.getMarkdown();
+        $.post('/doc/save/', {sMdCon:markdownContent, sFilename:filename}, function(result){
+            if (parseInt(result.status) === 0) {
+                $('#popoverContentId').html('保存成功');
+                $('#popover473878').fadeIn(100).delay(1000).fadeOut(100);
+                $.delayExec(function(){
+                    if (callback != undefined) {
+                        callback.apply(this);
+                    }
+                }, 1000);
+            } else {
+                $('#popoverContentId').html(result.msg);
+                $('#popover473878').fadeIn(100).delay(2000).fadeOut(100);
+            }
+        }, 'json');
+    }
+    var editorHandle = null;
     var filename = '<?php echo $this->filename?>';
     __wait(function(){
-        var editorHandle = editormd("test-editormd", {
+        editorHandle = editormd("test-editormd", {
             width   : "99%",
             height  : "99%",
             path    : "/asset/js/modules/editormd/lib/",
@@ -23,12 +46,7 @@ $this->script()->appendScript('/asset/js/modules/editormd/editormd.min.js');
             onload : function() {
                 var keyMap = {
                     "Ctrl-S": function(cm) {//保存
-                        var markdownContent = editorHandle.getMarkdown();
-                        $.post('/doc/save/', {sMdCon:markdownContent, sDocPath:docPath, sFilename:filename}, function(result){
-                            if (parseInt(result.status) === 0) {
-                                top.changeView();
-                            }
-                        }, 'json');
+                        save();
                     }
                 };
                 this.addKeyMap(keyMap);

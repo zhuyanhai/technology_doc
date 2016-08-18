@@ -80,6 +80,17 @@ __wait(function(){
         $('#loadpageIframeId').get(0).src = docUrl.replace('sMode=view', 'sMode=edit');
     });
     
+    //绑定浏览功能
+    $('#viewId').click(function(){
+        if (typeof window.frames["loadpageIframe"].save === 'function') {
+            window.frames["loadpageIframe"].save(function(){
+                $('#loadpageIframeId').get(0).src = docUrl.replace('sMode=edit', 'sMode=view');
+            });
+        } else {
+            $('#loadpageIframeId').get(0).src = docUrl.replace('sMode=edit', 'sMode=view');
+        }
+    });
+    
     //绑定链接功能
     $('#leftBoxId').on('click', '.PROGRAM-link',function(e) {
         $('li.active').removeClass('active');
@@ -206,9 +217,10 @@ __wait(function(){
         <article>
             <div style="border-bottom: 1px solid #000;">
                 <a id="editId" href="###" onclick="return false;">编辑</a>
+                <a id="viewId" href="###" onclick="return false;" style="margin-left: 10px">浏览</a>
             </div>
             <div>
-                <iframe id="loadpageIframeId" src="about:block;" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" style="width:100%;min-height:500px;"></iframe>
+                <iframe id="loadpageIframeId" name="loadpageIframe" src="about:block;" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" style="width:100%;min-height:500px;"></iframe>
             </div>
         </article>
     </div>
