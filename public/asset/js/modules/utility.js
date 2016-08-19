@@ -128,9 +128,6 @@
         return fmt;
     };
 
-    //文本框默认提示列表
-    var tooltipsDefaultList = {};
-
     //全局对象 - 当命名空间使用
     jQuery.YR = {};
     
@@ -205,6 +202,12 @@
 			var back_doc=(document.compatMode != "BackCompat") ? document.documentElement : document.body;
 			return window.navigator.userAgent.indexOf("Opera")>-1? document.body : back_doc;
 		},
+        //窗口改变时
+        windowResize: function(callback) {
+            $(window).resize(function(){
+                callback.apply(this);
+            });          
+        },
         //随机函数
         randomFun: function(min, max){
             return Math.floor(min + Math.random() * (max - min));

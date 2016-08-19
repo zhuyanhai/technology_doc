@@ -1,225 +1,32 @@
-<?php $this->headLink()->appendStylesheet('/asset/css/page/md_shell.css')?>
+<?php 
+$this->headLink()->appendStylesheet('/asset/css/pages/index.css');
+$this->script()->appendScript('/asset/js/pages/index.js');
+?>
 
-<script>
-function setIframeHeight()
-{
-    //console.log(document.body.clientHeight);
-    var iframe = document.getElementById("loadpageIframeId");   
-    var iframeWin = iframe.contentWindow || iframe.contentDocument.parentWindow;
-    if (iframeWin.document.body) {
-        iframe.height = document.body.clientHeight - 92;//iframeWin.document.documentElement.scrollHeight || iframeWin.document.body.scrollHeight;
-    }
-};
-function changeView()
-{
-    $('#loadpageIframeId').get(0).src = docUrl;
-}
-function changeHash(sPath)
-{
-    var tmpHref = window.location.href;
-    tmpHref = tmpHref.split('#');
-    tmpHref = tmpHref[0];
-    window.location.href = tmpHref + '#' + sPath;   
-}
-function getHash()
-{
-    var tmpHref = window.location.href;
-    tmpHref = tmpHref.split('#');
-    if (tmpHref.length > 1) {
-        return tmpHref[1];
-    }
-    return '';
-}
-//寻找父级目录全路径
-var fullPath = [];
-function findFullParentFolder(initPathObj)
-{
-    fullPath.unshift($('a:first', initPathObj).data('i')+'_'+$('a:first', initPathObj).text());
-    var tmpParentObj = initPathObj.parent().parent();
-    if (tmpParentObj.length > 0 && tmpParentObj.get(0).nodeName === 'LI') {
-        var tmpI = $('i', tmpParentObj);
-        if (tmpI.length > 0) {
-            findFullParentFolder(tmpParentObj);
-        }
-    }
-}
-
-var docUrl = '<?php echo $this->url('/doc/load/', array('sPath' => $this->docPath, 'sMode'=>'view'), 'doc')?>';
-
-__wait(function(){
-    
-    var tmpHash = getHash();
-    if (tmpHash != '') {
-        var tmpHashCon = docUrl;
-        tmpHashCon = tmpHashCon.split('?');
-        docUrl = tmpHashCon[0] + '?&'+tmpHash+'&sMode=view';
-        
-        //自动定位 
-        var tmpPosList = tmpHash.split('=');
-        var tmpPosObj  = $('a[href="/?'+decodeURIComponent(tmpHash)+'"]');
-        if(tmpPosObj.length > 0) {
-            tmpPosObj.parent().addClass('active');
-            var recursionFun = function(obj){
-                obj.parent().show();
-                var tmpParentObj = obj.parent().parent();
-                if (tmpParentObj.length > 0 && tmpParentObj.get(0).nodeName === 'LI') {
-                    var tmpI = $('i', tmpParentObj);
-                    if (tmpI.length > 0) {
-                        $(tmpI.get(0)).removeClass('icon-folder-close').addClass('icon-folder-open');
-                        recursionFun(tmpParentObj);
-                    }
-                }
-            };
-            recursionFun(tmpPosObj.parent());
-        }
-    }
-    
-    changeView();
-
-    //绑定编辑功能
-    $('#editId').click(function(){
-        $('#loadpageIframeId').get(0).src = docUrl.replace('sMode=view', 'sMode=edit');
-    });
-    
-    //绑定浏览功能
-    $('#viewId').click(function(){
-        if (typeof window.frames["loadpageIframe"].save === 'function') {
-            window.frames["loadpageIframe"].save(function(){
-                $('#loadpageIframeId').get(0).src = docUrl.replace('sMode=edit', 'sMode=view');
-            });
-        } else {
-            $('#loadpageIframeId').get(0).src = docUrl.replace('sMode=edit', 'sMode=view');
-        }
-    });
-    
-    //绑定链接功能
-    $('#leftBoxId').on('click', '.PROGRAM-link',function(e) {
-        $('li.active').removeClass('active');
-        $(this).parent().addClass('active');
-        var hashCon = this.href;
-        hashCon = hashCon.split('?');
-        hashCon = hashCon[1];
-        docUrl = this.href + '&sMode=view';
-        docUrl = docUrl.replace('?sPath', 'doc/load/?sPath');
-        changeView();
-        changeHash(hashCon);
-    });
-    
-    // Bootstrap Table Class
-    $('table').addClass('table');
-
-    //绑定目录折叠
-    $('#leftBoxId').on('click', '.folder',function(e) {
-        e.preventDefault();
-        if ($('i', this).hasClass('icon-folder-close')) {
-            $('i', this).removeClass('icon-folder-close').addClass('icon-folder-open');
-        } else {
-            $('i', this).removeClass('icon-folder-open').addClass('icon-folder-close');
-        }
-        $(this).next().slideToggle();
-    });
-
-    //目录右键菜单
-    var rightMenuClickObj = null;
-    $.contextMenu('rightMenuBoxId' + $.customGuid(), 'leftBoxId', 'folder', [
-        {
-            name: '创建平目录',
-            icon: 'icon-folder-close',
-            click: function(){
-                rightMenuClickObj = this;
-                var contextMenuModalDom = $('#contextMenuModal');
-                $('#contextMenuModalLabel').html('为“'+$(this).text()+'”目录 - 创建平目录');
-                contextMenuModalDom.modal('show');
-                $('#operation', contextMenuModalDom).val('create_sibling_dir');
-            }
-        },
-        {
-            name: '创建子目录',
-            icon: 'icon-folder-close',
-            click: function(){
-                rightMenuClickObj = this;
-                var contextMenuModalDom = $('#contextMenuModal');
-                $('#contextMenuModalLabel').html('为“'+$(this).text()+'”目录 - 创建子目录');
-                contextMenuModalDom.modal('show');
-                $('#operation', contextMenuModalDom).val('create_child_dir');
-            }
-        },
-        {
-            name: '创建文档',
-            icon: 'icon-file',
-            click: function(){
-                rightMenuClickObj = this;
-                var contextMenuModalDom = $('#contextMenuModal');
-                $('#contextMenuModalLabel').html('在“'+$(this).text()+'”目录下 - 创建文档');
-                contextMenuModalDom.modal('show');
-                $('#operation', contextMenuModalDom).val('create_file');
-            }
-        }
-    ]);
-    
-    //右键菜单提交
-    var subClick = 0;
-    $('#contextMenuBtnId').on('click', function(){
-        if (subClick === 1) {
-            return false;
-        }
-        subClick = 1;
-        var self = this;
-        $(self).html('处理中...');
-        var contextMenuModalDom = $('#contextMenuModal');
-        var title       = $('#title', contextMenuModalDom).val();
-        var operation   = $('#operation', contextMenuModalDom).val();
-        
-        fullPath = [];
-        findFullParentFolder($(rightMenuClickObj).parent());
-        $.post('/doc/buildTree/', {sTitle:title, sOperation:operation, sFullPath:fullPath}, function(result){
-            if (parseInt(result.status) === 0) {
-                switch (operation) {
-                    case 'create_sibling_dir'://创建平级目录
-                        var html = '<li><a href="#" class="aj-nav folder" data-i="'+result['data']['index']+'"><i class="icon-folder-close"></i>'+result['data']['title']+'</a><ul class="nav nav-list" style="display: block;"></ul></li>';
-                        $(rightMenuClickObj).parent().after(html);
-                        break;
-                    case 'create_child_dir'://创建子级目录
-                        var html = '<li><a href="#" class="aj-nav folder" data-i="'+result['data']['index']+'"><i class="icon-folder-close"></i>'+result['data']['title']+'</a><ul class="nav nav-list" style="display: block;"></ul></li>';
-                        $(html).appendTo($('.nav-list', $(rightMenuClickObj).parent()));
-                        break;
-                    case 'create_file'://创建目录下文档
-                        var html = '<li><a href="/?sPath='+result['data']['sPath']+'" class="PROGRAM-link" onclick="return false;">'+result['data']['title']+'</a></li>';
-                        $(html).appendTo($('.nav-list', $(rightMenuClickObj).parent()));
-                        if ($('i', $(rightMenuClickObj)).hasClass('icon-folder-close')) {
-                            $('i', $(rightMenuClickObj)).removeClass('icon-folder-close').addClass('icon-folder-open');
-                            $(rightMenuClickObj).next().slideToggle();
-                        }
-                        break;
-                }
-                $('#contextMenuModalLabel').html('');
-                $('#contextMenuModal').modal('hide');
-            } else {
-                alert(result.msg);
-            }
-            $(self).html('提交');
-            subClick = 0;
-        }, 'json');
-    });
-});
-</script>
-
+<!-- 导航 -->
 <div class="navbar navbar-default navbar-fixed-top">
     <div class="navbar-inner">
-        <a class="brand pull-left" href="<?php echo $this->homepageUrl;?>">开放空间 - 文档馆</a>
+        <a class="brand pull-left" href="/">开放空间 - 文档馆</a>
     </div>
 </div>
 
+<!-- 内容 -->
 <div class="row columns">
+    
+    <!-- 目录树 -->
     <div id="leftBoxId" class="col-xs-3 col-md-3">
         <?php echo $this->navTrees; ?>
     </div>
+    
+    <!-- 文档内容 -->
     <div id="rightBoxId" class="col-xs-9 col-md-9">
         <article>
+            <!-- 文档快捷菜单 -->
             <div style="border-bottom: 1px solid #000;">
                 <a id="editId" href="###" onclick="return false;">编辑</a>
                 <a id="viewId" href="###" onclick="return false;" style="margin-left: 10px">浏览</a>
             </div>
+            <!-- 文档内容 -->
             <div>
                 <iframe id="loadpageIframeId" name="loadpageIframe" src="about:block;" frameborder="0" scrolling="yes" marginheight="0" marginwidth="0" style="width:100%;min-height:500px;"></iframe>
             </div>
@@ -227,7 +34,7 @@ __wait(function(){
     </div>
 </div>
 
-
+<!-- 右键菜单中的按钮的功能弹层 -->
 <div class="modal fade" id="contextMenuModal" tabindex="-1" role="dialog" aria-labelledby="contextMenuModalLabel">
     <div class="modal-dialog" role="document">
         <div class="modal-content">

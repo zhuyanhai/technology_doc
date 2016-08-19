@@ -11,14 +11,9 @@ class IndexController extends AbstractController
     public function indexAction()
     {   
         //获取目录树
-        $this->view->trees = C_Md_Organize::getTree();
+        $trees = C_Md_Organize::getTree();
 
-        //单纯访问域名时 或 访问根时
-        if ($_SERVER['REQUEST_URI'] === '/' || $_SERVER['REQUEST_URI'] === '') {
-            $this->view->docPath = 'QuickStart';
-        }
-
-        //获取导航树
-        $this->view->navTrees = C_Md_Organize::buildNav($this->view->trees);
+        //构建导航树 - 根据目录树
+        $this->view->navTrees = C_Md_Organize::buildNav($trees);
     }
 }
