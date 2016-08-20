@@ -135,6 +135,7 @@ __wait(function(){
                 $('#contextMenuModalLabel').html('为“'+$(this).text()+'”目录 - 创建平目录');
                 contextMenuModalDom.modal('show');
                 $('#operation', contextMenuModalDom).val('create_sibling_dir');
+                $('#title', contextMenuModalDom).focus();
             }
         },
         {
@@ -146,6 +147,7 @@ __wait(function(){
                 $('#contextMenuModalLabel').html('为“'+$(this).text()+'”目录 - 创建子目录');
                 contextMenuModalDom.modal('show');
                 $('#operation', contextMenuModalDom).val('create_child_dir');
+                $('#title', contextMenuModalDom).focus();
             }
         },
         {
@@ -157,9 +159,16 @@ __wait(function(){
                 $('#contextMenuModalLabel').html('在“'+$(this).text()+'”目录下 - 创建文档');
                 contextMenuModalDom.modal('show');
                 $('#operation', contextMenuModalDom).val('create_file');
+                $('#title', contextMenuModalDom).focus();
             }
         }
     ]);
+    
+    //隐藏模态框
+    $('#contextMenuModal').on('hidden.bs.modal', function (e) {
+        $('#contextMenuModalLabel').html('');
+        $('#title', this).val('');
+    });
     
     //右键菜单提交
     var subClick = 0;
@@ -185,7 +194,11 @@ __wait(function(){
                         break;
                     case 'create_child_dir'://创建子级目录
                         var html = '<li><a href="#" class="aj-nav folder" data-i="'+result['data']['index']+'"><i class="icon-folder-close"></i>'+result['data']['title']+'</a><ul class="nav nav-list" style="display: block;"></ul></li>';
-                        $(html).appendTo($('.nav-list', $(rightMenuClickObj).parent()));
+                        $(html).appendTo($('.nav-list:first', $(rightMenuClickObj).parent()));
+                        if ($('i', $(rightMenuClickObj)).hasClass('icon-folder-close')) {
+                            $('i', $(rightMenuClickObj)).removeClass('icon-folder-close').addClass('icon-folder-open');
+                            $(rightMenuClickObj).next().slideToggle();
+                        }
                         break;
                     case 'create_file'://创建目录下文档
                         var html = '<li><a href="/?sPath='+result['data']['sPath']+'" class="PROGRAM-link" onclick="return false;">'+result['data']['title']+'</a></li>';
@@ -197,7 +210,8 @@ __wait(function(){
                         break;
                 }
                 $('#contextMenuModalLabel').html('');
-                $('#contextMenuModal').modal('hide');
+                contextMenuModalDom.modal('hide');
+                $('#title', contextMenuModalDom).val('');
             } else {
                 alert(result.msg);
             }

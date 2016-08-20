@@ -16,6 +16,7 @@ $this->script()->appendScript('/asset/js/pages/index.js');
     <!-- 目录树 -->
     <div id="leftBoxId" class="col-xs-3 col-md-3">
         <?php echo $this->navTrees; ?>
+        <div style="width: 100%;height: 20px;display: block;padding: 3px;">&nbsp;</div>
     </div>
     
     <!-- 文档内容 -->
@@ -45,7 +46,7 @@ $this->script()->appendScript('/asset/js/pages/index.js');
             <div class="modal-body">
                 <div class="input-group">
                     <span class="input-group-addon">名称:</span>
-                    <input type="text" class="form-control" placeholder="请输入名字" id="title">
+                    <input type="text" class="form-control" placeholder="请输入名字" id="title" tabindex="1">
                     <input type="hidden" id="operation">
                     <input type="hidden" id="index">
                 </div>

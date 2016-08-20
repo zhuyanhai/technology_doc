@@ -352,7 +352,7 @@ class F_View_Helper_Script
                 return 0;
             }
         } else {
-            return 2;//time();
+            return 4;//time();
         }
     }
 }

@@ -33,7 +33,7 @@ class DocController extends AbstractController
             //需要保存的文件名
             $filename = Utils_Validation::filter($this->_requestObj->getParam('sFilename'))->removeStr()->removeHtml()->receive();
             //文档内容
-            $mdCon = Utils_Validation::filter($this->_requestObj->getParam('sMdCon'))->removeHtml()->receive();
+            $mdCon = Utils_Validation::filter($this->_requestObj->getParam('sMdCon'))->filterHtml()->receive();
             
             file_put_contents($filename, $mdCon);
             
