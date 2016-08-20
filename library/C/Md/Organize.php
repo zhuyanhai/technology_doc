@@ -141,7 +141,7 @@ final class C_Md_Organize
         }
         
         $tree   = array();
-        $ignore = array('config.json', 'cgi-bin', '.', '..');
+        $ignore = array('config.json', 'cgi-bin', '.', '..', '.git');
         $dh     = opendir($path);
         $index  = 0;
 
