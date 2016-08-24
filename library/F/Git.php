@@ -45,7 +45,7 @@ final class F_Git
     public static function push()
     {
         $command = self::$_bin . ' push';
-        self::_run($command, true);
+        self::_run($command);
     }
     
     /**
@@ -54,16 +54,12 @@ final class F_Git
      * @param string $command
      * @return string
      */
-    private static function _run($command, $isStandardEnter = false)
+    private static function _run($command)
     {
         $descriptorspec = array(
 			1 => array('pipe', 'w'),
 			2 => array('pipe', 'w'),
 		);
-        
-        if ($isStandardEnter) {
-            $descriptorspec[0] = array('pipe', 'r');
-        }
         
 		$pipes = array();
         
@@ -71,20 +67,18 @@ final class F_Git
 		$resource = proc_open($command, $descriptorspec, $pipes, $cwd, $_ENV);
         
         if (is_resource($resource)) {
-            
-            if ($isStandardEnter) {
-                fwrite($pipes[0], 123456);
-            }
-            
+
             $stdout = stream_get_contents($pipes[1]);
             $stderr = stream_get_contents($pipes[2]);
-            
+
             foreach ($pipes as $pipe) {
                 fclose($pipe);
             }
 
             $status = trim(proc_close($resource));
-            //if ($status) throw new Exception($stderr);
+            if ($status) {
+                throw new Exception($stderr);
+            }
 
             return $stdout;
         }

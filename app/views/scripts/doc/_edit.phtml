@@ -29,6 +29,19 @@ $this->script()->appendScript('/asset/js/modules/editormd/editormd.min.js');
             }
         }, 'json');
     }
+    function saveToGit(callback)
+    {
+        var markdownContent = editorHandle.getMarkdown();
+        $.get('/doc/saveToGit/', function(result){
+            if (parseInt(result.status) === 0) {
+                $('#popoverContentId').html('已保存到Git');
+                $('#popover473878').fadeIn(100).delay(1000).fadeOut(100);
+            } else {
+                $('#popoverContentId').html(result.msg);
+                $('#popover473878').fadeIn(100).delay(2000).fadeOut(100);
+            }
+        }, 'json');
+    }
     var editorHandle = null;
     var filename = '<?php echo $this->filename?>';
     __wait(function(){
@@ -48,6 +61,9 @@ $this->script()->appendScript('/asset/js/modules/editormd/editormd.min.js');
                 var keyMap = {
                     "Ctrl-S": function(cm) {//保存
                         save();
+                    },
+                    "Ctrl-G": function(cm) {//保存
+                        saveToGit();
                     }
                 };
                 this.addKeyMap(keyMap);

@@ -37,11 +37,25 @@ class DocController extends AbstractController
             
             file_put_contents($filename, $mdCon);
             
-            //F_Git::add();
-            //F_Git::commit('save '.$filename.' 文件');
-            //F_Git::push();
-            
             $this->response();
+        }
+        exit;
+    }
+    
+    /**
+     * 提交到版本库
+     */
+    public function saveToGitAction()
+    {
+        if ($this->isAjax()) {
+            try {
+                F_Git::add();
+                F_Git::commit('submit '.date('Y-m-d H:i:s'));
+                F_Git::push();
+            $this->response();
+            } catch(Exception $e) {
+                $this->error($e->getMessage())->response();
+            }
         }
         exit;
     }
