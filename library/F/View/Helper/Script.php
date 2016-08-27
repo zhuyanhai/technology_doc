@@ -352,7 +352,7 @@ class F_View_Helper_Script
                 return 0;
             }
         } else {
-            return 1472036110;
+            return 1472090351;
         }
     }
 }
