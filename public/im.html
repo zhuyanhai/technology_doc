@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script type="text/javascript" src="http://doc.bxshare.cn/asset/js/??modules/lab/2.0.3/lab.js,modules/jquery/1.11.1/jquery.min.js?v=1472090351" ></script>
+        <script type="text/javascript">
+        // 班级聊天类
+        (function()
+        {
+            var globalSocketObj = window.WebSocket || window.MozWebSocket;
+
+            var isSupportWebSocket = false;
+            if (globalSocketObj){
+                isSupportWebSocket = true;
+                console.log("这个浏览器支持 WebSocket!");
+            } else {
+                console.log("这个浏览器不支持 WebSocket.");
+            }
+
+            if (false === isSupportWebSocket) {
+                return false;
+            }
+
+            var globalSocketObj = window.WebSocket || window.MozWebSocket;
+
+            /**
+             * 自定义的 班级聊天 socket类
+             * 
+             * @param string url 连接websocket地址 例如: ws://192.168.0.189:9002
+             * @param object openCallback 连接成功后的回调通知方法
+             * @param object closeCallback 断开连接后的回调通知方法
+             * @returns {group_chat_websocket_L2.groupChatSocket}
+             */
+            function imSocket(url, openCallback, closeCallback)
+            {
+                // 连接的字符串 例如: ws://192.168.1.193:9002/
+                this.url = url;
+                // 是否连接上
+                this.isConnect = 0;
+                // socket 对象
+                this.socketObj = null;
+                // 连接成功后的回调通知方法
+                this.openCallback = openCallback;
+                // 断开连接后的回调通知方法
+                this.closeCallback = closeCallback;
+                // 监听的事件列表
+                this.onList = {};
+
+                var self = this;
+
+                // 关闭连接的方法
+                this.closeFun = function()
+                {
+                    console.log('开始关闭连接 socket:');
+                    this.socketObj.close();
+                };
+
+                /**
+                 * 发送消息给服务队
+                 * 
+                 * @param string reqNid 发送消息对应的enumList的key
+                 * @param object refMsg 需要发送的消息 json
+                 * @returns void
+                 */
+                this.sendFun = function(reqCmd, reqMsg)
+                {
+                    if (this.isConnect === 1) {
+                        var sendMsg = JSON.stringify({'sCmd': reqCmd, 'sMsg': reqMsg});
+                        console.log(sendMsg);
+                        this.socketObj.send(sendMsg);
+                    } else {
+                        console.log('已关闭了 socket');
+                    }
+                };
+
+                this.on = function(eventName, callback)
+                {
+                    if (this.onList[eventName] === undefined) {
+                        this.onList[eventName] = callback;
+                    }
+                };
+
+                // 开始初始化 websocket
+                var init = function()
+                {
+                    console.log('开始连接 socket:'+self.url);
+
+                    self.socketObj = new globalSocketObj(self.url);
+                    //this.socketObj.binaryType = "blob";
+                    //self.socketObj.binaryType = "arraybuffer";
+
+                    self.socketObj.onopen = function(e)
+                    {
+                        console.log('已连接上 socket:', e);
+                        self.isConnect = 1;
+                        openCallback.apply(self,[e]);
+                    };
+
+                    self.socketObj.onerror = function(e)
+                    {
+                        console.log('连接错误 ', e);
+                    };
+
+                    self.socketObj.onmessage = function(e)
+                    {
+                        console.log('接收到socket的推送信息: ', e.data);
+                    };
+
+                    self.socketObj.onclose = function(e)
+                    {
+                        console.log('已关闭了 socket:', e);
+                        self.isConnect = 0;
+                        closeCallback.apply(self,[e]);
+                    };
+                };
+
+                init();
+            }
+
+            // 聊天类对象生产工厂
+            window.imSocketFactory = function(url, openCallback, closeCallback)
+            {
+                return new imSocket(url, openCallback, closeCallback);
+            };
+            
+            $('#tipsId').html('建立连接中...').fadeIn(500);
+            var imSocketObj = imSocketFactory("ws://139.196.202.254:9503/", function()
+            {
+                $('#tipsId').html('连接成功').fadeOut(2000);
+
+                // 向 server 发起首次通知,获取未读消息数
+                console.log('向server发送hello:');
+
+                // 向服务端发送消息
+                imSocketObj.sendFun('cmd_auth', {'userid' : 922});
+            }, function()
+            {
+                $('#tipsId').html('连接失败').fadeOut(2000);
+            });
+
+
+            //关闭socket
+            $('#closeSocketId').on('click', function()
+            {
+                imSocketObj.closeFun();
+            });
+        })();
+        </script>
+    </head>
+    <body>
+        <div>
+            <div style="border:1px solid #000;width:500px;height:600px;display: block;position: relative;overflow: hidden;overflow-y: scroll;">
+                <p id="tipsId" style="width:300px;margin:5px auto;text-align:center;display: none">连接中...</p>
+                <div id="conId">
+
+                </div>
+            </div>
+            <input type="button" value="关闭连接" id="closeSocketId" />
+        </div>
+    </body>
+</html>

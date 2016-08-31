@@ -25,6 +25,8 @@ function setLocationHash(sPath)
     var tmpHref = window.location.href;
     tmpHref = tmpHref.split('#');
     tmpHref = tmpHref[0];
+    tmpHref = tmpHref.split('?');
+    tmpHref = tmpHref[0];
     window.location.href = tmpHref + '#' + sPath;   
 }
 

@@ -9,4 +9,5 @@
  nudecode{border: 1px solid #ddd; display: block; padding: 9.5px; -moz-border-radius: 3px;  -webkit-border-radius: 3px;  border-radius: 3px;background-color: #f5f5f5;word-break: break-all;word-wrap: break-word;white-space: pre;white-space: pre-wrap}
  .editormd-menu>li>a>.fa-nudecode{padding:5px 2px;display:inline-block;font-weight:700}
  .fa-nudecode:before {content: "［空］";}
+nudecode{margin-bottom: 16px;}
  /*-- allen end*/

@@ -72,7 +72,7 @@ final class C_View_Helper_InitPageNecessary
             };
             __ns.namespace('env');
             __ns.namespace('user');
-            __ns.env = {domain:'{$cookieCfgs['domain']}'};
+            __ns.env = {domain:'{$cookieDomain}'};
             __ns.user = null;
         </script>
 EOF;
