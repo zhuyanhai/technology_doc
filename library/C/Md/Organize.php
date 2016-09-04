@@ -54,6 +54,8 @@ final class C_Md_Organize
      */
     public static function buildNav($tree, $urlParams = false)
     {
+        static $sortInde = 1, $gid = 1;
+        
         // Remove Index
         unset($tree['index']);
 
@@ -63,8 +65,9 @@ final class C_Md_Organize
 
         $urlPath = self::_urlPath();
         
-        $html = '<ul class="nav nav-list">';
-
+        $html = '<ul id="sortable'.$sortInde.'" class="sorttable nav nav-list">';
+        $sortInde++;
+        
         foreach($tree as $key => $val) {
             // Active Tree Node
             $folderClass = 'icon-folder-close';
@@ -83,11 +86,26 @@ final class C_Md_Organize
                 $html .= '<li>';
             }
 
+            $id = $gid;
+            $gid++;
             if ($val['type'] == 'folder') {
-                $html .= '<a href="#" class="aj-nav folder" data-i="'.$val['index'].'"><i class="'.$folderClass.'"></i>'.$val['name'].'</a>';
+                $html .= '<a id="folder_'.$id.'" href="#" class="aj-nav folder" data-i="'.$val['index'].'" data-p="'.$val['parentPath'].'" data-n="'.$val['name'].'"><i class="'.$folderClass.'"></i>'.$val['name'].'</a>';
                 $html .= self::buildNav($val['tree'], $urlParams);
             } else {
-                $html .= '<a href="'.$val['url'].'" class="PROGRAM-link" onclick="return false;">'.$val['name'].'</a>';
+                $html .= '<a href="'.$val['url'].'" class="PROGRAM-link" onclick="return false;" data-i="'.$val['index'].'" data-p="'.$val['parentPath'].'" data-n="'.$val['name'].'.md">'.$val['name'].'</a>';
+            }
+            
+            if ($val['type'] == 'folder') {//菜单
+                $html .= <<<EOF
+                <div class="dropdown">
+                    <i class="icon-cog" id="dLabel" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></i>
+                    <ul class="dropdown-menu" aria-labelledby="dLabel">
+                        <li class="border-b"><a class="PROGRAM-cpm" onclick="return false;" data-pid="folder_{$id}">创建平目录</a></li>
+                        <li class="border-b"><a class="PROGRAM-ccm" onclick="return false;" data-pid="folder_{$id}">创建子目录</a></li>
+                        <li><a class="PROGRAM-cfm" onclick="return false;" data-pid="folder_{$id}">创建子文档</a></li>
+                    </ul>
+                </div>
+EOF;
             }
 
             $html .= '</li>';
@@ -147,15 +165,32 @@ final class C_Md_Organize
 
         // Build array of paths
         $paths = array();
+        $sortPath = '';
         while (false !== ($file = readdir($dh))) {
-            $paths[$file] = $file;
+            if ($file == '.sort') {
+                $sortPath = $file;
+            } else {
+                $paths[$file] = $file;
+            }
         }
 
         // Close the directory handle
         closedir($dh);
 
-        // Sort paths
-        sort($paths, SORT_NUMERIC);
+        //echo $path.'/'.$sortPath;exit;
+        if (!empty($sortPath)) {
+            $sortConditions = Utils_File::getArray($path.'/'.$sortPath);
+            if (!empty($sortConditions)) {
+                $tmpPaths = array();
+                foreach ($sortConditions as $sortPath) {
+                    array_push($tmpPaths, trim($sortPath));
+                }
+                $paths = $tmpPaths;
+            }
+        } else {
+            // Sort paths
+            sort($paths, SORT_NUMERIC);
+        }
 
         // Loop through the paths
         // while(false !== ($file = readdir($dh))){
@@ -189,6 +224,7 @@ final class C_Md_Organize
                         'index' => $fileIndex,
                         'name'  => $cleanName,
                         'title' => $fullTitle,
+                        'parentPath' => $path,
                         'path'  => $fullPath,
                         'clean' => $cleanSort,
                         'url'   => $url,
@@ -201,6 +237,7 @@ final class C_Md_Organize
                         'index' => $fileIndex,
                         'name'  => $cleanName,
                         'title' => $fullTitle,
+                        'parentPath' => $path,
                         'path'  => $fullPath,
                         'clean' => $cleanSort,
                         'url'   => $url,
@@ -235,9 +272,17 @@ final class C_Md_Organize
                     $lastIndex = $ourput[0];
                     $lastIndex++;
                 }
-                $fullPath[count($fullPath) - 1] = $lastIndex . '_' . $title;
+                
+                $parentDirPath = $fullPath;
+                unset($parentDirPath[count($parentDirPath)-1]);    
+                $dirPath = rtrim(implode('/', $parentDirPath), '/');
+                $dirname = $lastIndex . '_' . $title;
+                
+                $fullPath[count($fullPath) - 1] = $dirname;
                 $fullPathStr = $prefix . implode('/', $fullPath);
                 mkdir($fullPathStr);
+                
+                C_Md_Organize::buildSort($prefix . $dirPath, -1, $dirname);
                 return array('index' => $lastIndex, 'title' => $title);
                 break;
             case 'create_child_dir'://创建子级目录
@@ -248,9 +293,16 @@ final class C_Md_Organize
                     $lastIndex = $ourput[0];
                     $lastIndex++;
                 }
-                $fullPath[]  = $lastIndex . '_' . $title;
+                
+                $parentDirPath = $fullPath;  
+                $dirPath = rtrim(implode('/', $parentDirPath), '/');
+                $dirname = $lastIndex . '_' . $title;
+                
+                $fullPath[]  = $dirname;
                 $fullPathStr = $prefix . implode('/', $fullPath);
                 mkdir($fullPathStr);
+
+                C_Md_Organize::buildSort($prefix . $dirPath, -1, $dirname);
                 return array('index' => $lastIndex, 'title' => $title);
                 break;
             case 'create_file'://创建目录下文档
@@ -266,11 +318,61 @@ final class C_Md_Organize
                     $sPath .= preg_replace('%[0-9]*_%', '', $p) . '/';
                 }
                 $sPath = $sPath . $title;
-                $fullPath[] = $lastIndex . '_' . $title . '.md';
+                
+                $parentDirPath = $fullPath;  
+                $dirPath = rtrim(implode('/', $parentDirPath), '/');
+                $filename = $lastIndex . '_' . $title . '.md';
+                
+                $fullPath[]  = $filename;
                 $fullPathStr = $prefix . implode('/', $fullPath);
                 file_put_contents($fullPathStr, '期待您的高见！');
+                
+                C_Md_Organize::buildSort($prefix . $dirPath, -1, $filename);
                 return array('index' => $lastIndex, 'title' => $title, 'sPath' => $sPath);
                 break;
+        }
+    }
+    
+    /**
+     * 构建排序
+     * 
+     * @param string $dirPath 目录路径
+     * @param int $index 索引
+     * @param string $name 文件或目录名
+     * @return void
+     */
+    public static function buildSort($dirPath, $index, $name)
+    {
+        $sortPath = $dirPath.'/.sort';
+        $list = Utils_File::getArray($sortPath);
+        if (!empty($list)) {
+            if ($index < 0) {//追加到最后
+                $tmpPaths = $list;
+                array_push($tmpPaths, trim($name));
+            } else {//按指定顺序排序
+                $tmpPaths = array();
+                $jumpCount = 0;
+                foreach ($list as $k=>$v) {
+                    if (trim($v) === trim($name)) {
+                        $jumpCount += $index;
+                        continue;
+                    }
+                    if ($jumpCount > 0) {
+                        array_push($tmpPaths, trim($v));
+                    }
+                    if (intval($k) === intval($index)) {
+                        array_push($tmpPaths, trim($name));
+                    }
+                    if ($jumpCount <= 0) {
+                        array_push($tmpPaths, trim($v));
+                    }
+                    $jumpCount--;
+                }
+                if (intval($index) === 0) {
+                    array_unshift($tmpPaths, trim($name));
+                }
+            }
+            Utils_File::save($sortPath, $tmpPaths, 'wl');
         }
     }
     

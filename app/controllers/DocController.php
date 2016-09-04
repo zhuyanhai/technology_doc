@@ -1,6 +1,6 @@
 <?php
 /**
- * 文档内容页
+ * 文档 控制器
  * 
  */
 class DocController extends AbstractController
@@ -84,5 +84,26 @@ class DocController extends AbstractController
         }
         exit;
     }
+    
+    /**
+     * 排序
+     * 
+     * 将目录下的文件或目录进行一次排序
+     */
+    public function sortAction()
+    {
+        if ($this->isAjax()) {
+            $dirPath = Utils_Validation::filter($this->_requestObj->getParam('sDirPath'))->removeStr()->removeHtml()->receive();
+            $index   = Utils_Validation::verify('iIndex', $this->_requestObj->getParam('iIndex'))->required()->int()->receive();
+            $name    = Utils_Validation::filter($this->_requestObj->getParam('sName'))->removeStr()->removeHtml()->receive();
+            if (!empty($dirPath)) {
+                C_Md_Organize::buildSort($dirPath, $index, $name);
+            }            
+            $this->response();
+        }
+        exit;
+    }
+    
+
 
 }

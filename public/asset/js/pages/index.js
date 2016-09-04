@@ -1,5 +1,13 @@
 (function(){
 
+changeConHeight();
+
+//改变 内容 高度
+function changeConHeight()
+{
+    $('#conBoxId').css('height', document.body.clientHeight - $('#navBoxId').get(0).offsetHeight);
+}
+
 //改变 iframe 高度
 function changeIframeHeight()
 {
@@ -65,6 +73,7 @@ __wait(function(){
     //处理iframe高度
     changeIframeHeight();
     $.windowResize(function(){
+        changeConHeight();
         changeIframeHeight();
     });
     
@@ -125,47 +134,43 @@ __wait(function(){
         $(this).next().slideToggle();
     });
     
-    //目录右键菜单
     var rightMenuClickObj = null;
-    $.contextMenu('rightMenuBoxId' + $.customGuid(), 'leftBoxId', 'folder', [
-        {
-            name: '创建平目录',
-            icon: 'icon-folder-close',
-            click: function(){
-                rightMenuClickObj = this;
-                var contextMenuModalDom = $('#contextMenuModal');
-                $('#contextMenuModalLabel').html('为“'+$(this).text()+'”目录 - 创建平目录');
-                contextMenuModalDom.modal('show');
-                $('#operation', contextMenuModalDom).val('create_sibling_dir');
-                $('#title', contextMenuModalDom).focus();
-            }
-        },
-        {
-            name: '创建子目录',
-            icon: 'icon-folder-close',
-            click: function(){
-                rightMenuClickObj = this;
-                var contextMenuModalDom = $('#contextMenuModal');
-                $('#contextMenuModalLabel').html('为“'+$(this).text()+'”目录 - 创建子目录');
-                contextMenuModalDom.modal('show');
-                $('#operation', contextMenuModalDom).val('create_child_dir');
-                $('#title', contextMenuModalDom).focus();
-            }
-        },
-        {
-            name: '创建文档',
-            icon: 'icon-file',
-            click: function(){
-                rightMenuClickObj = this;
-                var contextMenuModalDom = $('#contextMenuModal');
-                $('#contextMenuModalLabel').html('在“'+$(this).text()+'”目录下 - 创建文档');
-                contextMenuModalDom.modal('show');
-                $('#operation', contextMenuModalDom).val('create_file');
-                $('#title', contextMenuModalDom).focus();
-            }
-        }
-    ]);
     
+    //模态框中的文本框自动聚焦
+    $('#contextMenuModal').on('shown.bs.modal', function () {
+        $('#title', this).focus();
+    });
+        
+    //创建平目录
+    $('#leftBoxId').on('click', '.PROGRAM-cpm',function(e) {
+        var pid = $(this).data('pid');
+        rightMenuClickObj = $('#'+pid);
+        var contextMenuModalDom = $('#contextMenuModal');
+        $('#contextMenuModalLabel').html('为“'+rightMenuClickObj.text()+'”目录 - 创建平目录');
+        contextMenuModalDom.modal('show');
+        $('#operation', contextMenuModalDom).val('create_sibling_dir');
+    });
+    
+    //创建子目录
+    $('#leftBoxId').on('click', '.PROGRAM-ccm',function(e) {
+        var pid = $(this).data('pid');
+        rightMenuClickObj = $('#'+pid);
+        var contextMenuModalDom = $('#contextMenuModal');
+        $('#contextMenuModalLabel').html('为“'+rightMenuClickObj.text()+'”目录 - 创建子目录');
+        contextMenuModalDom.modal('show');
+        $('#operation', contextMenuModalDom).val('create_child_dir');
+    });
+    
+    //创建文档
+    $('#leftBoxId').on('click', '.PROGRAM-cfm',function(e) {
+        var pid = $(this).data('pid');
+        rightMenuClickObj = $('#'+pid);
+        var contextMenuModalDom = $('#contextMenuModal');
+        $('#contextMenuModalLabel').html('在“'+rightMenuClickObj.text()+'”目录下 - 创建文档');
+        contextMenuModalDom.modal('show');
+        $('#operation', contextMenuModalDom).val('create_file');
+    });
+  
     //隐藏模态框
     $('#contextMenuModal').on('hidden.bs.modal', function (e) {
         $('#contextMenuModalLabel').html('');
@@ -242,6 +247,37 @@ __wait(function(){
             changeView();
         }
     });
-
+    
+    $('.sorttable').sortable({
+        placeholder: "ui-state-highlight",
+        update: function( event, ui ) {//当停止排序时,并且被拖拽dom元素发生位置变化后触发
+            var obj = $('a', ui.item[0]);
+            var dirPath = obj.data('p');
+            var name = obj.data('i')+'_'+obj.data('n');
+            var index = $(ui.item[0]).index();
+            $.post('/doc/sort', {'sDirPath':dirPath, iIndex:index, sName:name} , function(result){
+                
+            }, 'json');
+        }
+    });
+    $('.sorttable').disableSelection();
+    $('.sorttable').sortable('disable');
+    
+    //启用编辑模式
+    var isEnableTreeEdit = 0;
+    $('#treeEditBtnId').on('click', function(){
+        if (isEnableTreeEdit === 0) {//启用
+            isEnableTreeEdit = 1;
+            $(this).html('<i class="icon-edit"></i>禁用编辑模式');
+            $('.sorttable').sortable('enable');
+            $('.dropdown').show();
+        } else {//禁用
+            isEnableTreeEdit = 0;
+            $(this).html('<i class="icon-edit"></i>启用编辑模式');
+            $('.sorttable').sortable('disable');
+            $('.dropdown').hide();
+        }
+    });
+        
 });
 })();

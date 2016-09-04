@@ -4,17 +4,20 @@ $this->script()->appendScript('/asset/js/pages/index.js');
 ?>
 
 <!-- 导航 -->
-<div class="navbar navbar-default navbar-fixed-top">
+<div id="navBoxId" class="navbar navbar-default">
     <div class="navbar-inner">
         <a class="brand pull-left" href="/">开放空间 - 文档馆</a>
     </div>
 </div>
 
 <!-- 内容 -->
-<div class="row columns">
+<div id="conBoxId" class="row columns" style="margin:0px;padding:0px;margin-top:3px;height:90%">
     
     <!-- 目录树 -->
     <div id="leftBoxId" class="col-xs-3 col-md-3">
+        <div class="htoolbar">
+            <a id="treeEditBtnId" style="cursor: pointer;" ><i class="icon-edit"></i>启用编辑模式</a>
+        </div>
         <?php echo $this->navTrees; ?>
         <div style="width: 100%;height: 20px;display: block;padding: 3px;">&nbsp;</div>
     </div>
@@ -46,7 +49,7 @@ $this->script()->appendScript('/asset/js/pages/index.js');
             <div class="modal-body">
                 <div class="input-group">
                     <span class="input-group-addon">名称:</span>
-                    <input type="text" class="form-control" placeholder="请输入名字" id="title" tabindex="1">
+                    <input type="text" class="form-control" placeholder="请输入名字" id="title">
                     <input type="hidden" id="operation">
                     <input type="hidden" id="index">
                 </div>
