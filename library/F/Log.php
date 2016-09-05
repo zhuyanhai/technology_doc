@@ -11,6 +11,7 @@
  * @method void warn(string $message) 警告日志，表明会出现潜在错误的情形
  * @method void error(string $message) 错误日志，指出虽然发生错误事件，但仍然不影响系统的继续运行
  * @method void fatal(string $message) 致命日志，指出每个严重的错误事件将会导致应用程序的退出
+ * @method void log(string $message) 纯粹的日志，应用程序中的异常
  * 
  * 例子：
  * F_Log::factory()->error('error model');
@@ -36,6 +37,7 @@ final class F_Log
         if (empty(self::$_instances[$logger])) {
             self::$_instances[$logger] = new self($logger);
         }
+        F_Log_Config::initBasePath();
         return self::$_instances[$logger];
     }
     
@@ -71,14 +73,28 @@ final class F_Log
     }
     
     /**
+     * 设置保存日志的目录路径
+     * 
+     * @param string $basePath
+     * @return F_Log
+     */
+    public function setBasePath($basePath)
+    {
+        F_Log_Config::setBasePath($basePath);
+        return $this;
+    }
+    
+    /**
      * 魔术方法
      * 
      * @param string $method
      * @param array $args
+     * @return F_Log
      */
     public function __call($method, $args)
     {
         $method = strtoupper($method);
+
         if (!in_array($method, F_Log_Config::$levels)) {
             throw F_Log_Exception(sprintf('method not allowed: %s', $method));
         }
@@ -88,6 +104,7 @@ final class F_Log
         foreach ($this->_logHandlers as $handler) {
             if (in_array($method, $handler['level'])) {
                 $class = 'F_Log_Handler_' . ucfirst($handler['driver']);
+
                 $obj   = $class::getInstance($handler['driver']);
                 $obj->setFormatterArgs(array(
                     'message' => $args[0],
@@ -97,6 +114,7 @@ final class F_Log
                 $obj->save();
             }
         }
+        return $this;
     }
 
 }

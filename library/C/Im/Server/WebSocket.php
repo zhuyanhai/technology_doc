@@ -75,7 +75,7 @@ final class C_Im_Server_WebSocket extends C_Im_Server_Abstract
         $this->_ws = new swoole_websocket_server($this->_host, $this->_port); 
 
         //监听WebSocket连接打开事件 
-        $this->_ws->on('open', $onOpen); 
+        $this->_ws->on('open', $onOpen);
 
         //监听WebSocket消息事件 
         $this->_ws->on('message', function($ws, $frame)use($onMessage){
@@ -87,7 +87,7 @@ final class C_Im_Server_WebSocket extends C_Im_Server_Abstract
 
         //监听WebSocket连接关闭事件 
         $this->_ws->on('close', $onClose); 
-        
+
         //启动服务
         $this->_ws->start(); 
     }

@@ -10,7 +10,7 @@ and open the template in the editor.
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <script type="text/javascript" src="http://doc.bxshare.cn/asset/js/??modules/lab/2.0.3/lab.js,modules/jquery/1.11.1/jquery.min.js?v=1472090351" ></script>
-        <script type="text/javascript">
+        <script type="text/javascript">      
         // 班级聊天类
         (function()
         {
@@ -131,7 +131,7 @@ and open the template in the editor.
             };
             
             $('#tipsId').html('建立连接中...').fadeIn(500);
-            var imSocketObj = imSocketFactory("ws://139.196.202.254:9503/", function()
+            var imSocketObj = imSocketFactory("ws://139.196.202.254:9503/?sign", function()
             {
                 $('#tipsId').html('连接成功').fadeOut(2000);
 
@@ -158,8 +158,10 @@ and open the template in the editor.
         <div>
             <div style="border:1px solid #000;width:500px;height:600px;display: block;position: relative;overflow: hidden;overflow-y: scroll;">
                 <p id="tipsId" style="width:300px;margin:5px auto;text-align:center;display: none">连接中...</p>
-                <div id="conId">
-
+                <div id="conId"></div>
+                <div id="sendId">
+                    <input type="text" id="msgId" value="" placeholder="请输入..." />
+                    <input type="button" id="subId" value="提交" />
                 </div>
             </div>
             <input type="button" value="关闭连接" id="closeSocketId" />

@@ -34,7 +34,17 @@ final class C_Im
     
     private function __construct()
     {
-        //todo
+    }
+    
+    /**
+     * 记录异常
+     * 
+     * @param Exception $ex
+     * @return void
+     */
+    public static function exceptionHandler($ex)
+    {
+        F_Log::factory('Im')->setBasePath('/data/logs/im/')->log($ex->getMessage().' | '.$ex->getTraceAsString());
     }
     
     /**
@@ -52,16 +62,28 @@ final class C_Im
         self::$_instance = new C_Im();
         
         $serverClassName = 'C_Im_Server_' . self::$_options['workMode'];
-        
+
         $serverInstance = new $serverClassName(self::$_options['host'], self::$_options['port']);
         $serverInstance->run(function($ws, $request){//open
-            self::$_instance->_open($ws, $request);
+            try{
+                self::$_instance->_open($ws, $request);
+            } catch(Exception $ex) {
+                C_Im::exceptionHandler($ex);
+            }
         }, function($ws, $frame){//message
-            self::$_instance->_message($ws, $frame);
+            try{
+                self::$_instance->_message($ws, $frame);
+            } catch(Exception $ex) {
+                C_Im::exceptionHandler($ex);
+            }
         }, function($ws, $fd){//close
-            self::$_instance->_close($ws, $fd);
+            try{
+                self::$_instance->_close($ws, $fd);
+            } catch(Exception $ex) {
+                C_Im::exceptionHandler($ex);
+            }
         });
-        
+
         return self::$_instance;
     }
     
@@ -73,7 +95,7 @@ final class C_Im
      */
     private function _open($ws, $request)
     {
-        //var_dump($request->fd, $request->get, $request->server); 
+        var_dump($request->fd, $request->get, $request->server); 
         $ws->push($request->fd, "hello, welcome\n"); 
     }
     
@@ -98,7 +120,7 @@ final class C_Im
      */
     private function _message($ws, $frame)
     {
-        
+
     }
     
     /**
