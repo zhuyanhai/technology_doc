@@ -30,5 +30,16 @@ final class Dao_User_User_Config
  */
 class Dao_User_User extends Dao_Abstract
 {
-   
+    /**
+     * 判断用户是否被锁定
+     * 
+     * @return boolean true=锁定用户 false=非锁定用户
+     */
+   public function isLock()
+   {
+       if (intval($this->status) === 10) {//用户被锁定
+           return true;
+       }
+       return false;
+   }
 }

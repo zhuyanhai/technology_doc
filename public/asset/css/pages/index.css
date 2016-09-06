@@ -665,9 +665,9 @@ html>body .sortable li { height: 1.5em; line-height: 1.2em; }
 
 .htoolbar{text-align: right;padding: 6px 15px;margin:0px;}
 
-.nav>li .dropdown{position: absolute;right:0;top:6px;display: none;}
+.nav>li .dropdown{position: absolute;right:0;top:5px;display: none;}
 .nav>li .dropdown ul{margin: 0;}
-.nav>li .dropdown .dropdown-menu{left:-105px;border-radius:0px;min-width:120px;padding:0px;}
+.nav>li .dropdown .dropdown-menu{left:-78px;border-radius:0px;min-width:95px;padding:0px;}
 .nav>li .open ul{margin: 0;display: block}
 .nav>li .dropdown ul li a{margin:0px;padding:0px;text-align: center;padding:2px;}
 .nav>li .dropdown .border-b{border-bottom:1px dashed gray;}

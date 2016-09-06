@@ -19,9 +19,7 @@ abstract class AbstractController extends F_Controller_ActionAbstract
         parent::__construct();
         
         //检测用户登录
-        //$this->loginUser = Bll_User_Api_User::getInstance()->checkLogin();
-        //$passportPhoneRow = Dao_User_PassportPhone::fetchRow('userid=:userid', array('userid'=> 1));
-        //print_r($passportPhoneRow);
+        //$this->loginUser = Bll_Passport::checkLogin();
         
 //        $a = Dao_User_PassportPhone::getSelect()->fromColumns('userid')->where('userid=:userid', 1)->fetchRow();
 //        print_r($a->toArray());

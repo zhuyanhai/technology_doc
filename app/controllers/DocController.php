@@ -86,6 +86,31 @@ class DocController extends AbstractController
     }
     
     /**
+     * 删除文档树
+     */
+    public function delTreeAction()
+    {
+        if ($this->isAjax()) {
+            try {
+                //本次操作标识
+                $operation = Utils_Validation::filter($this->_requestObj->getParam('sOperation'))->removeStr()->removeHtml()->receive();
+                //目录全路径
+                $fullPath  = Utils_Validation::filter($this->_requestObj->getParam('sFullPath'))->removeStr()->removeHtml()->receive();
+                //目录或文件名称
+                $name = Utils_Validation::filter($this->_requestObj->getParam('sName'))->removeStr()->removeHtml()->receive();
+
+                //删除树
+                $result = C_Md_Organize::delTree($name, $operation, $fullPath);
+
+                $this->response($result);
+            } catch(Exception $e) {
+                $this->error($e->getMessage())->response();
+            }
+        }
+        exit;
+    }
+    
+    /**
      * 排序
      * 
      * 将目录下的文件或目录进行一次排序

@@ -9,7 +9,7 @@ class IndexController extends AbstractController
      * 首页
      */
     public function indexAction()
-    {   
+    {
         //获取目录树
         $trees = C_Md_Organize::getTree();
 

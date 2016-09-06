@@ -102,7 +102,17 @@ final class C_Md_Organize
                     <ul class="dropdown-menu" aria-labelledby="dLabel">
                         <li class="border-b"><a class="PROGRAM-cpm" onclick="return false;" data-pid="folder_{$id}">创建平目录</a></li>
                         <li class="border-b"><a class="PROGRAM-ccm" onclick="return false;" data-pid="folder_{$id}">创建子目录</a></li>
-                        <li><a class="PROGRAM-cfm" onclick="return false;" data-pid="folder_{$id}">创建子文档</a></li>
+                        <li class="border-b"><a class="PROGRAM-cfm" onclick="return false;" data-pid="folder_{$id}">创建子文档</a></li>
+                        <li><a class="PROGRAM-ddm" onclick="return false;" data-pid="folder_{$id}">删除目录</a></li>
+                    </ul>
+                </div>
+EOF;
+            } else {
+                $html .= <<<EOF
+                <div class="dropdown">
+                    <i class="icon-cog" id="dLabel" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></i>
+                    <ul class="dropdown-menu" aria-labelledby="dLabel">
+                        <li><a class="PROGRAM-dfm" onclick="return false;" data-pid="folder_{$id}">删除文档</a></li>
                     </ul>
                 </div>
 EOF;
@@ -249,6 +259,27 @@ EOF;
 
         return $tree;
     }
+    
+    /**
+     * 删除目录树
+     * 
+     * @param string $name
+     * @param string $operation
+     * @param array $fullPath
+     * @return array
+     */
+    public static function delTree($name, $operation, $fullPath)
+    {
+        $prefix = self::DOC_PATH .'/';
+        switch ($operation) {
+            case 'del_dir'://删除目录
+
+                break;
+            case 'del_file'://创建目录下文档
+                
+                break;
+        }
+    }
 
     /**
      * 构建目录树
@@ -283,7 +314,8 @@ EOF;
                 mkdir($fullPathStr);
                 
                 C_Md_Organize::buildSort($prefix . $dirPath, -1, $dirname);
-                return array('index' => $lastIndex, 'title' => $title);
+                
+                return array('index' => $lastIndex, 'name' => $title, 'parentPath' => $prefix . $dirPath);
                 break;
             case 'create_child_dir'://创建子级目录
                 $posPathStr = $prefix . implode('/', $fullPath);
@@ -303,7 +335,8 @@ EOF;
                 mkdir($fullPathStr);
 
                 C_Md_Organize::buildSort($prefix . $dirPath, -1, $dirname);
-                return array('index' => $lastIndex, 'title' => $title);
+                
+                return array('index' => $lastIndex, 'name' => $title, 'parentPath' => $prefix . $dirPath);
                 break;
             case 'create_file'://创建目录下文档
                 $posPathStr = $prefix . implode('/', $fullPath);
@@ -328,7 +361,8 @@ EOF;
                 file_put_contents($fullPathStr, '期待您的高见！');
                 
                 C_Md_Organize::buildSort($prefix . $dirPath, -1, $filename);
-                return array('index' => $lastIndex, 'title' => $title, 'sPath' => $sPath);
+                
+                return array('index' => $lastIndex, 'name' => $title, 'parentPath' => $prefix . $dirPath, 'sPath' => $sPath);
                 break;
         }
     }

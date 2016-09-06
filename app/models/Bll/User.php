@@ -4,15 +4,13 @@
  * 
  * 访问权限 - 所有模块均可访问
  * 
- * 用户 - 登录账户 API
- *
- * - 检测登录的账户是否存在
+ * 用户基本信息 API
  * 
  * @package Bll
  * @subpackage Bll
  * @author allen <allen@yuorngcorp.com>
  */
-final class Bll_User_Api_Passport
+final class Bll_User
 {
     /**
      * 用户登陆cookie名字
@@ -20,12 +18,11 @@ final class Bll_User_Api_Passport
     const LOGIN_COOKIE_NAME = 'ftoken';
     
     /**
-     * 获取用户ID - 根据登录账户
+     * 根据 cookie 检测用户是否登录
      * 
-     * @param string $account 登录帐号
-     * @return int 返回用户ID
+     * @return array 用户信息
      */
-    public static function checkLogin($account)
+    public static function checkLogin()
     {
         //登陆cookie内容
         $userLoginCookie = Utils_Cookie::get(self::LOGIN_COOKIE_NAME);
@@ -40,17 +37,30 @@ final class Bll_User_Api_Passport
         }
 
         //用户信息
-        $userDao = Dao_Sop_User::fetchRowFromMaster('userid=?', array('userid'=>$loginContent['userid']));
-        if (empty($userDao)) {
+        $userInfo = self::getByUserid($loginContent['userid']);
+        if (empty($userInfo)) {
             return null; 
         }
         
-        if (intval($userDao->status) === 10) {//用户被锁定
+        if ($userDao['isLock']) {//用户被锁定
             return null;
         }
         
-        return $userDao;
+        return $userInfo;
     }
+    
+    /**
+     * 根据用户ID获取用户信息
+     * 
+     * @param int $userid 用户ID
+     * @return array
+     */
+    public static function getByUserid($userid)
+    {
+        return Bll_User_Internal_User::getInstance()->getByUserid($userid);
+    }
+    
+//----- 私有方法
     
     /**
      * 解密登陆cookie
@@ -71,5 +81,4 @@ final class Bll_User_Api_Passport
         
         return Utils_EncryptAndDecrypt::timeRange($decryptContent, 'DECODE', Utils_EncryptAndDecrypt::LOGIN_SECRET_KEY, 1800, $lastLoginTime);
     }
-    
 }
