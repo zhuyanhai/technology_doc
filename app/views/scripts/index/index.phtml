@@ -15,8 +15,9 @@ $this->script()->appendScript('/asset/js/pages/index.js');
     
     <!-- 目录树 -->
     <div id="leftBoxId" class="col-xs-3 col-md-3">
-        <div class="htoolbar">
-            <a id="treeEditBtnId" style="cursor: pointer;" ><i class="icon-edit"></i>启用编辑模式</a>
+        <div class="htoolbar clearfix">
+            <a id="treeEditBtnId" style="cursor: pointer;float: left;" ><i class="icon-edit"></i>启用编辑模式</a>
+            <a id="treeOrderBtnId" style="cursor: pointer;float: right;" ><i class="icon-edit"></i>启用排序模式</a>
         </div>
         <?php echo $this->navTrees; ?>
         <div style="width: 100%;height: 20px;display: block;padding: 3px;">&nbsp;</div>

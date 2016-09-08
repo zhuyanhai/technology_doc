@@ -92,7 +92,7 @@ final class C_Md_Organize
                 $html .= '<a id="folder_'.$id.'" href="#" class="aj-nav folder" data-i="'.$val['index'].'" data-p="'.$val['parentPath'].'" data-n="'.$val['name'].'"><i class="'.$folderClass.'"></i>'.$val['name'].'</a>';
                 $html .= self::buildNav($val['tree'], $urlParams);
             } else {
-                $html .= '<a href="'.$val['url'].'" class="PROGRAM-link" onclick="return false;" data-i="'.$val['index'].'" data-p="'.$val['parentPath'].'" data-n="'.$val['name'].'.md">'.$val['name'].'</a>';
+                $html .= '<a id="file_'.$id.'" href="'.$val['url'].'" class="PROGRAM-link" onclick="return false;" data-i="'.$val['index'].'" data-p="'.$val['parentPath'].'" data-n="'.$val['name'].'.md">'.$val['name'].'</a>';
             }
             
             if ($val['type'] == 'folder') {//菜单
@@ -112,7 +112,7 @@ EOF;
                 <div class="dropdown">
                     <i class="icon-cog" id="dLabel" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></i>
                     <ul class="dropdown-menu" aria-labelledby="dLabel">
-                        <li><a class="PROGRAM-dfm" onclick="return false;" data-pid="folder_{$id}">删除文档</a></li>
+                        <li><a class="PROGRAM-dfm" onclick="return false;" data-pid="file_{$id}">删除文档</a></li>
                     </ul>
                 </div>
 EOF;
@@ -266,17 +266,35 @@ EOF;
      * @param string $name
      * @param string $operation
      * @param array $fullPath
-     * @return array
+     * @return boolean
      */
     public static function delTree($name, $operation, $fullPath)
     {
         $prefix = self::DOC_PATH .'/';
         switch ($operation) {
             case 'del_dir'://删除目录
-
+                $tmpPath = $fullPath;
+                $delPathStr = $prefix . implode('/', $tmpPath);
+                unset($tmpPath[count($tmpPath) - 1]);
+                $parentPathStr = $prefix . implode('/', $tmpPath);
+                exec('rm -rf '.$delPathStr, $ourput, $returnVar);
+                if (intval($returnVar) === 0) {
+                    C_Md_Organize::buildSort($parentPathStr, -110, $name);
+                    return true;
+                }
+                return false;
                 break;
             case 'del_file'://创建目录下文档
-                
+                $tmpPath = $fullPath;
+                unset($tmpPath[count($tmpPath) - 1]);
+                $parentPathStr = $prefix . implode('/', $tmpPath);
+                $delPathStr = $parentPathStr . '/' . $name;
+                exec('rm -f '.$delPathStr, $ourput, $returnVar);
+                if (intval($returnVar) === 0) {
+                    C_Md_Organize::buildSort($parentPathStr, -110, $name);
+                    return true;
+                }
+                return false;
                 break;
         }
     }
@@ -297,12 +315,8 @@ EOF;
                 $tmpPath = $fullPath;
                 unset($tmpPath[count($tmpPath) - 1]);
                 $posPathStr = $prefix . implode('/', $tmpPath);
-                exec('ls -l '.$posPathStr.' | awk \'{print $9}\'|grep \'_\'|cut -c1-1 | awk \'END{print $1}\'', $ourput, $returnVar);
-                $lastIndex = 1;
-                if (intval($returnVar) === 0) {
-                    $lastIndex = $ourput[0];
-                    $lastIndex++;
-                }
+                
+                $lastIndex = self::_createLastIndex($posPathStr);
                 
                 $parentDirPath = $fullPath;
                 unset($parentDirPath[count($parentDirPath)-1]);    
@@ -319,12 +333,8 @@ EOF;
                 break;
             case 'create_child_dir'://创建子级目录
                 $posPathStr = $prefix . implode('/', $fullPath);
-                exec('ls -l '.$posPathStr.' | awk \'{print $9}\'|grep \'_\'|cut -c1-1 | awk \'END{print $1}\'', $ourput, $returnVar);
-                $lastIndex = 1;
-                if (intval($returnVar) === 0) {
-                    $lastIndex = $ourput[0];
-                    $lastIndex++;
-                }
+                
+                $lastIndex = self::_createLastIndex($posPathStr);
                 
                 $parentDirPath = $fullPath;  
                 $dirPath = rtrim(implode('/', $parentDirPath), '/');
@@ -340,12 +350,9 @@ EOF;
                 break;
             case 'create_file'://创建目录下文档
                 $posPathStr = $prefix . implode('/', $fullPath);
-                exec('ls -l '.$posPathStr.' | awk \'{print $9}\'|grep \'_\'|cut -c1-1 | awk \'END{print $1}\'', $ourput, $returnVar);
-                $lastIndex = 1;
-                if (intval($returnVar) === 0) {
-                    $lastIndex = $ourput[0];
-                    $lastIndex++;
-                }
+                
+                $lastIndex = self::_createLastIndex($posPathStr);
+                
                 $sPath = '';
                 foreach ($fullPath as $p) {
                     $sPath .= preg_replace('%[0-9]*_%', '', $p) . '/';
@@ -375,14 +382,28 @@ EOF;
      * @param string $name 文件或目录名
      * @return void
      */
-    public static function buildSort($dirPath, $index, $name)
+    public static function buildSort($dirPath, $index, $name = '')
     {
         $sortPath = $dirPath.'/.sort';
         $list = Utils_File::getArray($sortPath);
         if (!empty($list)) {
-            if ($index < 0) {//追加到最后
+            if ($index < 0) {
                 $tmpPaths = $list;
-                array_push($tmpPaths, trim($name));
+                if ($index === -110) {//删除
+                    if (!empty($name)) {
+                        $tmpArray = array();
+                        foreach ($tmpPaths as $tmp) {
+                            if (trim($tmp) != trim($name)) {
+                                array_push($tmpArray, trim($tmp));
+                            }
+                        }
+                        $tmpPaths = $tmpArray;
+                    }
+                } else {//追加到最后
+                    if (!empty($name)) {
+                        array_push($tmpPaths, trim($name));
+                    }
+                }
             } else {//按指定顺序排序
                 $tmpPaths = array();
                 $jumpCount = 0;
@@ -406,6 +427,10 @@ EOF;
                     array_unshift($tmpPaths, trim($name));
                 }
             }
+            Utils_File::save($sortPath, $tmpPaths, 'wl');
+        } else {
+            $tmpPaths = array();
+            array_push($tmpPaths, trim($name));
             Utils_File::save($sortPath, $tmpPaths, 'wl');
         }
     }
@@ -493,5 +518,28 @@ EOF;
         }
 
         return $tree;
+    }
+    
+    /**
+     * 创建文件或目录的前缀
+     * 
+     * @param string $posPathStr
+     * @return int
+     */
+    private static function _createLastIndex($posPathStr)
+    {
+        /* 旧版创建文件或目录的前缀，根据本身的目录与文件数量来创建
+        exec('ls -l '.$posPathStr.' | awk \'{print $9}\'|grep \'_\'|cut -c1-1 | awk \'END{print $1}\'', $ourput, $returnVar);
+        $lastIndex = 1;
+        if (intval($returnVar) === 0) {
+            $lastIndex = $ourput[0];
+            $lastIndex++;
+        }
+        return $lastIndex; 
+        */
+        
+        //新版使用时间戳 毫秒
+        $lastIndex = Utils_Date::microtime();
+        return $lastIndex;
     }
 }

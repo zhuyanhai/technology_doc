@@ -102,7 +102,11 @@ class DocController extends AbstractController
                 //删除树
                 $result = C_Md_Organize::delTree($name, $operation, $fullPath);
 
-                $this->response($result);
+                if ($result) {
+                    $this->response();
+                } else {
+                    $this->error('删除失败')->response();
+                }
             } catch(Exception $e) {
                 $this->error($e->getMessage())->response();
             }
