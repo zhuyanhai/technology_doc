@@ -45,10 +45,9 @@ class F_Controller_Front
     {
         try {
             $requestObj  = F_Controller_Request_Http::getInstance();
-            $routerObj   = F_Controller_Router_Route::getInstance();
             $responseObj = F_Controller_Response_Http::getInstance();
 
-            $routerObj->route();
+            F_Route::run();
 
             do {
                 $requestObj->setDispatched(true);
@@ -60,7 +59,12 @@ class F_Controller_Front
                 if ('Index' === $module) {
                     $controllerClass = ucfirst($controller) . 'Controller';
                 } else {
-                    $controllerClass = ucfirst($module) . '_' . ucfirst($controller) . 'Controller';
+                    $moduleArray = explode('_', $module);
+                    if (count($moduleArray) > 1) {
+                        $controllerClass = ucfirst($moduleArray[0]) . '_' . ucfirst($moduleArray[1]) . '_' . ucfirst($controller) . 'Controller';
+                    } else {
+                        $controllerClass = ucfirst($module) . '_' . ucfirst($controller) . 'Controller';
+                    }
                 }
                 
                 $obLevel = ob_get_level();

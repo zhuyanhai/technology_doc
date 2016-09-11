@@ -2,15 +2,16 @@
 /**
  * 引导脚本
  */
-class Bootstrap
-{
+class Bootstrap extends F_Application_BootstrapAbstract
+{   
     /**
-     * 构造函数
+     * 初始路由设置
      * 
+     * - 添加任意自定义路由
      */
-    public function __construct()
+    public function _route()
     {
-        //empty
+        require APPLICATION_PATH . '/bootstraps/routes.php';
     }
 
 }

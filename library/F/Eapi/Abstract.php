@@ -1,26 +1,40 @@
 <?php
 /**
- * 桌面应用 controller api接口的抽象类
+ * 外部 api接口的抽象类
  * 
  * public function nav_200
  * public function nav_100
  * 
  */
-abstract class F_Dapi_Abstract
+abstract class F_Eapi_Abstract
 {   
     /**
-     * http 请求对象
+     * F_Application 对象
+     * 
+     * @var F_Application 
+     */
+    protected $_applicationObj = null;
+    
+    /**
+     * F_Controller_Request_Http 对象
      * 
      * @var F_Controller_Request_Http 
      */
     protected $_requestObj = null;
     
     /**
-     * http 返回对象
+     * F_Controller_Reponse_Http 对象
      * 
-     * @var F_Controller_Response_Http 
+     * @var F_Controller_Reponse_Http 
      */
-    protected $_responseObj = null;
+    protected $_responseObj = null;  
+    
+    /**
+     * F_Controller_Redirector 对象，通过 getRedirector() 方法获取
+     * 
+     * @var F_Controller_Redirector 
+     */
+    protected $_redirectorObj = null;
 
     /**
      * 错误编号 0 为无错误 <0 错误标号
@@ -54,13 +68,13 @@ abstract class F_Dapi_Abstract
     /**
      * 构造函数
      * 
-     * @param F_Controller_Request_Http $requestObj
-     * @param F_Controller_Reponse_Http $responseObj
      */
-    public function __construct($requestObj, $responseObj)
+    public function __construct()
     {
-        $this->_requestObj  = $requestObj;
-        $this->_responseObj = $responseObj;
+        $this->_applicationObj = F_Application::getInstance();
+        $this->_requestObj     = F_Controller_Request_Http::getInstance();
+        $this->_responseObj    = F_Controller_Response_Http::getInstance();
+        $this->_redirectorObj  = F_Controller_Redirector::getInstance();
     }
 
     /**
@@ -72,7 +86,7 @@ abstract class F_Dapi_Abstract
     {
         $this->version = $this->_requestObj->getParam('iV', 0);
         
-        //DAPI秘钥检测
+        //EAPI秘钥检测
         //todo
 
         return $this;

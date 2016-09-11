@@ -18,7 +18,7 @@ final class F_View_Helper_Url
      * @example
      * 
      * $this->url(/product/index, 'technology'); 指定域名，不指定参数
-     * $this->url(/product/index, array('id=>1), 'technology'); 执行参数，同时指定域名
+     * $this->url(/product/index, array('id=>1), 'technology'); 指定参数，同时指定域名
      * $this->url(/product/index, array('id=>1)); 指定参数，不指定域名，使用当前URL域名
      */
     public function url($mca, $params = array(), $domainFlag = 'local')
