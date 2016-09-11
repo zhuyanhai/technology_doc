@@ -10,6 +10,19 @@ and open the template in the editor.
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <script type="text/javascript" src="http://doc.bxshare.cn/asset/js/??modules/lab/2.0.3/lab.js,modules/jquery/1.11.1/jquery.min.js?v=1472090351" ></script>
+    </head>
+    <body>
+        <div>
+            <div style="border:1px solid #000;width:500px;height:600px;display: block;position: relative;overflow: hidden;overflow-y: scroll;">
+                <p id="tipsId" style="width:300px;margin:5px auto;text-align:center;display: none">连接中...</p>
+                <div id="sendId">
+                    <input type="text" id="msgId" value="" placeholder="请输入..." />
+                    <input type="button" id="subId" value="提交" />
+                </div>
+                <div id="conId"></div>
+            </div>
+            <input type="button" value="关闭连接" id="closeSocketId" />
+        </div>
         <script type="text/javascript">      
         // 班级聊天类
         (function()
@@ -111,6 +124,10 @@ and open the template in the editor.
                     self.socketObj.onmessage = function(e)
                     {
                         console.log('接收到socket的推送信息: ', e.data);
+                        var data = $.parseJSON(e.data);
+                        if (data.sCmd == 'cmd_sendmsg') {
+                            $('<p>'+data.sMsg['con']+'</p>').appendTo('#conId');
+                        }
                     };
 
                     self.socketObj.onclose = function(e)
@@ -145,26 +162,20 @@ and open the template in the editor.
                 $('#tipsId').html('连接失败').fadeOut(2000);
             });
 
-
             //关闭socket
             $('#closeSocketId').on('click', function()
             {
                 imSocketObj.closeFun();
             });
+            
+            //发布内容
+            $('#subId').on('click', function(){
+                var con = $.trim($('#msgId').val());
+                imSocketObj.sendFun('cmd_sendmsg', {'con' : con});
+                $('#msgId').val('');
+                $('<p>'+con+'</p>').appendTo('#conId');
+            });
         })();
         </script>
-    </head>
-    <body>
-        <div>
-            <div style="border:1px solid #000;width:500px;height:600px;display: block;position: relative;overflow: hidden;overflow-y: scroll;">
-                <p id="tipsId" style="width:300px;margin:5px auto;text-align:center;display: none">连接中...</p>
-                <div id="conId"></div>
-                <div id="sendId">
-                    <input type="text" id="msgId" value="" placeholder="请输入..." />
-                    <input type="button" id="subId" value="提交" />
-                </div>
-            </div>
-            <input type="button" value="关闭连接" id="closeSocketId" />
-        </div>
     </body>
 </html>

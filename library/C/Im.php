@@ -25,6 +25,8 @@ final class C_Im
         'logPath' => '/data/logs/im/',
     );
     
+    public static $users = array();
+    
     /**
      * C_Im 实例对象
      * 
@@ -95,8 +97,8 @@ final class C_Im
      */
     private function _open($ws, $request)
     {
-        var_dump($request->fd, $request->get, $request->server); 
-        $ws->push($request->fd, "hello, welcome\n"); 
+        Utils_File::save('/tmp/im_users', $request->fd.PHP_EOL, 'a');
+        //$ws->push($request->fd, "hello, welcome\n"); 
     }
     
     /**
@@ -120,7 +122,13 @@ final class C_Im
      */
     private function _message($ws, $frame)
     {
-
+        $users = Utils_File::getArray('/tmp/im_users');
+        //print_r(array($users, $frame->fd));
+        foreach ($users as $userFd) {
+            if ($frame->fd != $userFd) {
+                $ws->push($userFd, json_encode($frame->data));
+            }
+        }
     }
     
     /**
