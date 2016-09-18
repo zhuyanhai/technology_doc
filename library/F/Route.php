@@ -6,11 +6,10 @@
  * 路由最多支持"两层"目录
  * 
  * @category F
- * @package F_Controller
- * @subpackage F_Controller_Router_Route
+ * @package F_Route
  * @author allen <allenifox@163.com>
  */
-class F_Route
+final class F_Route
 {
     /**
      * 路由器列表
