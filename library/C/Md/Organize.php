@@ -70,17 +70,17 @@ final class C_Md_Organize
         
         foreach($tree as $key => $val) {
             // Active Tree Node
-            $folderClass = 'icon-folder-close';
+            $folderClass = 'glyphicon glyphicon-folder-close';
             if (isset($urlParams[0]) && $urlParams[0] == $val['clean']) {
                 array_shift($urlParams);
 
                 // Final Node
                 if ('/?sPath='.$urlPath == $val['url']) {
                     $html .= '<li class="active">';
-                    $folderClass = 'icon-folder-open';
+                    $folderClass = 'glyphicon glyphicon-folder-open';
                 } else {
                     $html .= '<li class="open">';
-                    $folderClass = 'icon-folder-open';
+                    $folderClass = 'glyphicon glyphicon-folder-open';
                 }
             } else {
                 $html .= '<li>';
@@ -98,7 +98,7 @@ final class C_Md_Organize
             if ($val['type'] == 'folder') {//菜单
                 $html .= <<<EOF
                 <div class="dropdown">
-                    <i class="icon-cog" id="dLabel" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></i>
+                    <i class="glyphicon glyphicon-asterisk" id="dLabel" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></i>
                     <ul class="dropdown-menu" aria-labelledby="dLabel">
                         <li class="border-b"><a class="PROGRAM-cpm" onclick="return false;" data-pid="folder_{$id}">创建平目录</a></li>
                         <li class="border-b"><a class="PROGRAM-ccm" onclick="return false;" data-pid="folder_{$id}">创建子目录</a></li>
@@ -110,7 +110,7 @@ EOF;
             } else {
                 $html .= <<<EOF
                 <div class="dropdown">
-                    <i class="icon-cog" id="dLabel" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></i>
+                    <i class="glyphicon glyphicon-asterisk" id="dLabel" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></i>
                     <ul class="dropdown-menu" aria-labelledby="dLabel">
                         <li><a class="PROGRAM-dfm" onclick="return false;" data-pid="file_{$id}">删除文档</a></li>
                     </ul>
@@ -266,11 +266,15 @@ EOF;
      * @param string $name
      * @param string $operation
      * @param array $fullPath
+     * @param string $prefix
      * @return boolean
      */
-    public static function delTree($name, $operation, $fullPath)
+    public static function delTree($name, $operation, $fullPath, $prefix = '')
     {
-        $prefix = self::DOC_PATH .'/';
+        if (empty($prefix)) {
+            $prefix = self::DOC_PATH .'/';
+        }
+
         switch ($operation) {
             case 'del_dir'://删除目录
                 $tmpPath = $fullPath;
@@ -305,11 +309,15 @@ EOF;
      * @param string $title
      * @param string $operation
      * @param array $fullPath
+     * @param string $prefix
      * @return array
      */
-    public static function buildTree($title, $operation, $fullPath)
+    public static function buildTree($title, $operation, $fullPath, $prefix = '')
     {
-        $prefix = self::DOC_PATH .'/';
+        if (empty($prefix)) {
+            $prefix = self::DOC_PATH .'/';
+        }
+        
         switch ($operation) {
             case 'create_sibling_dir'://创建平级目录
                 $tmpPath = $fullPath;

@@ -94,7 +94,7 @@ __wait(function(){
                 if (tmpParentObj.length > 0 && tmpParentObj.get(0).nodeName === 'LI') {
                     var tmpI = $('i', tmpParentObj);
                     if (tmpI.length > 0) {
-                        $(tmpI.get(0)).removeClass('icon-folder-close').addClass('icon-folder-open');
+                        $(tmpI.get(0)).removeClass('glyphicon-folder-close').addClass('glyphicon-folder-open');
                         recursionFun(tmpParentObj);
                     }
                 }
@@ -126,10 +126,10 @@ __wait(function(){
     //绑定目录折叠
     $('#leftBoxId').on('click', '.folder',function(e) {
         e.preventDefault();
-        if ($('i', this).hasClass('icon-folder-close')) {
-            $('i', this).removeClass('icon-folder-close').addClass('icon-folder-open');
+        if ($('i', this).hasClass('glyphicon-folder-close')) {
+            $('i', this).removeClass('glyphicon-folder-close').addClass('glyphicon-folder-open');
         } else {
-            $('i', this).removeClass('icon-folder-open').addClass('icon-folder-close');
+            $('i', this).removeClass('glyphicon-folder-open').addClass('glyphicon-folder-close');
         }
         $(this).next().slideToggle();
     });
@@ -246,18 +246,18 @@ __wait(function(){
                 var id = $.customGuid();
                 switch (operation) {
                     case 'create_sibling_dir'://创建平级目录
-                        var html = '<li><a id="folder_'+id+'" href="#" class="aj-nav folder" data-i="'+result['data']['index']+'" data-p="'+result['data']['parentPath']+'" data-n="'+result['data']['name']+'"><i class="icon-folder-close"></i>'+result['data']['name']+'</a><ul class="nav nav-list" style="display: none;"></ul><div class="dropdown" style="display:block;"><i class="icon-cog" id="dLabel" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></i><ul class="dropdown-menu" aria-labelledby="dLabel"><li class="border-b"><a class="PROGRAM-cpm" onclick="return false;" data-pid="folder_'+id+'">创建平目录</a></li><li class="border-b"><a class="PROGRAM-ccm" onclick="return false;" data-pid="folder_'+id+'">创建子目录</a></li><li class="border-b"><a class="PROGRAM-cfm" onclick="return false;" data-pid="folder_'+id+'">创建子文档</a></li><li><a class="PROGRAM-ddm" onclick="return false;" data-pid="folder_'+id+'">删除目录</a></li></ul></div></li>';
+                        var html = '<li><a id="folder_'+id+'" href="#" class="aj-nav folder" data-i="'+result['data']['index']+'" data-p="'+result['data']['parentPath']+'" data-n="'+result['data']['name']+'"><i class="glyphicon glyphicon-folder-close"></i>'+result['data']['name']+'</a><ul class="nav nav-list" style="display: none;"></ul><div class="dropdown" style="display:block;"><i class="glyphicon glyphicon-asterisk" id="dLabel" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></i><ul class="dropdown-menu" aria-labelledby="dLabel"><li class="border-b"><a class="PROGRAM-cpm" onclick="return false;" data-pid="folder_'+id+'">创建平目录</a></li><li class="border-b"><a class="PROGRAM-ccm" onclick="return false;" data-pid="folder_'+id+'">创建子目录</a></li><li class="border-b"><a class="PROGRAM-cfm" onclick="return false;" data-pid="folder_'+id+'">创建子文档</a></li><li><a class="PROGRAM-ddm" onclick="return false;" data-pid="folder_'+id+'">删除目录</a></li></ul></div></li>';
                         $(html).appendTo($(rightMenuClickObj).parent().parent());
                         break;
                     case 'create_child_dir'://创建子级目录
-                        var html = '<li><a id="folder_'+id+'" href="#" class="aj-nav folder" data-i="'+result['data']['index']+'" data-p="'+result['data']['parentPath']+'" data-n="'+result['data']['name']+'"><i class="icon-folder-close"></i>'+result['data']['name']+'</a><ul class="nav nav-list" style="display: none;"></ul><div class="dropdown" style="display:block;"><i class="icon-cog" id="dLabel" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></i><ul class="dropdown-menu" aria-labelledby="dLabel"><li class="border-b"><a class="PROGRAM-cpm" onclick="return false;" data-pid="folder_'+id+'">创建平目录</a></li><li class="border-b"><a class="PROGRAM-ccm" onclick="return false;" data-pid="folder_'+id+'">创建子目录</a></li><li class="border-b"><a class="PROGRAM-cfm" onclick="return false;" data-pid="folder_'+id+'">创建子文档</a></li><li><a class="PROGRAM-ddm" onclick="return false;" data-pid="folder_'+id+'">删除目录</a></li></ul></div></li>';
+                        var html = '<li><a id="folder_'+id+'" href="#" class="aj-nav folder" data-i="'+result['data']['index']+'" data-p="'+result['data']['parentPath']+'" data-n="'+result['data']['name']+'"><i class="glyphicon glyphicon-folder-close"></i>'+result['data']['name']+'</a><ul class="nav nav-list" style="display: none;"></ul><div class="dropdown" style="display:block;"><i class="glyphicon glyphicon-asterisk" id="dLabel" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></i><ul class="dropdown-menu" aria-labelledby="dLabel"><li class="border-b"><a class="PROGRAM-cpm" onclick="return false;" data-pid="folder_'+id+'">创建平目录</a></li><li class="border-b"><a class="PROGRAM-ccm" onclick="return false;" data-pid="folder_'+id+'">创建子目录</a></li><li class="border-b"><a class="PROGRAM-cfm" onclick="return false;" data-pid="folder_'+id+'">创建子文档</a></li><li><a class="PROGRAM-ddm" onclick="return false;" data-pid="folder_'+id+'">删除目录</a></li></ul></div></li>';
                         $(html).appendTo($('.nav-list:first', $(rightMenuClickObj).parent()));
                         break;
                     case 'create_file'://创建目录下文档
-                        var html = '<li><a id="file_'+id+'" href="/?sPath='+result['data']['sPath']+'" class="PROGRAM-link" onclick="return false;" data-i="'+result['data']['index']+'" data-p="'+result['data']['parentPath']+'" data-n="'+result['data']['name']+'.md">'+result['data']['name']+'</a><div class="dropdown" style="display:block;"><i class="icon-cog" id="dLabel" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></i><ul class="dropdown-menu" aria-labelledby="dLabel"><li><a class="PROGRAM-dfm" onclick="return false;" data-pid="file_'+id+'">删除文档</a></li></ul></div></li>';
+                        var html = '<li><a id="file_'+id+'" href="/?sPath='+result['data']['sPath']+'" class="PROGRAM-link" onclick="return false;" data-i="'+result['data']['index']+'" data-p="'+result['data']['parentPath']+'" data-n="'+result['data']['name']+'.md">'+result['data']['name']+'</a><div class="dropdown" style="display:block;"><i class="glyphicon glyphicon-asterisk" id="dLabel" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></i><ul class="dropdown-menu" aria-labelledby="dLabel"><li><a class="PROGRAM-dfm" onclick="return false;" data-pid="file_'+id+'">删除文档</a></li></ul></div></li>';
                         $(html).appendTo($('.nav-list', $(rightMenuClickObj).parent())[0]);
-                        if ($('i', $(rightMenuClickObj)).hasClass('icon-folder-close')) {
-                            $('i', $(rightMenuClickObj)).removeClass('icon-folder-close').addClass('icon-folder-open');
+                        if ($('i', $(rightMenuClickObj)).hasClass('glyphicon-folder-close')) {
+                            $('i', $(rightMenuClickObj)).removeClass('glyphicon-folder-close').addClass('glyphicon-folder-open');
                             $(rightMenuClickObj).next().slideToggle();
                         }
                         break;
@@ -314,12 +314,12 @@ __wait(function(){
     $('#treeEditBtnId').on('click', function(){
         if (isEnableTreeEdit === 0) {//启用
             isEnableTreeEdit = 1;
-            $(this).html('<i class="icon-edit"></i>禁用编辑模式');
+            $(this).html('<i class="glyphicon glyphicon-edit"></i>禁用编辑');
             $('.dropdown').show();
             $('#opBoxId').show();
         } else {//禁用
             isEnableTreeEdit = 0;
-            $(this).html('<i class="icon-edit"></i>启用编辑模式');
+            $(this).html('<i class="glyphicon glyphicon-edit"></i>启用编辑');
             $('.dropdown').hide();
             $('#opBoxId').hide();
         }
@@ -330,11 +330,11 @@ __wait(function(){
     $('#treeOrderBtnId').on('click', function(){
         if (isEnableTreeOrder === 0) {//启用
             isEnableTreeOrder = 1;
-            $(this).html('<i class="icon-edit"></i>禁用排序模式');
+            $(this).html('<i class="glyphicon glyphicon-sort"></i>禁用排序');
             $('.sorttable').sortable('enable');
         } else {//禁用
             isEnableTreeOrder = 0;
-            $(this).html('<i class="icon-edit"></i>启用排序模式');
+            $(this).html('<i class="glyphicon glyphicon-sort"></i>启用排序');
             $('.sorttable').sortable('disable');
         }
     });

@@ -13,8 +13,13 @@ class DocController extends AbstractController
         //模式
         $this->view->mode = Utils_Validation::filter($this->_requestObj->getParam('sMode'))->removeStr()->removeHtml()->receive();
         
-        //获取目录树
-        $trees = C_Md_Organize::getTree();
+        if ($_SERVER['PHP_AUTH_USER'] === 'hefu') {
+            //获取目录树
+            $trees = C_Md_Organize::getTree('/data/hefu');
+        } else {
+            //获取目录树
+            $trees = C_Md_Organize::getTree();
+        }
         
         //md 文件内容
         $this->view->mdContent = C_Md_Organize::loadPage($trees);
@@ -48,11 +53,14 @@ class DocController extends AbstractController
     public function saveToGitAction()
     {
         if ($this->isAjax()) {
+            if ($_SERVER['PHP_AUTH_USER'] === 'hefu') {
+                $this->response();
+            }
             try {
                 F_Git::add();
                 F_Git::commit('submit '.date('Y-m-d H:i:s'));
                 F_Git::push();
-            $this->response();
+                $this->response();
             } catch(Exception $e) {
                 $this->error($e->getMessage())->response();
             }
@@ -73,9 +81,14 @@ class DocController extends AbstractController
                 $operation = Utils_Validation::filter($this->_requestObj->getParam('sOperation'))->removeStr()->removeHtml()->receive();
                 //目录全路径
                 $fullPath  = Utils_Validation::filter($this->_requestObj->getParam('sFullPath'))->removeStr()->removeHtml()->receive();
-
-                //构建树
-                $result = C_Md_Organize::buildTree($title, $operation, $fullPath);
+                
+                if ($_SERVER['PHP_AUTH_USER'] === 'hefu') {
+                    //构建树
+                    $result = C_Md_Organize::buildTree($title, $operation, $fullPath, '/data/hefu/');
+                } else {
+                    //构建树
+                    $result = C_Md_Organize::buildTree($title, $operation, $fullPath);
+                }
 
                 $this->response($result);
             } catch(Exception $e) {
@@ -99,8 +112,13 @@ class DocController extends AbstractController
                 //目录或文件名称
                 $name = Utils_Validation::filter($this->_requestObj->getParam('sName'))->removeStr()->removeHtml()->receive();
 
-                //删除树
-                $result = C_Md_Organize::delTree($name, $operation, $fullPath);
+                if ($_SERVER['PHP_AUTH_USER'] === 'hefu') {
+                    //删除树
+                    $result = C_Md_Organize::delTree($name, $operation, $fullPath, '/data/hefu/');
+                } else {
+                    //删除树
+                    $result = C_Md_Organize::delTree($name, $operation, $fullPath);
+                }
 
                 if ($result) {
                     $this->response();
