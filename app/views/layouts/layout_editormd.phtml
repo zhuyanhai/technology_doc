@@ -6,14 +6,14 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title><?php echo $this->headTitle('开放空间 - 文档馆')?></title>
         <?php echo $this->headMeta('开放空间', 'keywords')->headMeta('开放空间', 'description')?>
-        <?php $this->headLink()->prependStylesheet('/asset/css/??modules/bootstrap/3.3.5/bootstrap.min.css,modules/editormd/editormd.min.css')?>
+        <?php $this->headLink()->prependStylesheet('http://asset.bxshare.cn/technology_doc/css/??modules/bootstrap/3.3.5/bootstrap.min.css,modules/editormd/editormd.min.css')?>
         <?php echo $this->headLink()?>
         <?php echo $this->initPageNecessary()?>
     </head>
     <body>
         <?php echo $scriptContent ?>
         <?php
-        echo $this->script()->outputScript('/asset/js/??modules/lab/2.0.3/lab.js,modules/jquery/1.11.1/jquery.min.js,modules/bootstrap/3.3.5/bootstrap.min.js,modules/jquery/plugin/equalHeight/jquery.equalHeight.js,modules/utility.js')->lastWait(function() {
+        echo $this->script()->outputScript('http://asset.bxshare.cn/technology_doc/js/??modules/lab/2.0.3/lab.js,modules/jquery/1.11.1/jquery.min.js,modules/bootstrap/3.3.5/bootstrap.min.js,modules/jquery/plugin/equalHeight/jquery.equalHeight.js,modules/utility.js')->lastWait(function() {
             //页面中所有JS加载完毕后才开始执行的
             return '__wait(false, true);';
         });

@@ -3,6 +3,7 @@ html,body{
     margin: 0;
     height:100%;
     display: block;
+    font-family: 微软雅黑,Arial,Helvetica,sans-serif;
 }
 .container-fluid.fluid-height {
     height: 100%;
@@ -207,7 +208,7 @@ a:-webkit-any-link {
 html>body .sortable li { height: 1.5em; line-height: 1.2em; }
 .ui-state-highlight { height: 1.5em; line-height: 1.2em; }
 
-.htoolbar{text-align: right;padding: 6px 15px;margin:0px;}
+.htoolbar{text-align: right;padding: 6px 5px;margin:0px;}
 .htoolbar:after {
     content: " ";
     display: block;
@@ -219,9 +220,11 @@ html>body .sortable li { height: 1.5em; line-height: 1.2em; }
   zoom: 1;
 }
 
+.nav>li .ctoolmenu{position: absolute;right: 0;top: 5px;display: none;}
+
 .nav>li .dropdown{position: absolute;right:0;top:5px;display: none;}
 .nav>li .dropdown ul{margin: 0;}
 .nav>li .dropdown .dropdown-menu{left:-78px;border-radius:0px;min-width:95px;padding:0px;}
 .nav>li .open ul{margin: 0;display: block}
-.nav>li .dropdown ul li a{margin:0px;padding:0px;text-align: center;padding:2px;}
+.nav>li .dropdown ul li a{margin:0px;padding:0px;text-align: center;padding:2px;cursor:pointer;}
 .nav>li .dropdown .border-b{border-bottom:1px dashed gray;}

@@ -89,7 +89,7 @@ final class C_Md_Organize
             $id = $gid;
             $gid++;
             if ($val['type'] == 'folder') {
-                $html .= '<a id="folder_'.$id.'" href="#" class="aj-nav folder" data-i="'.$val['index'].'" data-p="'.$val['parentPath'].'" data-n="'.$val['name'].'"><i class="'.$folderClass.'"></i>'.$val['name'].'</a>';
+                $html .= '<a id="folder_'.$id.'" href="#" onclick="return false;" class="aj-nav folder" data-i="'.$val['index'].'" data-p="'.$val['parentPath'].'" data-n="'.$val['name'].'"><i class="'.$folderClass.'"></i>'.$val['name'].'</a>';
                 $html .= self::buildNav($val['tree'], $urlParams);
             } else {
                 $html .= '<a id="file_'.$id.'" href="'.$val['url'].'" class="PROGRAM-link" onclick="return false;" data-i="'.$val['index'].'" data-p="'.$val['parentPath'].'" data-n="'.$val['name'].'.md">'.$val['name'].'</a>';
@@ -97,23 +97,16 @@ final class C_Md_Organize
             
             if ($val['type'] == 'folder') {//菜单
                 $html .= <<<EOF
-                <div class="dropdown">
-                    <i class="glyphicon glyphicon-asterisk" id="dLabel" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></i>
-                    <ul class="dropdown-menu" aria-labelledby="dLabel">
-                        <li class="border-b"><a class="PROGRAM-cpm" onclick="return false;" data-pid="folder_{$id}">创建平目录</a></li>
-                        <li class="border-b"><a class="PROGRAM-ccm" onclick="return false;" data-pid="folder_{$id}">创建子目录</a></li>
-                        <li class="border-b"><a class="PROGRAM-cfm" onclick="return false;" data-pid="folder_{$id}">创建子文档</a></li>
-                        <li><a class="PROGRAM-ddm" onclick="return false;" data-pid="folder_{$id}">删除目录</a></li>
-                    </ul>
+                <div class="ctoolmenu">
+                    <i class="PROGRAM-ccm glyphicon glyphicon-folder-close" data-pid="folder_{$id}"></i>
+                    <i class="PROGRAM-cfm glyphicon glyphicon-file" data-pid="folder_{$id}"></i>
+                    <i class="PROGRAM-ddm glyphicon glyphicon-trash" data-pid="folder_{$id}"></i>
                 </div>
 EOF;
             } else {
                 $html .= <<<EOF
-                <div class="dropdown">
-                    <i class="glyphicon glyphicon-asterisk" id="dLabel" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></i>
-                    <ul class="dropdown-menu" aria-labelledby="dLabel">
-                        <li><a class="PROGRAM-dfm" onclick="return false;" data-pid="file_{$id}">删除文档</a></li>
-                    </ul>
+                <div class="ctoolmenu">
+                    <i class="PROGRAM-dfm glyphicon glyphicon-trash" data-pid="file_{$id}"></i>
                 </div>
 EOF;
             }
@@ -319,6 +312,25 @@ EOF;
         }
         
         switch ($operation) {
+            case 'create_dir'://创建目录
+                $posPathStr = $prefix;
+                $lastIndex = self::_createLastIndex($posPathStr);
+                $dirPath = rtrim($posPathStr, '/');
+                $dirname = $lastIndex . '_' . $title;
+                $fullPathStr = $prefix . $dirname;
+                mkdir($fullPathStr);
+                C_Md_Organize::buildSort($dirPath, -1, $dirname);
+                return array('index' => $lastIndex, 'name' => $title, 'parentPath' => $dirPath);
+                break;
+            case 'create_file'://创建文档
+                $lastIndex = self::_createLastIndex($prefix);
+                $dirPath = rtrim($prefix, '/');
+                $filename = $lastIndex . '_' . $title . '.md';
+                $fullPathStr = $prefix . $filename;
+                file_put_contents($fullPathStr, '期待您的高见！');
+                C_Md_Organize::buildSort($dirPath, -1, $filename);
+                return array('index' => $lastIndex, 'name' => $title, 'parentPath' => $dirPath, 'sPath' => $title);
+                break;
             case 'create_sibling_dir'://创建平级目录
                 $tmpPath = $fullPath;
                 unset($tmpPath[count($tmpPath) - 1]);
@@ -416,6 +428,7 @@ EOF;
                 $tmpPaths = array();
                 $jumpCount = 0;
                 foreach ($list as $k=>$v) {
+                    print_r($tmpPaths);
                     if (trim($v) === trim($name)) {
                         $jumpCount += $index;
                         continue;
@@ -434,6 +447,7 @@ EOF;
                 if (intval($index) === 0) {
                     array_unshift($tmpPaths, trim($name));
                 }
+                $tmpPaths = array_unique($tmpPaths);
             }
             Utils_File::save($sortPath, $tmpPaths, 'wl');
         } else {

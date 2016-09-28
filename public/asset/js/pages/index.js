@@ -63,6 +63,34 @@ function findFullParentFolder(initPathObj)
     }
 }
 
+/**
+ * 菜单模板
+ * 
+ * tplMode = file | dir
+ */
+function menuTpl(tplMode, id, index, parentPath, name, url)
+{
+    var tpl = '<li>';
+    //菜单名字
+    
+    if (tplMode === 'dir') {//子目录 或 文档 存储集合
+        tpl += '<a id="folder_'+id+'" href="#" class="aj-nav folder" onclick="return false;" data-i="'+index+'" data-p="'+parentPath+'" data-n="'+name+'"><i class="glyphicon glyphicon-folder-close"></i>'+name+'</a>';
+        tpl += '<ul class="nav nav-list" style="display: none;"></ul>';
+    } else {
+        tpl += '<a id="file_'+id+'" href="'+url+'" class="PROGRAM-link" onclick="return false;" data-i="'+index+'" data-p="'+parentPath+'" data-n="'+name+'.md">'+name+'</a>';
+    }
+    tpl += '<div class="ctoolmenu" style="display:block;">';
+    if (tplMode === 'dir') {//子目录 或 文档 存储集合
+        tpl += '<i class="PROGRAM-ccm glyphicon glyphicon-folder-close" data-pid="folder_'+id+'"></i><i class="PROGRAM-cfm glyphicon glyphicon-file" data-pid="folder_'+id+'"></i><i class="PROGRAM-ddm glyphicon glyphicon-trash" data-pid="folder_'+id+'"></i>';
+    } else {
+        tpl += '<i class="PROGRAM-dfm glyphicon glyphicon-trash" data-pid="file_'+id+'"></i>';
+    }
+    tpl += '</ul></div>';
+    tpl += '</li>';
+    
+    return tpl;
+}
+
 //初始化文档URL
 var docUrl = window.location.protocol + '//' + window.location.host + '/doc/load/?sPath=QuickStart&sMode=view';
 //构造文档URL的前缀
@@ -140,17 +168,23 @@ __wait(function(){
     $('#contextMenuModal').on('shown.bs.modal', function () {
         $('#title', this).focus();
     });
-        
-    //创建平目录
-    $('#leftBoxId').on('click', '.PROGRAM-cpm',function(e) {
-        var pid = $(this).data('pid');
-        rightMenuClickObj = $('#'+pid);
+    
+    //创建目录
+    $('#createDirBtnId').on('click', function(e) {
         var contextMenuModalDom = $('#contextMenuModal');
-        $('#contextMenuModalLabel').html('为“'+rightMenuClickObj.text()+'”目录 - 创建平目录');
+        $('#contextMenuModalLabel').html('创建目录');
         contextMenuModalDom.modal('show');
-        $('#operation', contextMenuModalDom).val('create_sibling_dir');
+        $('#operation', contextMenuModalDom).val('create_dir');
     });
     
+    //创建文件
+    $('#createFileBtnId').on('click', function(e) {
+        var contextMenuModalDom = $('#contextMenuModal');
+        $('#contextMenuModalLabel').html('创建文档');
+        contextMenuModalDom.modal('show');
+        $('#operation', contextMenuModalDom).val('create_file');
+    });
+        
     //创建子目录
     $('#leftBoxId').on('click', '.PROGRAM-ccm',function(e) {
         var pid = $(this).data('pid');
@@ -219,6 +253,18 @@ __wait(function(){
             }, 'json');
         }
     });
+    
+    $('#leftBoxId').on('mouseleave', '.dropdown-menu', function(e) {
+        $($(this).parent()).removeClass('open'); 
+        $.stopBubble(e);
+        $.stopDefault(e);
+    });
+    $('#leftBoxId').on('mouseover', '.glyphicon-asterisk', function(e) {
+        $('.dropdown').removeClass('open'); 
+        $($(this).parent()).addClass('open'); 
+        $.stopBubble(e);
+        $.stopDefault(e);
+    });
   
     //隐藏模态框
     $('#contextMenuModal').on('hidden.bs.modal', function (e) {
@@ -245,16 +291,20 @@ __wait(function(){
             if (parseInt(result.status) === 0) {
                 var id = $.customGuid();
                 switch (operation) {
-                    case 'create_sibling_dir'://创建平级目录
-                        var html = '<li><a id="folder_'+id+'" href="#" class="aj-nav folder" data-i="'+result['data']['index']+'" data-p="'+result['data']['parentPath']+'" data-n="'+result['data']['name']+'"><i class="glyphicon glyphicon-folder-close"></i>'+result['data']['name']+'</a><ul class="nav nav-list" style="display: none;"></ul><div class="dropdown" style="display:block;"><i class="glyphicon glyphicon-asterisk" id="dLabel" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></i><ul class="dropdown-menu" aria-labelledby="dLabel"><li class="border-b"><a class="PROGRAM-cpm" onclick="return false;" data-pid="folder_'+id+'">创建平目录</a></li><li class="border-b"><a class="PROGRAM-ccm" onclick="return false;" data-pid="folder_'+id+'">创建子目录</a></li><li class="border-b"><a class="PROGRAM-cfm" onclick="return false;" data-pid="folder_'+id+'">创建子文档</a></li><li><a class="PROGRAM-ddm" onclick="return false;" data-pid="folder_'+id+'">删除目录</a></li></ul></div></li>';
-                        $(html).appendTo($(rightMenuClickObj).parent().parent());
+                    case 'create_dir'://创建目录
+                        var html = menuTpl('dir', id, result['data']['index'], result['data']['parentPath'], result['data']['name']);
+                        $(html).appendTo($('#sortable1'));
+                        break;
+                    case 'create_file'://创建文档
+                        var html = menuTpl('file', id, result['data']['index'], result['data']['parentPath'], result['data']['name'], '/?sPath='+result['data']['sPath']);
+                        $(html).appendTo($('#sortable1'));
                         break;
                     case 'create_child_dir'://创建子级目录
-                        var html = '<li><a id="folder_'+id+'" href="#" class="aj-nav folder" data-i="'+result['data']['index']+'" data-p="'+result['data']['parentPath']+'" data-n="'+result['data']['name']+'"><i class="glyphicon glyphicon-folder-close"></i>'+result['data']['name']+'</a><ul class="nav nav-list" style="display: none;"></ul><div class="dropdown" style="display:block;"><i class="glyphicon glyphicon-asterisk" id="dLabel" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></i><ul class="dropdown-menu" aria-labelledby="dLabel"><li class="border-b"><a class="PROGRAM-cpm" onclick="return false;" data-pid="folder_'+id+'">创建平目录</a></li><li class="border-b"><a class="PROGRAM-ccm" onclick="return false;" data-pid="folder_'+id+'">创建子目录</a></li><li class="border-b"><a class="PROGRAM-cfm" onclick="return false;" data-pid="folder_'+id+'">创建子文档</a></li><li><a class="PROGRAM-ddm" onclick="return false;" data-pid="folder_'+id+'">删除目录</a></li></ul></div></li>';
+                        var html = menuTpl('dir', id, result['data']['index'], result['data']['parentPath'], result['data']['name']);
                         $(html).appendTo($('.nav-list:first', $(rightMenuClickObj).parent()));
                         break;
                     case 'create_file'://创建目录下文档
-                        var html = '<li><a id="file_'+id+'" href="/?sPath='+result['data']['sPath']+'" class="PROGRAM-link" onclick="return false;" data-i="'+result['data']['index']+'" data-p="'+result['data']['parentPath']+'" data-n="'+result['data']['name']+'.md">'+result['data']['name']+'</a><div class="dropdown" style="display:block;"><i class="glyphicon glyphicon-asterisk" id="dLabel" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></i><ul class="dropdown-menu" aria-labelledby="dLabel"><li><a class="PROGRAM-dfm" onclick="return false;" data-pid="file_'+id+'">删除文档</a></li></ul></div></li>';
+                        var html = menuTpl('file', id, result['data']['index'], result['data']['parentPath'], result['data']['name'], '/?sPath='+result['data']['sPath']);
                         $(html).appendTo($('.nav-list', $(rightMenuClickObj).parent())[0]);
                         if ($('i', $(rightMenuClickObj)).hasClass('glyphicon-folder-close')) {
                             $('i', $(rightMenuClickObj)).removeClass('glyphicon-folder-close').addClass('glyphicon-folder-open');
@@ -314,14 +364,18 @@ __wait(function(){
     $('#treeEditBtnId').on('click', function(){
         if (isEnableTreeEdit === 0) {//启用
             isEnableTreeEdit = 1;
-            $(this).html('<i class="glyphicon glyphicon-edit"></i>禁用编辑');
-            $('.dropdown').show();
+            $(this).html('编辑&nbsp;<i class="glyphicon glyphicon-eye-open"></i>');
+            $('.ctoolmenu').show();
             $('#opBoxId').show();
+            $('#createDirBtnId').show();
+            $('#createFileBtnId').show();
         } else {//禁用
             isEnableTreeEdit = 0;
-            $(this).html('<i class="glyphicon glyphicon-edit"></i>启用编辑');
-            $('.dropdown').hide();
+            $(this).html('编辑&nbsp;<i class="glyphicon glyphicon-eye-close"></i>');
+            $('.ctoolmenu').hide();
             $('#opBoxId').hide();
+            $('#createDirBtnId').hide();
+            $('#createFileBtnId').hide();
         }
     });
     
@@ -330,11 +384,11 @@ __wait(function(){
     $('#treeOrderBtnId').on('click', function(){
         if (isEnableTreeOrder === 0) {//启用
             isEnableTreeOrder = 1;
-            $(this).html('<i class="glyphicon glyphicon-sort"></i>禁用排序');
+            $(this).html('排序&nbsp;<i class="glyphicon glyphicon-eye-open"></i>');
             $('.sorttable').sortable('enable');
         } else {//禁用
             isEnableTreeOrder = 0;
-            $(this).html('<i class="glyphicon glyphicon-sort"></i>启用排序');
+            $(this).html('排序&nbsp;<i class="glyphicon glyphicon-eye-close"></i>');
             $('.sorttable').sortable('disable');
         }
     });
