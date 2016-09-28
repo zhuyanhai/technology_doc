@@ -182,7 +182,7 @@ __wait(function(){
         var contextMenuModalDom = $('#contextMenuModal');
         $('#contextMenuModalLabel').html('创建文档');
         contextMenuModalDom.modal('show');
-        $('#operation', contextMenuModalDom).val('create_file');
+        $('#operation', contextMenuModalDom).val('create_top_file');
     });
         
     //创建子目录
@@ -295,7 +295,7 @@ __wait(function(){
                         var html = menuTpl('dir', id, result['data']['index'], result['data']['parentPath'], result['data']['name']);
                         $(html).appendTo($('#sortable1'));
                         break;
-                    case 'create_file'://创建文档
+                    case 'create_top_file'://创建文档
                         var html = menuTpl('file', id, result['data']['index'], result['data']['parentPath'], result['data']['name'], '/?sPath='+result['data']['sPath']);
                         $(html).appendTo($('#sortable1'));
                         break;

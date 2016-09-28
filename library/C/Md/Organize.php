@@ -322,7 +322,7 @@ EOF;
                 C_Md_Organize::buildSort($dirPath, -1, $dirname);
                 return array('index' => $lastIndex, 'name' => $title, 'parentPath' => $dirPath);
                 break;
-            case 'create_file'://创建文档
+            case 'create_top_file'://创建文档
                 $lastIndex = self::_createLastIndex($prefix);
                 $dirPath = rtrim($prefix, '/');
                 $filename = $lastIndex . '_' . $title . '.md';
