@@ -8,8 +8,7 @@
  * file that was distributed with this source code.
  */
 
-use PHPUnit\Framework\TestCase;
-class DemoTest extends TestCase
+class DemoTest extends PHPUnit_Framework_TestCase
 {
     public function testFailure()
     {
