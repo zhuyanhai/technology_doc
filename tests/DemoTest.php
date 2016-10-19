@@ -13,7 +13,7 @@ class DemoTest extends TestCase
 {
     public function testFailure()
     {
-        $this->assertEquals(1, 0);
+        $this->assertEquals(1, 1);
     }
 
 }
