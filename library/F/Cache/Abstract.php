@@ -16,5 +16,5 @@ abstract class F_Cache_Abstract
      * 
      * @param string $serviceName
      */
-    protected static function getInstance($serviceName);
+    abstract protected static function getInstance($serviceName);
 }
