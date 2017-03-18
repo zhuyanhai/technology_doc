@@ -184,6 +184,28 @@ __wait(function(){
         contextMenuModalDom.modal('show');
         $('#operation', contextMenuModalDom).val('create_top_file');
     });
+
+    //修改目录名字
+    $('#leftBoxId').on('click', '.PROGRAM-edm',function(e) {
+        var pid = $(this).data('pid');
+        rightMenuClickObj = $('#'+pid);
+        var contextMenuModalDom = $('#contextMenuModal');
+        $('#contextMenuModalLabel').html('为“'+rightMenuClickObj.text()+'” 目录 - 修改名字');
+        $('#title', contextMenuModalDom).val(rightMenuClickObj.text());
+        contextMenuModalDom.modal('show');
+        $('#operation', contextMenuModalDom).val('edit_dir_name');
+    });
+
+    //修改文件名字
+    $('#leftBoxId').on('click', '.PROGRAM-efm',function(e) {
+        var pid = $(this).data('pid');
+        rightMenuClickObj = $('#'+pid);
+        var contextMenuModalDom = $('#contextMenuModal');
+        $('#contextMenuModalLabel').html('为“'+rightMenuClickObj.text()+'” 文档 - 修改名字');
+        $('#title', contextMenuModalDom).val(rightMenuClickObj.text());
+        contextMenuModalDom.modal('show');
+        $('#operation', contextMenuModalDom).val('edit_file_name');
+    });
         
     //创建子目录
     $('#leftBoxId').on('click', '.PROGRAM-ccm',function(e) {
@@ -284,10 +306,11 @@ __wait(function(){
         var contextMenuModalDom = $('#contextMenuModal');
         var title       = $('#title', contextMenuModalDom).val();
         var operation   = $('#operation', contextMenuModalDom).val();
+        var fileName = rightMenuClickObj.data('i')+'_'+rightMenuClickObj.data('n');
         
         fullPath = [];
         findFullParentFolder($(rightMenuClickObj).parent());
-        $.post('/doc/buildTree/', {sTitle:title, sOperation:operation, sFullPath:fullPath}, function(result){
+        $.post('/doc/buildTree/', {sTitle:title, sOperation:operation, sFullPath:fullPath, sName:fileName}, function(result){
             if (parseInt(result.status) === 0) {
                 var id = $.customGuid();
                 switch (operation) {
@@ -310,6 +333,12 @@ __wait(function(){
                             $('i', $(rightMenuClickObj)).removeClass('glyphicon-folder-close').addClass('glyphicon-folder-open');
                             $(rightMenuClickObj).next().slideToggle();
                         }
+                        break;
+                    case 'edit_file_name'://修改文档名字
+                        $(rightMenuClickObj).html(result['data']['name']);
+                        break;
+                    case 'edit_dir_name'://修改目录名字
+                        $(rightMenuClickObj).html('<i class="glyphicon glyphicon-folder-close"></i>'+result['data']['name']);
                         break;
                 }
                 $('#contextMenuModalLabel').html('');

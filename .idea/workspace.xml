@@ -2,415 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ae34d6f6-f289-45ee-9fe6-944755fe9d01" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/bootstraps/routes.php" afterPath="$PROJECT_DIR$/app/bootstraps/routes.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/configs/db.cfg.php" afterPath="$PROJECT_DIR$/app/configs/db.cfg.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/configs/memcache.cfg.php" afterPath="$PROJECT_DIR$/app/configs/memcache.cfg.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/DocController.php" afterPath="$PROJECT_DIR$/app/controllers/DocController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/IndexController.php" afterPath="$PROJECT_DIR$/app/controllers/IndexController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/LoginController.php" afterPath="$PROJECT_DIR$/app/controllers/LoginController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/TestController.php" afterPath="$PROJECT_DIR$/app/controllers/TestController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/eapis/System/StartUp.php" afterPath="$PROJECT_DIR$/app/eapis/System/StartUp.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/Bll/Passport.php" afterPath="$PROJECT_DIR$/app/models/Bll/Passport.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/Bll/Passport/Internal/Phone.php" afterPath="$PROJECT_DIR$/app/models/Bll/Passport/Internal/Phone.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/Bll/User.php" afterPath="$PROJECT_DIR$/app/models/Bll/User.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/Bll/User/Internal/User.php" afterPath="$PROJECT_DIR$/app/models/Bll/User/Internal/User.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/Dao/Abstract.php" afterPath="$PROJECT_DIR$/app/models/Dao/Abstract.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/Dao/User/PassportPhone.php" afterPath="$PROJECT_DIR$/app/models/Dao/User/PassportPhone.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/Dao/User/User.php" afterPath="$PROJECT_DIR$/app/models/Dao/User/User.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/layouts/layout_default.phtml" afterPath="$PROJECT_DIR$/app/views/layouts/layout_default.phtml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/layouts/layout_editormd.phtml" afterPath="$PROJECT_DIR$/app/views/layouts/layout_editormd.phtml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/scripts/doc/_edit.phtml" afterPath="$PROJECT_DIR$/app/views/scripts/doc/_edit.phtml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/scripts/doc/_view.phtml" afterPath="$PROJECT_DIR$/app/views/scripts/doc/_view.phtml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/scripts/doc/load.phtml" afterPath="$PROJECT_DIR$/app/views/scripts/doc/load.phtml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/scripts/index/index.phtml" afterPath="$PROJECT_DIR$/app/views/scripts/index/index.phtml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/build/create_sort_config.php" afterPath="$PROJECT_DIR$/bin/build/create_sort_config.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/scripts/server/im.php" afterPath="$PROJECT_DIR$/bin/scripts/server/im.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/library/C/Im.php" afterPath="$PROJECT_DIR$/library/C/Im.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/library/C/Im/Server/Abstract.php" afterPath="$PROJECT_DIR$/library/C/Im/Server/Abstract.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/library/C/Im/Store/Redis.php" afterPath="$PROJECT_DIR$/library/C/Im/Store/Redis.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/library/C/Md/Organize.php" afterPath="$PROJECT_DIR$/library/C/Md/Organize.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/library/C/View/Helper/Domain.php" afterPath="$PROJECT_DIR$/library/C/View/Helper/Domain.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/library/F/Application/BootstrapAbstract.php" afterPath="$PROJECT_DIR$/library/F/Application/BootstrapAbstract.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/library/F/Cache.php" afterPath="$PROJECT_DIR$/library/F/Cache.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/library/F/Cache/Abstract.php" afterPath="$PROJECT_DIR$/library/F/Cache/Abstract.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/library/F/Cache/Memcache.php" afterPath="$PROJECT_DIR$/library/F/Cache/Memcache.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/library/F/Config.php" afterPath="$PROJECT_DIR$/library/F/Config.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/library/F/Db.php" afterPath="$PROJECT_DIR$/library/F/Db.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/library/F/Db/Table/Insert.php" afterPath="$PROJECT_DIR$/library/F/Db/Table/Insert.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/library/F/Db/Table/Row.php" afterPath="$PROJECT_DIR$/library/F/Db/Table/Row.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/library/F/Db/Table/RowSet.php" afterPath="$PROJECT_DIR$/library/F/Db/Table/RowSet.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/library/F/Db/Table/Select.php" afterPath="$PROJECT_DIR$/library/F/Db/Table/Select.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/library/F/Db/Table/Update.php" afterPath="$PROJECT_DIR$/library/F/Db/Table/Update.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/library/F/Git.php" afterPath="$PROJECT_DIR$/library/F/Git.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/library/F/Log/Handler/Direct.php" afterPath="$PROJECT_DIR$/library/F/Log/Handler/Direct.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/library/F/Redis.php" afterPath="$PROJECT_DIR$/library/F/Redis.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/library/F/Redis/Abstract.php" afterPath="$PROJECT_DIR$/library/F/Redis/Abstract.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/library/F/Redis/Hash.php" afterPath="$PROJECT_DIR$/library/F/Redis/Hash.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/library/F/Redis/List.php" afterPath="$PROJECT_DIR$/library/F/Redis/List.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/library/F/Redis/Set.php" afterPath="$PROJECT_DIR$/library/F/Redis/Set.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/library/F/Redis/SortedSet.php" afterPath="$PROJECT_DIR$/library/F/Redis/SortedSet.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/library/F/Redis/String.php" afterPath="$PROJECT_DIR$/library/F/Redis/String.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/library/F/Route/Adapter/Abstract.php" afterPath="$PROJECT_DIR$/library/F/Route/Adapter/Abstract.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/library/F/Route/Adapter/Default.php" afterPath="$PROJECT_DIR$/library/F/Route/Adapter/Default.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/library/F/Route/Adapter/RegExp.php" afterPath="$PROJECT_DIR$/library/F/Route/Adapter/RegExp.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/library/F/View/Helper/HeadLink.php" afterPath="$PROJECT_DIR$/library/F/View/Helper/HeadLink.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/library/F/View/Helper/Script.php" afterPath="$PROJECT_DIR$/library/F/View/Helper/Script.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/library/Utils/Date.php" afterPath="$PROJECT_DIR$/library/Utils/Date.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/library/Utils/Domain.php" afterPath="$PROJECT_DIR$/library/Utils/Domain.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/library/Utils/File.php" afterPath="$PROJECT_DIR$/library/Utils/File.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/library/Utils/SystemCmd.php" afterPath="$PROJECT_DIR$/library/Utils/SystemCmd.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/css/modules/bootstrap/3.3.5/bootstrap.min.css" afterPath="$PROJECT_DIR$/public/asset/css/modules/bootstrap/3.3.5/bootstrap.min.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/css/modules/editormd/editormd.min.css" afterPath="$PROJECT_DIR$/public/asset/css/modules/editormd/editormd.min.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/css/pages/index.css" afterPath="$PROJECT_DIR$/public/asset/css/pages/index.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/font/editormd/editormd-logo.svg" afterPath="$PROJECT_DIR$/public/asset/font/editormd/editormd-logo.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/font/editormd/fontawesome-webfont.svg" afterPath="$PROJECT_DIR$/public/asset/font/editormd/fontawesome-webfont.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/editormd.min.js" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/editormd.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/AUTHORS" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/AUTHORS" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/LICENSE" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/LICENSE" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/README.md" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/addon/comment/comment.js" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/addon/comment/comment.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/addon/comment/continuecomment.js" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/addon/comment/continuecomment.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/addon/dialog/dialog.css" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/addon/dialog/dialog.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/addon/dialog/dialog.js" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/addon/dialog/dialog.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/addon/display/fullscreen.css" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/addon/display/fullscreen.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/addon/display/fullscreen.js" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/addon/display/fullscreen.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/addon/display/panel.js" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/addon/display/panel.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/addon/display/placeholder.js" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/addon/display/placeholder.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/addon/display/rulers.js" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/addon/display/rulers.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/addon/edit/closebrackets.js" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/addon/edit/closebrackets.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/addon/edit/closetag.js" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/addon/edit/closetag.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/addon/edit/continuelist.js" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/addon/edit/continuelist.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/addon/edit/matchbrackets.js" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/addon/edit/matchbrackets.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/addon/edit/matchtags.js" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/addon/edit/matchtags.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/addon/edit/trailingspace.js" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/addon/edit/trailingspace.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/addon/fold/brace-fold.js" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/addon/fold/brace-fold.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/addon/fold/comment-fold.js" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/addon/fold/comment-fold.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/addon/fold/foldcode.js" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/addon/fold/foldcode.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/addon/fold/foldgutter.css" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/addon/fold/foldgutter.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/addon/fold/foldgutter.js" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/addon/fold/foldgutter.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/addon/fold/indent-fold.js" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/addon/fold/indent-fold.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/addon/fold/markdown-fold.js" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/addon/fold/markdown-fold.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/addon/fold/xml-fold.js" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/addon/fold/xml-fold.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/addon/hint/anyword-hint.js" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/addon/hint/anyword-hint.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/addon/hint/css-hint.js" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/addon/hint/css-hint.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/addon/hint/html-hint.js" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/addon/hint/html-hint.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/addon/hint/javascript-hint.js" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/addon/hint/javascript-hint.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/addon/hint/show-hint.css" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/addon/hint/show-hint.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/addon/hint/show-hint.js" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/addon/hint/show-hint.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/addon/hint/sql-hint.js" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/addon/hint/sql-hint.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/addon/hint/xml-hint.js" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/addon/hint/xml-hint.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/addon/lint/coffeescript-lint.js" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/addon/lint/coffeescript-lint.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/addon/lint/css-lint.js" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/addon/lint/css-lint.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/addon/lint/javascript-lint.js" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/addon/lint/javascript-lint.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/addon/lint/json-lint.js" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/addon/lint/json-lint.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/addon/lint/lint.css" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/addon/lint/lint.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/addon/lint/lint.js" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/addon/lint/lint.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/addon/lint/yaml-lint.js" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/addon/lint/yaml-lint.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/addon/merge/merge.css" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/addon/merge/merge.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/addon/merge/merge.js" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/addon/merge/merge.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/addon/mode/loadmode.js" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/addon/mode/loadmode.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/addon/mode/multiplex.js" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/addon/mode/multiplex.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/addon/mode/multiplex_test.js" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/addon/mode/multiplex_test.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/addon/mode/overlay.js" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/addon/mode/overlay.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/addon/mode/simple.js" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/addon/mode/simple.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/addon/runmode/colorize.js" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/addon/runmode/colorize.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/addon/runmode/runmode-standalone.js" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/addon/runmode/runmode-standalone.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/addon/runmode/runmode.js" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/addon/runmode/runmode.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/addon/runmode/runmode.node.js" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/addon/runmode/runmode.node.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/addon/scroll/annotatescrollbar.js" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/addon/scroll/annotatescrollbar.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/addon/scroll/scrollpastend.js" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/addon/scroll/scrollpastend.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/addon/scroll/simplescrollbars.css" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/addon/scroll/simplescrollbars.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/addon/scroll/simplescrollbars.js" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/addon/scroll/simplescrollbars.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/addon/search/match-highlighter.js" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/addon/search/match-highlighter.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/addon/search/matchesonscrollbar.css" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/addon/search/matchesonscrollbar.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/addon/search/matchesonscrollbar.js" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/addon/search/matchesonscrollbar.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/addon/search/search.js" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/addon/search/search.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/addon/search/searchcursor.js" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/addon/search/searchcursor.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/addon/selection/active-line.js" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/addon/selection/active-line.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/addon/selection/mark-selection.js" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/addon/selection/mark-selection.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/addon/selection/selection-pointer.js" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/addon/selection/selection-pointer.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/addon/tern/tern.css" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/addon/tern/tern.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/addon/tern/tern.js" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/addon/tern/tern.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/addon/tern/worker.js" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/addon/tern/worker.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/addon/wrap/hardwrap.js" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/addon/wrap/hardwrap.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/addons.min.js" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/addons.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/bower.json" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/bower.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/codemirror.min.css" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/codemirror.min.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/codemirror.min.js" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/codemirror.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/lib/codemirror.css" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/lib/codemirror.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/lib/codemirror.js" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/lib/codemirror.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/apl/apl.js" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/apl/apl.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/apl/index.html" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/apl/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/asterisk/asterisk.js" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/asterisk/asterisk.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/asterisk/index.html" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/asterisk/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/clike/clike.js" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/clike/clike.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/clike/index.html" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/clike/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/clike/scala.html" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/clike/scala.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/clojure/clojure.js" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/clojure/clojure.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/clojure/index.html" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/clojure/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/cobol/cobol.js" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/cobol/cobol.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/cobol/index.html" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/cobol/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/coffeescript/coffeescript.js" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/coffeescript/coffeescript.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/coffeescript/index.html" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/coffeescript/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/commonlisp/commonlisp.js" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/commonlisp/commonlisp.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/commonlisp/index.html" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/commonlisp/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/css/css.js" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/css/css.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/css/index.html" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/css/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/css/less.html" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/css/less.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/css/less_test.js" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/css/less_test.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/css/scss.html" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/css/scss.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/css/scss_test.js" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/css/scss_test.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/css/test.js" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/css/test.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/cypher/cypher.js" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/cypher/cypher.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/cypher/index.html" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/cypher/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/d/d.js" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/d/d.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/d/index.html" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/d/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/dart/dart.js" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/dart/dart.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/dart/index.html" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/dart/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/diff/diff.js" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/diff/diff.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/diff/index.html" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/diff/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/django/django.js" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/django/django.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/django/index.html" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/django/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/dockerfile/dockerfile.js" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/dockerfile/dockerfile.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/dockerfile/index.html" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/dockerfile/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/dtd/dtd.js" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/dtd/dtd.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/dtd/index.html" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/dtd/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/dylan/dylan.js" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/dylan/dylan.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/dylan/index.html" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/dylan/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/ebnf/ebnf.js" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/ebnf/ebnf.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/ebnf/index.html" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/ebnf/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/ecl/ecl.js" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/ecl/ecl.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/ecl/index.html" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/ecl/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/eiffel/eiffel.js" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/eiffel/eiffel.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/eiffel/index.html" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/eiffel/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/erlang/erlang.js" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/erlang/erlang.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/erlang/index.html" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/erlang/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/forth/forth.js" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/forth/forth.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/forth/index.html" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/forth/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/fortran/fortran.js" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/fortran/fortran.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/fortran/index.html" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/fortran/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/gas/gas.js" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/gas/gas.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/gas/index.html" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/gas/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/gfm/gfm.js" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/gfm/gfm.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/gfm/index.html" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/gfm/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/gfm/test.js" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/gfm/test.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/gherkin/gherkin.js" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/gherkin/gherkin.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/gherkin/index.html" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/gherkin/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/go/go.js" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/go/go.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/go/index.html" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/go/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/groovy/groovy.js" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/groovy/groovy.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/groovy/index.html" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/groovy/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/haml/haml.js" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/haml/haml.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/haml/index.html" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/haml/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/haml/test.js" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/haml/test.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/haskell/haskell.js" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/haskell/haskell.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/haskell/index.html" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/haskell/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/haxe/haxe.js" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/haxe/haxe.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/haxe/index.html" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/haxe/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/htmlembedded/htmlembedded.js" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/htmlembedded/htmlembedded.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/htmlembedded/index.html" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/htmlembedded/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/htmlmixed/htmlmixed.js" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/htmlmixed/htmlmixed.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/htmlmixed/index.html" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/htmlmixed/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/http/http.js" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/http/http.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/http/index.html" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/http/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/idl/idl.js" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/idl/idl.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/idl/index.html" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/idl/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/index.html" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/jade/index.html" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/jade/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/jade/jade.js" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/jade/jade.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/javascript/index.html" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/javascript/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/javascript/javascript.js" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/javascript/javascript.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/javascript/json-ld.html" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/javascript/json-ld.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/javascript/test.js" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/javascript/test.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/javascript/typescript.html" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/javascript/typescript.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/jinja2/index.html" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/jinja2/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/jinja2/jinja2.js" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/jinja2/jinja2.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/julia/index.html" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/julia/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/julia/julia.js" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/julia/julia.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/kotlin/index.html" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/kotlin/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/kotlin/kotlin.js" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/kotlin/kotlin.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/livescript/index.html" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/livescript/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/livescript/livescript.js" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/livescript/livescript.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/lua/index.html" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/lua/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/lua/lua.js" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/lua/lua.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/markdown/index.html" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/markdown/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/markdown/markdown.js" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/markdown/markdown.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/markdown/test.js" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/markdown/test.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/meta.js" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/meta.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/mirc/index.html" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/mirc/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/mirc/mirc.js" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/mirc/mirc.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/mllike/index.html" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/mllike/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/mllike/mllike.js" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/mllike/mllike.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/modelica/index.html" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/modelica/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/modelica/modelica.js" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/modelica/modelica.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/nginx/index.html" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/nginx/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/nginx/nginx.js" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/nginx/nginx.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/ntriples/index.html" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/ntriples/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/ntriples/ntriples.js" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/ntriples/ntriples.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/octave/index.html" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/octave/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/octave/octave.js" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/octave/octave.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/pascal/index.html" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/pascal/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/pascal/pascal.js" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/pascal/pascal.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/pegjs/index.html" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/pegjs/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/pegjs/pegjs.js" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/pegjs/pegjs.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/perl/index.html" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/perl/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/perl/perl.js" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/perl/perl.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/php/index.html" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/php/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/php/php.js" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/php/php.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/php/test.js" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/php/test.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/pig/index.html" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/pig/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/pig/pig.js" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/pig/pig.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/properties/index.html" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/properties/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/properties/properties.js" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/properties/properties.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/puppet/index.html" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/puppet/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/puppet/puppet.js" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/puppet/puppet.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/python/index.html" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/python/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/python/python.js" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/python/python.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/q/index.html" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/q/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/q/q.js" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/q/q.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/r/index.html" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/r/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/r/r.js" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/r/r.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/rpm/changes/index.html" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/rpm/changes/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/rpm/index.html" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/rpm/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/rpm/rpm.js" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/rpm/rpm.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/rst/index.html" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/rst/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/rst/rst.js" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/rst/rst.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/ruby/index.html" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/ruby/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/ruby/ruby.js" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/ruby/ruby.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/ruby/test.js" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/ruby/test.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/rust/index.html" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/rust/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/rust/rust.js" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/rust/rust.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/sass/index.html" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/sass/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/sass/sass.js" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/sass/sass.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/scheme/index.html" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/scheme/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/scheme/scheme.js" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/scheme/scheme.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/shell/index.html" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/shell/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/shell/shell.js" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/shell/shell.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/shell/test.js" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/shell/test.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/sieve/index.html" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/sieve/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/sieve/sieve.js" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/sieve/sieve.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/slim/index.html" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/slim/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/slim/slim.js" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/slim/slim.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/slim/test.js" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/slim/test.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/smalltalk/index.html" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/smalltalk/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/smalltalk/smalltalk.js" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/smalltalk/smalltalk.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/smarty/index.html" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/smarty/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/smarty/smarty.js" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/smarty/smarty.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/smartymixed/index.html" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/smartymixed/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/smartymixed/smartymixed.js" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/smartymixed/smartymixed.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/solr/index.html" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/solr/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/solr/solr.js" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/solr/solr.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/soy/index.html" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/soy/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/soy/soy.js" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/soy/soy.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/sparql/index.html" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/sparql/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/sparql/sparql.js" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/sparql/sparql.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/spreadsheet/index.html" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/spreadsheet/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/spreadsheet/spreadsheet.js" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/spreadsheet/spreadsheet.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/sql/index.html" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/sql/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/sql/sql.js" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/sql/sql.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/stex/index.html" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/stex/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/stex/stex.js" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/stex/stex.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/stex/test.js" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/stex/test.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/stylus/index.html" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/stylus/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/stylus/stylus.js" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/stylus/stylus.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/tcl/index.html" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/tcl/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/tcl/tcl.js" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/tcl/tcl.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/textile/index.html" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/textile/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/textile/test.js" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/textile/test.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/textile/textile.js" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/textile/textile.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/tiddlywiki/index.html" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/tiddlywiki/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/tiddlywiki/tiddlywiki.css" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/tiddlywiki/tiddlywiki.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/tiddlywiki/tiddlywiki.js" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/tiddlywiki/tiddlywiki.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/tiki/index.html" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/tiki/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/tiki/tiki.css" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/tiki/tiki.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/tiki/tiki.js" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/tiki/tiki.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/toml/index.html" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/toml/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/toml/toml.js" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/toml/toml.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/tornado/index.html" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/tornado/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/tornado/tornado.js" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/tornado/tornado.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/turtle/index.html" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/turtle/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/turtle/turtle.js" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/turtle/turtle.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/vb/index.html" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/vb/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/vb/vb.js" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/vb/vb.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/vbscript/index.html" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/vbscript/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/vbscript/vbscript.js" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/vbscript/vbscript.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/velocity/index.html" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/velocity/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/velocity/velocity.js" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/velocity/velocity.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/verilog/index.html" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/verilog/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/verilog/test.js" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/verilog/test.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/verilog/verilog.js" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/verilog/verilog.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/xml/index.html" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/xml/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/xml/test.js" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/xml/test.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/xml/xml.js" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/xml/xml.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/xquery/index.html" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/xquery/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/xquery/test.js" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/xquery/test.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/xquery/xquery.js" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/xquery/xquery.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/yaml/index.html" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/yaml/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/yaml/yaml.js" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/yaml/yaml.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/z80/index.html" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/z80/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/z80/z80.js" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/mode/z80/z80.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/modes.min.js" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/modes.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/package.json" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/package.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/theme/3024-day.css" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/theme/3024-day.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/theme/3024-night.css" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/theme/3024-night.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/theme/ambiance-mobile.css" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/theme/ambiance-mobile.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/theme/ambiance.css" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/theme/ambiance.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/theme/base16-dark.css" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/theme/base16-dark.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/theme/base16-light.css" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/theme/base16-light.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/theme/blackboard.css" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/theme/blackboard.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/theme/cobalt.css" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/theme/cobalt.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/theme/colorforth.css" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/theme/colorforth.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/theme/eclipse.css" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/theme/eclipse.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/theme/elegant.css" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/theme/elegant.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/theme/erlang-dark.css" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/theme/erlang-dark.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/theme/lesser-dark.css" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/theme/lesser-dark.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/theme/mbo.css" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/theme/mbo.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/theme/mdn-like.css" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/theme/mdn-like.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/theme/midnight.css" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/theme/midnight.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/theme/monokai.css" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/theme/monokai.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/theme/neat.css" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/theme/neat.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/theme/neo.css" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/theme/neo.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/theme/night.css" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/theme/night.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/theme/paraiso-dark.css" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/theme/paraiso-dark.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/theme/paraiso-light.css" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/theme/paraiso-light.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/theme/pastel-on-dark.css" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/theme/pastel-on-dark.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/theme/rubyblue.css" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/theme/rubyblue.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/theme/solarized.css" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/theme/solarized.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/theme/the-matrix.css" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/theme/the-matrix.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/theme/tomorrow-night-bright.css" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/theme/tomorrow-night-bright.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/theme/tomorrow-night-eighties.css" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/theme/tomorrow-night-eighties.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/theme/twilight.css" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/theme/twilight.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/theme/vibrant-ink.css" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/theme/vibrant-ink.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/theme/xq-dark.css" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/theme/xq-dark.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/theme/xq-light.css" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/theme/xq-light.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/theme/zenburn.css" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/codemirror/theme/zenburn.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/flowchart.min.js" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/flowchart.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/jquery.flowchart.min.js" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/jquery.flowchart.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/marked.min.js" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/marked.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/prettify.min.js" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/prettify.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/raphael.min.js" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/raphael.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/sequence-diagram.min.js" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/sequence-diagram.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/underscore.min.js" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/lib/underscore.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/plugins/code-block-dialog/code-block-dialog.js" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/plugins/code-block-dialog/code-block-dialog.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/plugins/emoji-dialog/emoji-dialog.js" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/plugins/emoji-dialog/emoji-dialog.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/plugins/emoji-dialog/emoji.json" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/plugins/emoji-dialog/emoji.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/plugins/goto-line-dialog/goto-line-dialog.js" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/plugins/goto-line-dialog/goto-line-dialog.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/plugins/help-dialog/help-dialog.js" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/plugins/help-dialog/help-dialog.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/plugins/help-dialog/help.md" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/plugins/help-dialog/help.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/plugins/html-entities-dialog/html-entities-dialog.js" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/plugins/html-entities-dialog/html-entities-dialog.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/plugins/html-entities-dialog/html-entities.json" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/plugins/html-entities-dialog/html-entities.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/plugins/image-dialog/image-dialog.js" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/plugins/image-dialog/image-dialog.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/plugins/link-dialog/link-dialog.js" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/plugins/link-dialog/link-dialog.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/plugins/plugin-template.js" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/plugins/plugin-template.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/plugins/preformatted-text-dialog/preformatted-text-dialog.js" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/plugins/preformatted-text-dialog/preformatted-text-dialog.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/plugins/reference-link-dialog/reference-link-dialog.js" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/plugins/reference-link-dialog/reference-link-dialog.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/plugins/table-dialog/table-dialog.js" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/plugins/table-dialog/table-dialog.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/editormd/plugins/test-plugin/test-plugin.js" afterPath="$PROJECT_DIR$/public/asset/js/modules/editormd/plugins/test-plugin/test-plugin.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/jquery/1.11.1/jquery.min.js" afterPath="$PROJECT_DIR$/public/asset/js/modules/jquery/1.11.1/jquery.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/modules/jquery/ui/base.min.js" afterPath="$PROJECT_DIR$/public/asset/js/modules/jquery/ui/base.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/pages/dd.js" afterPath="$PROJECT_DIR$/public/asset/js/pages/dd.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/pages/index.js" afterPath="$PROJECT_DIR$/public/asset/js/pages/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/im.html" afterPath="$PROJECT_DIR$/public/im.html" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -423,8 +18,17 @@
     <option name="PATCH_PATH" value="" />
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
+  <component name="FavoritesManager">
+    <favorites_list name="technology_doc" />
+  </component>
   <component name="FileEditorManager">
     <leaf />
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>buildTree</find>
+      <find>program-link</find>
+    </findStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -436,6 +40,9 @@
         <option value="$PROJECT_DIR$/app/controllers/LoginController.php" />
         <option value="$PROJECT_DIR$/app/views/scripts/login/switch.phtml" />
         <option value="$PROJECT_DIR$/app/views/scripts/index/index.phtml" />
+        <option value="$PROJECT_DIR$/app/controllers/DocController.php" />
+        <option value="$PROJECT_DIR$/library/C/Md/Organize.php" />
+        <option value="$PROJECT_DIR$/public/asset/js/pages/index.js" />
       </list>
     </option>
   </component>
@@ -470,6 +77,7 @@
     </navigator>
     <panes>
       <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -479,6 +87,168 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="technology_doc" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="technology_doc" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="technology_doc" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="technology_doc" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="technology_doc" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="asset" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pages" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="technology_doc" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="technology_doc" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="asset" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="technology_doc" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="technology_doc" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="asset" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="technology_doc" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="technology_doc" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="asset" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="css" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="technology_doc" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="technology_doc" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="asset" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="css" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="modules" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="technology_doc" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="technology_doc" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="asset" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="css" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="modules" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bootstrap" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="3.3.5" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -623,6 +393,10 @@
               <option name="myItemId" value="scripts" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="doc" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -666,11 +440,10 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="settings.editor.selected.configurable" value="web-ide.project.structure" />
+    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="nodejs_interpreter_path" value="/usr/local/bin/node" />
     <property name="js.eslint.eslintPackage" value="" />
@@ -710,6 +483,12 @@
       <method />
     </configuration>
     <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
+      <node-interpreter>project</node-interpreter>
+      <node-options />
+      <gulpfile />
+      <tasks />
+      <arguments />
+      <envs />
       <method />
     </configuration>
     <configuration default="true" type="js.build_tools.npm" factoryName="npm">
@@ -743,33 +522,34 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1489823535965</updated>
-      <workItem from="1489823538171" duration="1212000" />
+      <workItem from="1489823538171" duration="2122000" />
+      <workItem from="1489830740591" duration="3974000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1212000" />
+    <option name="totallyTimeSpent" value="6096000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="812" extended-state="6" />
     <editor active="false" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18125" sideWeight="0.49528936" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="File Transfer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32974428" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="File Transfer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32974428" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5047106" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
@@ -795,25 +575,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/LogoutController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="5" lean-forward="false" selection-start-line="2" selection-start-column="5" selection-end-line="2" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/LogoutController.php" />
     <entry file="file://$PROJECT_DIR$/app/controllers/AbstractController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/library/C/Md/Organize.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2070">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
@@ -827,14 +592,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/DocController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="23" column="37" lean-forward="false" selection-start-line="23" selection-start-column="37" selection-end-line="23" selection-end-column="37" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/LoginController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
@@ -843,14 +600,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/scripts/login/switch.phtml.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/scripts/login/switch.phtml.php" />
     <entry file="file://$PROJECT_DIR$/app/views/scripts/login/switch.phtml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="15">
@@ -861,9 +611,48 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/scripts/index/index.phtml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
+        <state relative-caret-position="-195">
           <caret line="9" column="60" lean-forward="false" selection-start-line="9" selection-start-column="60" selection-end-line="9" selection-end-column="60" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/DocController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="473">
+          <caret line="94" column="51" lean-forward="false" selection-start-line="94" selection-start-column="51" selection-end-line="94" selection-end-column="51" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/library/Utils/File.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="230">
+          <caret line="52" column="27" lean-forward="false" selection-start-line="52" selection-start-column="27" selection-end-line="52" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/library/C/Md/Organize.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="511">
+          <caret line="435" column="47" lean-forward="false" selection-start-line="435" selection-start-column="47" selection-end-line="435" selection-end-column="47" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/asset/js/pages/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="514">
+          <caret line="340" column="101" lean-forward="false" selection-start-line="340" selection-start-column="101" selection-end-line="340" selection-end-column="101" />
+          <folding>
+            <marker date="1489836599000" expanded="true" signature="2170:2184" ph="..." />
+            <marker date="1489836599000" expanded="true" signature="2430:2444" ph="..." />
+            <marker date="1489836599000" expanded="true" signature="14735:14741" ph=" " />
+            <marker date="1489836599000" expanded="true" signature="15025:15031" ph=" " />
+            <marker date="1489836599000" expanded="true" signature="15455:15461" ph=" " />
+            <marker date="1489836599000" expanded="true" signature="15641:15647" ph=" " />
+          </folding>
         </state>
       </provider>
     </entry>

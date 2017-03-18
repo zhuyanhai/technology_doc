@@ -87,16 +87,18 @@ class DocController extends AbstractController
                 $operation = Utils_Validation::filter($this->_requestObj->getParam('sOperation'))->removeStr()->removeHtml()->receive();
                 //目录全路径
                 $fullPath  = Utils_Validation::filter($this->_requestObj->getParam('sFullPath'))->removeStr()->removeHtml()->receive();
+                //目录或文件名称
+                $name = Utils_Validation::filter($this->_requestObj->getParam('sName'))->removeStr()->removeHtml()->receive();
                 
                 if ($_SERVER['PHP_AUTH_USER'] === 'hefu') {
                     //构建树
-                    $result = C_Md_Organize::buildTree($title, $operation, $fullPath, '/data/hefu/');
+                    $result = C_Md_Organize::buildTree($title, $operation, $fullPath, '/data/hefu/', $name);
                 } else if($_SERVER['PHP_AUTH_USER'] === 'hst') { 
 					//构建树
-                    $result = C_Md_Organize::buildTree($title, $operation, $fullPath, '/data/hstdoc/');
+                    $result = C_Md_Organize::buildTree($title, $operation, $fullPath, '/data/hstdoc/', $name);
 				} else {
                     //构建树
-                    $result = C_Md_Organize::buildTree($title, $operation, $fullPath);
+                    $result = C_Md_Organize::buildTree($title, $operation, $fullPath, '', $name);
                 }
 
                 $this->response($result);

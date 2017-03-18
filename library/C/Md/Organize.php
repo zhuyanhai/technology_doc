@@ -101,12 +101,14 @@ final class C_Md_Organize
                     <i class="PROGRAM-ccm glyphicon glyphicon-folder-close" data-pid="folder_{$id}"></i>
                     <i class="PROGRAM-cfm glyphicon glyphicon-file" data-pid="folder_{$id}"></i>
                     <i class="PROGRAM-ddm glyphicon glyphicon-trash" data-pid="folder_{$id}"></i>
+                    <i class="PROGRAM-edm glyphicon glyphicon-pencil" data-pid="folder_{$id}"></i>
                 </div>
 EOF;
             } else {
                 $html .= <<<EOF
                 <div class="ctoolmenu">
                     <i class="PROGRAM-dfm glyphicon glyphicon-trash" data-pid="file_{$id}"></i>
+                    <i class="PROGRAM-efm glyphicon glyphicon-pencil" data-pid="file_{$id}"></i>
                 </div>
 EOF;
             }
@@ -303,9 +305,10 @@ EOF;
      * @param string $operation
      * @param array $fullPath
      * @param string $prefix
+     * @param string $name
      * @return array
      */
-    public static function buildTree($title, $operation, $fullPath, $prefix = '')
+    public static function buildTree($title, $operation, $fullPath, $prefix = '', $name = '')
     {
         if (empty($prefix)) {
             $prefix = self::DOC_PATH .'/';
@@ -391,8 +394,72 @@ EOF;
                 
                 return array('index' => $lastIndex, 'name' => $title, 'parentPath' => $prefix . $dirPath, 'sPath' => $sPath);
                 break;
+            case 'edit_file_name'://修改文档名字
+                $oldName = $name;
+                $name = explode('_', $name);
+                $name[1] = $title;
+                $newName = implode('_', $name);
+
+                $posPathStr = $prefix . implode('/', $fullPath).'.md';
+
+                $fullPath[count($fullPath)-1] = $newName;
+                $targetPathStr = $prefix . implode('/', $fullPath).'.md';
+
+                rename($posPathStr, $targetPathStr);
+
+                $parentDirPath = $fullPath;
+                unset($parentDirPath[count($parentDirPath)-1]);
+                $dirPath = rtrim(implode('/', $parentDirPath), '/');
+
+                C_Md_Organize::editSortName($prefix . $dirPath, $oldName, $newName.'.md');
+
+                return array('name' => $title);
+                break;
+            case 'edit_dir_name'://修改目录名字
+                $oldName = $name;
+                $name = explode('_', $name);
+                $name[1] = $title;
+                $newName = implode('_', $name);
+
+                $posPathStr = $prefix . implode('/', $fullPath);
+
+                $fullPath[count($fullPath)-1] = $newName;
+                $targetPathStr = $prefix . implode('/', $fullPath);
+
+                rename($posPathStr, $targetPathStr);
+
+                $parentDirPath = $fullPath;
+                unset($parentDirPath[count($parentDirPath)-1]);
+                $dirPath = rtrim(implode('/', $parentDirPath), '/');
+
+                C_Md_Organize::editSortName($prefix . $dirPath, $oldName, $newName);
+                return array('name' => $title);
+                break;
         }
     }
+
+    /**
+     * 构建排序
+     *
+     * @param string $dirPath 目录路径
+     * @param int $index 索引
+     * @param string $name 文件或目录名
+     * @return void
+     */
+    public static function editSortName($dirPath, $oldName, $targetName)
+    {
+        $sortPath = $dirPath.'/.sort';
+        $list = Utils_File::getArray($sortPath);
+        if (!empty($list)) {
+            foreach ($list as &$tmp) {
+                if (trim($tmp) == trim($oldName)) {
+                    $tmp = trim($targetName);
+                }
+            }
+            Utils_File::save($sortPath, $list, 'wl');
+        }
+    }
+
     
     /**
      * 构建排序
@@ -449,7 +516,7 @@ EOF;
                 }
                 $tmpPaths = array_unique($tmpPaths);
             }
-            Utils_File::save($sortPath, $tmpPaths, 'wl');
+            Utils_File::saxve($sortPath, $tmpPaths, 'wl');
         } else {
             $tmpPaths = array();
             array_push($tmpPaths, trim($name));
