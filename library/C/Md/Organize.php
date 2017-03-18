@@ -516,7 +516,7 @@ EOF;
                 }
                 $tmpPaths = array_unique($tmpPaths);
             }
-            Utils_File::saxve($sortPath, $tmpPaths, 'wl');
+            Utils_File::save($sortPath, $tmpPaths, 'wl');
         } else {
             $tmpPaths = array();
             array_push($tmpPaths, trim($name));

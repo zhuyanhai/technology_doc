@@ -3,9 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="ae34d6f6-f289-45ee-9fe6-944755fe9d01" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/DocController.php" afterPath="$PROJECT_DIR$/app/controllers/DocController.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/library/C/Md/Organize.php" afterPath="$PROJECT_DIR$/library/C/Md/Organize.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/js/pages/index.js" afterPath="$PROJECT_DIR$/public/asset/js/pages/index.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asset/css/pages/index.css" afterPath="$PROJECT_DIR$/public/asset/css/pages/index.css" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -28,6 +27,7 @@
     <findStrings>
       <find>buildTree</find>
       <find>program-link</find>
+      <find>.nav.nav-list li a</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -41,8 +41,9 @@
         <option value="$PROJECT_DIR$/app/views/scripts/login/switch.phtml" />
         <option value="$PROJECT_DIR$/app/views/scripts/index/index.phtml" />
         <option value="$PROJECT_DIR$/app/controllers/DocController.php" />
-        <option value="$PROJECT_DIR$/library/C/Md/Organize.php" />
         <option value="$PROJECT_DIR$/public/asset/js/pages/index.js" />
+        <option value="$PROJECT_DIR$/public/asset/css/pages/index.css" />
+        <option value="$PROJECT_DIR$/library/C/Md/Organize.php" />
       </list>
     </option>
   </component>
@@ -76,8 +77,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -189,6 +188,10 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="css" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pages" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -440,6 +443,8 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scratches" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -523,12 +528,13 @@
       <option name="presentableId" value="Default" />
       <updated>1489823535965</updated>
       <workItem from="1489823538171" duration="2122000" />
-      <workItem from="1489830740591" duration="3974000" />
+      <workItem from="1489830740591" duration="4019000" />
+      <workItem from="1489836970746" duration="303000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="6096000" />
+    <option name="totallyTimeSpent" value="6444000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="812" extended-state="6" />
@@ -617,14 +623,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/DocController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="473">
-          <caret line="94" column="51" lean-forward="false" selection-start-line="94" selection-start-column="51" selection-end-line="94" selection-end-column="51" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/library/Utils/File.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="230">
@@ -633,26 +631,34 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/library/C/Md/Organize.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="511">
-          <caret line="435" column="47" lean-forward="false" selection-start-line="435" selection-start-column="47" selection-end-line="435" selection-end-column="47" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/asset/js/pages/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="514">
           <caret line="340" column="101" lean-forward="false" selection-start-line="340" selection-start-column="101" selection-end-line="340" selection-end-column="101" />
-          <folding>
-            <marker date="1489836599000" expanded="true" signature="2170:2184" ph="..." />
-            <marker date="1489836599000" expanded="true" signature="2430:2444" ph="..." />
-            <marker date="1489836599000" expanded="true" signature="14735:14741" ph=" " />
-            <marker date="1489836599000" expanded="true" signature="15025:15031" ph=" " />
-            <marker date="1489836599000" expanded="true" signature="15455:15461" ph=" " />
-            <marker date="1489836599000" expanded="true" signature="15641:15647" ph=" " />
-          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/asset/css/pages/index.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="71">
+          <caret line="157" column="17" lean-forward="false" selection-start-line="157" selection-start-column="17" selection-end-line="157" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/DocController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="473">
+          <caret line="160" column="35" lean-forward="true" selection-start-line="160" selection-start-column="35" selection-end-line="160" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/library/C/Md/Organize.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="215">
+          <caret line="497" column="39" lean-forward="true" selection-start-line="497" selection-start-column="39" selection-end-line="497" selection-end-column="39" />
+          <folding />
         </state>
       </provider>
     </entry>
