@@ -1,0 +1,18 @@
+case "$1" in
+     start)
+         echo -n "Starting php-fpm"
+         /usr/local/server/php/sbin/php-fpm
+     ;;  
+     stop)
+         echo -n "Stoping php-fpm"
+         kill -QUIT `cat /usr/local/server/php/var/run/php-fpm.pid`
+     ;;  
+     reload)
+         echo -n "Reloading php-fpm"
+         kill -USR2 `cat /usr/local/server/php/var/run/php-fpm.pid`
+     ;;  
+     restart) 
+         echo -n "Restarting php-fpm"
+         kill -QUIT `cat /usr/local/server/php/var/run/php-fpm.pid`
+         /usr/local/server/php/sbin/php-fpm
+esac

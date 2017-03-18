@@ -79,7 +79,7 @@ class F_View_Helper_Script
     public function __construct()
     {
         if(!Utils_EnvCheck::isDevelopment()){//测试 或 生产环境
-            $this->_cssVersionCache = include ROOT_PATH . '/runtime/version/jsVersionCache.php';
+//            $this->_cssVersionCache = include ROOT_PATH . '/runtime/version/jsVersionCache.php';
         }
         $assetCfgs = F_Config::get('application.asset');
         $this->_isDedicatedDomain = $assetCfgs['isDedicatedDomain'];

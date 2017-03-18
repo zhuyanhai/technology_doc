@@ -13,6 +13,9 @@ class IndexController extends AbstractController
         if ($_SERVER['PHP_AUTH_USER'] === 'hefu') {
             //获取目录树
             $trees = C_Md_Organize::getTree('/data/hefu');
+        } else if($_SERVER['PHP_AUTH_USER'] === 'hst') {
+            //获取目录树
+            $trees = C_Md_Organize::getTree('/data/hstdoc');
         } else {
             //获取目录树
             $trees = C_Md_Organize::getTree();

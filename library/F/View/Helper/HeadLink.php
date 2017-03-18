@@ -59,7 +59,7 @@ final class F_View_Helper_HeadLink
     public function __construct()
     {
         if(!Utils_EnvCheck::isDevelopment()){//测试 或 生产环境
-            $this->_cssVersionCache = include ROOT_PATH . '/runtime/version/cssVersionCache.php';
+//            $this->_cssVersionCache = include ROOT_PATH . '/runtime/version/cssVersionCache.php';
         }
         $assetCfgs = F_Config::get('application.asset');
         $this->_isDedicatedDomain = $assetCfgs['isDedicatedDomain'];

@@ -1,0 +1,49 @@
+#!/bin/bash
+# nginx Startup script for the Nginx HTTP Server
+#
+# chkconfig: 2345 85 15
+# description: Nginx is a high-performance web and proxy server.
+#              It has a lot of features, but it’s not for everyone.
+# processname: nginx
+# pidfile: /usr/local/server/tengine/logs/nginx.pid
+# config: /usr/local/server/tengine/conf/nginx.conf
+nginxd=/usr/local/server/tengine/sbin/nginx
+nginx_config=/usr/local/server/tengine/conf/nginx.conf
+nginx_pid=/usr/local/server/tengine/logs/nginx.pid
+
+if [ $1 == 'start' ];then
+    if [ -e $nginx_pid ];then
+        echo "nginx already running…."
+        exit 1
+    fi  
+    echo "Starting tengine:"
+    $nginxd -c ${nginx_config}
+    RETVAL=$?
+    echo
+    [ $RETVAL = 0 ] && touch $nginx_pid
+fi
+
+if [ $1 == 'stop' ];then
+    echo "Stoping tengine:"
+    killall $nginxd
+    RETVAL=$?
+    [ $RETVAL = 0 ] && rm -f $nginx_pid
+fi
+
+if [ $1 == 'restart' ];then
+    echo "Stoping tengine:"
+    killall $nginxd
+    RETVAL=$?
+    [ $RETVAL = 0 ] && rm -f $nginx_pid
+
+    if [ -e $nginx_pid ];then
+        echo "nginx already running…."
+        exit 1
+    fi
+    echo "Starting tengine:"
+    $nginxd -c ${nginx_config}
+    RETVAL=$?
+    echo
+    [ $RETVAL = 0 ] && touch $nginx_pid
+
+fi

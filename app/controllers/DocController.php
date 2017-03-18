@@ -16,7 +16,10 @@ class DocController extends AbstractController
         if ($_SERVER['PHP_AUTH_USER'] === 'hefu') {
             //获取目录树
             $trees = C_Md_Organize::getTree('/data/hefu');
-        } else {
+        } else if($_SERVER['PHP_AUTH_USER'] === 'hst') {
+			//获取目录树
+            $trees = C_Md_Organize::getTree('/data/hstdoc');
+		} else {
             //获取目录树
             $trees = C_Md_Organize::getTree();
         }
@@ -56,6 +59,9 @@ class DocController extends AbstractController
             if ($_SERVER['PHP_AUTH_USER'] === 'hefu') {
                 $this->response();
             }
+		    if ($_SERVER['PHP_AUTH_USER'] === 'hst') {
+                $this->response();
+            }
             try {
                 F_Git::add();
                 F_Git::commit('submit '.date('Y-m-d H:i:s'));
@@ -85,7 +91,10 @@ class DocController extends AbstractController
                 if ($_SERVER['PHP_AUTH_USER'] === 'hefu') {
                     //构建树
                     $result = C_Md_Organize::buildTree($title, $operation, $fullPath, '/data/hefu/');
-                } else {
+                } else if($_SERVER['PHP_AUTH_USER'] === 'hst') { 
+					//构建树
+                    $result = C_Md_Organize::buildTree($title, $operation, $fullPath, '/data/hstdoc/');
+				} else {
                     //构建树
                     $result = C_Md_Organize::buildTree($title, $operation, $fullPath);
                 }
@@ -115,7 +124,10 @@ class DocController extends AbstractController
                 if ($_SERVER['PHP_AUTH_USER'] === 'hefu') {
                     //删除树
                     $result = C_Md_Organize::delTree($name, $operation, $fullPath, '/data/hefu/');
-                } else {
+                } else if($_SERVER['PHP_AUTH_USER'] === 'hst') {
+					//删除树
+                    $result = C_Md_Organize::delTree($name, $operation, $fullPath, '/data/hstdoc/');
+				} else {
                     //删除树
                     $result = C_Md_Organize::delTree($name, $operation, $fullPath);
                 }
